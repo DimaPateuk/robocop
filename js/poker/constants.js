@@ -20,3 +20,16 @@ export const suits = [
 	'club',
 	'spade',
 ];
+
+export combination = [
+	'Royal flush',
+	'Straight Flush',
+	'Four of a kind',
+	'Full house',
+	'Flush',
+	'Straight',
+	'Three of a kind',
+	'Two pairs',
+	'Pair',
+	'High card',
+];
