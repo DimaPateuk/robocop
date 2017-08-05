@@ -1,4 +1,8 @@
-import viewUtils from './utils/viewUtils';
+import Deck from './poker/Deck.js';
 
 
-viewUtils();
+// const deck = new Deck();
+
+// console.log(deck);
+
+console.log(123);
