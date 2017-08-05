@@ -47,14 +47,14 @@ export const SUITS = [
 
 
 
-export const ROYAL_FLUSH = 'Royal flush',
-export const STRAIGHT_FLUSH = 'Straight Flush',
-export const FOUR_OF_A_KIND = 'Four of a kind',
-export const FULL_HOUSE = 'Full house',
-export const FLUSH = 'Flush',
-export const STRAIGHT = 'Straight',
-export const THREE_OF_AKIND = 'Three of a kind',
-export const TWO_PAIRS = 'Two pairs',
-export const PAIR = 'Pair',
-export const HIGH_CARD = 'High card',
+export const ROYAL_FLUSH = 'Royal flush';
+export const STRAIGHT_FLUSH = 'Straight Flush';
+export const FOUR_OF_A_KIND = 'Four of a kind';
+export const FULL_HOUSE = 'Full house';
+export const FLUSH = 'Flush';
+export const STRAIGHT = 'Straight';
+export const THREE_OF_AKIND = 'Three of a kind';
+export const TWO_PAIRS = 'Two pairs';
+export const PAIR = 'Pair';
+export const HIGH_CARD = 'High card';
 

@@ -21,9 +21,6 @@ import {
 } from './constants';
 
 import { makeDeckCards } from './utils';
-
-import Royalflush from 'combinations/Royalflush';
-
 import Card from './Card';
 
 
@@ -32,23 +29,23 @@ class Deck {
 		this.cards = cards;
 
 		this.remainCard = {
-			TWO: 0,
-			THREE: 0,
-			FOUR: 0,
-			FIVE: 0,
-			SIX: 0,
-			SEVEN: 0,
-			EIGHT: 0,
-			NINE: 0,
-			TEN: 0,
-			JACK: 0,
-			QUEEN: 0,
-			KING: 0,
-			ACE: 0,
-			HEART: 0,
-			DIAMOND: 0,
-			CLUB: 0,
-			SPADE: 0,
+			[TWO]: 0,
+			[THREE]: 0,
+			[FOUR]: 0,
+			[FIVE]: 0,
+			[SIX]: 0,
+			[SEVEN]: 0,
+			[EIGHT]: 0,
+			[NINE]: 0,
+			[TEN]: 0,
+			[JACK]: 0,
+			[QUEEN]: 0,
+			[KING]: 0,
+			[ACE]: 0,
+			[HEART]: 0,
+			[DIAMOND]: 0,
+			[CLUB]: 0,
+			[SPADE]: 0,
 		};
 
 		const namesOfRemainCards = this.getNamesOfCardsThatRemain();
@@ -62,8 +59,8 @@ class Deck {
 	}
 
 	getNamesOfCardsThatRemain() {
-		return Object.keys(this.cards);
-			.filter(item => this._card[item]);
+		return Object.keys(this.cards)
+			.filter(item => this.cards[item]);
 	}
 
 	drawRandomCard () {

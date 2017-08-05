@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "babel-node ./js/main.js --presets es2015,stage-2"
   },
   "repository": {
     "type": "git",
@@ -20,5 +21,10 @@
     "electron": "^1.6.11",
     "path": "^0.12.7",
     "url": "^0.11.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1"
   }
 }
