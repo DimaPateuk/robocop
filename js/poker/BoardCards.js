@@ -5,7 +5,6 @@ export default class BoardCards {
 		this.deck = deck;
 	}
 
-
 	get flop() {
 		return this._toString(this.cards.slice(0, 3));
 	}

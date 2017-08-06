@@ -1,18 +1,11 @@
-import Deck from './poker/Deck.js';
-import HandCards from './poker/HandCards.js';
-import BoardCards from './poker/BoardCards.js';
+import Game from './poker/Game.js';
+import Player from './poker/Player.js';
 
 
-const deck = new Deck();
+const firstPlayer = new Player (100, 'Robocop');
+const secondPlayer = new Player (100, 'Anticop');
 
-const handCards = new HandCards(deck);
-const boardCards = new BoardCards(deck);
+const game = new Game([firstPlayer, secondPlayer], 10, 20);
 
 
-console.log('handCards', handCards.toString());
-
-console.log();
-
-console.log('Flop:', boardCards.showFlop());
-console.log('Turn:', boardCards.showTurn().toString());
-console.log('River:', boardCards.showRiver().toString());
+console.log(game);

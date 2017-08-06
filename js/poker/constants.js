@@ -54,3 +54,6 @@ export const TWO_PAIRS = 'Two pairs';
 export const PAIR = 'Pair';
 export const HIGH_CARD = 'High card';
 
+export const BET = 'bet'
+export const CHECK = 'check'
+export const FOLD = 'fold'
