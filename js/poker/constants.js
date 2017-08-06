@@ -13,10 +13,6 @@ export const QUEEN = 'queen';
 export const KING = 'king';
 export const ACE = 'ace';
 
-
-
-
-
 export const NAMES = [
 	TWO,
 	THREE,

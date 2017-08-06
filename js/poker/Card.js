@@ -3,4 +3,8 @@ export default class Card {
 		this.name = name;
 		this.suit = suit;
 	}
+
+	toString() {
+		return `${this.name} ${this.suit}`;
+	}
 }

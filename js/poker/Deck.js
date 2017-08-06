@@ -46,6 +46,7 @@ class Deck {
 			[DIAMOND]: 0,
 			[CLUB]: 0,
 			[SPADE]: 0,
+
 		};
 
 		const namesOfRemainCards = this.getNamesOfCardsThatRemain();
@@ -65,14 +66,14 @@ class Deck {
 
 	drawRandomCard () {
 		const namesOfCсardsThatRemain = this.getNamesOfCardsThatRemain();
-		const index = getRandomInt(0, namesOfCсardsThatRemain.length);
+		const index = getRandomInt(0, namesOfCсardsThatRemain.length - 1);
 		const nameRandonCard = namesOfCсardsThatRemain[index];
 		const result = this.cards[nameRandonCard];
 
 		this.cards[nameRandonCard] = null;
+
 		this.remainCard[result.name]++;
 		this.remainCard[result.suit]++;
-
 
 		return result;
 
