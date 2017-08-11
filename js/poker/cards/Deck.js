@@ -1,4 +1,4 @@
-import { getRandomInt } from '../utils/number';
+import { getRandomInt } from '../../utils/number';
 import {
 	ROYALFLUSH,
 	TWO,
@@ -18,14 +18,25 @@ import {
 	DIAMOND,
 	CLUB,
 	SPADE,
-} from './constants';
+	NAMES,
+	SUITS
+} from '../constants';
 
-import { makeDeckCards } from './utils';
 import Card from './Card';
 
+function makeDefaultDeckCards () {
+	const result = {};
+	for (let i = 0; i < NAMES.length; i++) {
+		for (let j = 0; j < SUITS.length; j++) {
+			result[NAMES[i] + SUITS[j]] = new Card(NAMES[i], SUITS[j]);
+		}
+	}
+
+	return result;
+}
 
 class Deck {
-	constructor(cards = makeDeckCards()) {
+	constructor(cards = makeDefaultDeckCards()) {
 		this.cards = cards;
 
 		this.remainCard = {

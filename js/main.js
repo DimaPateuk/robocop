@@ -1,4 +1,4 @@
-import Game from './poker/Game.js';
+import Game from './poker/game/BoardGame/BoardGame.js';
 import Player from './poker/Player.js';
 
 

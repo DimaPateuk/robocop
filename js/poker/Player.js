@@ -15,6 +15,13 @@ export default class Player {
 
 	bet (vlaue) {
 		this.bank -= value;
+		this.bankInGame += value;
+
+		return value;
+	}
+
+	ante (value) {
+		this.bank -= value;
 
 		return value;
 	}
@@ -34,10 +41,6 @@ export default class Player {
 	makeDecision (currentBet) {
 
 		const decision = getRandomInt(0, 3);
-
-		switch(decision) {
-			case 0: return this.bet(this.bankInGame - currentBet); // call big blind
-		}
 
 	}
 
