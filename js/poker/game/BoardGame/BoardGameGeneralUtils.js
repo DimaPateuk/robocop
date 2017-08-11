@@ -1,6 +1,7 @@
 import BoardGameBase from './BoardGameBase.js';
 
 export default class BoardGameGeneralUtils extends BoardGameBase {
+
 	getNextPlayerIndex(currentIndex) {
 		return currentIndex === this.players.length - 1 ? 0 : currentIndex + 1;
 	}

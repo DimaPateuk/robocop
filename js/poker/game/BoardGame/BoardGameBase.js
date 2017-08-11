@@ -6,5 +6,8 @@ export default class BoardGameBase {
 		this.smallBlind = smallBlind;
 		this.bigBlind = bigBlind;
 		this.ante = ante;
+
+		this.deck = null;
+		this.boardCards = null;
 	}
 }

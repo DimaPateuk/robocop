@@ -13,7 +13,7 @@ export default class Player {
 		this.handCards = null;
 	}
 
-	bet (vlaue) {
+	bet (value) {
 		this.bank -= value;
 		this.bankInGame += value;
 

@@ -1,8 +1,10 @@
 import BoardGameGeneralUtils from './BoardGameGeneralUtils.js';
 
 export default class BoardGameBetUtils extends BoardGameGeneralUtils {
+
 	pickUpBigBlind () {
-			const bigBlind = this.secondPlayerBeforeDiller.bet(this.bigBlind)
+			let player = this.secondPlayerBeforeDiller || this.firstPlayerBeforeDiller;
+			const bigBlind = player.bet(this.bigBlind)
 
 			this.gameBank += bigBlind;
 	}

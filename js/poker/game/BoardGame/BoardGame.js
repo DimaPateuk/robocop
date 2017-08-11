@@ -7,8 +7,7 @@ export default class BoardGame extends BoardGameBetUtils{
 
 	start () {
 		this.deck = new Deck();
-		this.boardCards = new BoardCards(deck);
-		this.giveOutCards();
+		this.boardCards = new BoardCards(this.deck);
 
 		this.startForTwoPlayers();
 	}
@@ -25,6 +24,10 @@ export default class BoardGame extends BoardGameBetUtils{
 	}
 
 	startForTwoPlayers() {
+		this.pickUpBigBlind();
+		// this.pickUpSmallBlind();
+		this.pickUpAnte();
+		this.giveOutCards();
 		this.currentBet = this.bigBlind;
 
 	}
