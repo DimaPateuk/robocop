@@ -7,4 +7,8 @@ export default class Card {
 	toString() {
 		return `${this.name} ${this.suit}`;
 	}
+
+	toHash () {
+		return `${this.name}${this.suit}`;
+	}
 }

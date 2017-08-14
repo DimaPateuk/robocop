@@ -1,0 +1,536 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"bank",
+				"bankInGame"
+			],
+			[
+				"decisio",
+				"decision"
+			],
+			[
+				"HandCards",
+				"HandCards"
+			],
+			[
+				"cona",
+				"constructor\tReact.Component"
+			],
+			[
+				"_card",
+				"_cards"
+			],
+			[
+				"const",
+				"constructor\tReact.Component"
+			],
+			[
+				"left",
+				"pointLeft"
+			],
+			[
+				"po",
+				"piontRight"
+			],
+			[
+				"view",
+				"view2"
+			],
+			[
+				"Ba",
+				"BaseView1"
+			],
+			[
+				"temp",
+				"templatePromise"
+			],
+			[
+				"reac",
+				"React"
+			],
+			[
+				"z",
+				"z-index"
+			],
+			[
+				"pi",
+				"position"
+			],
+			[
+				"top",
+				"text-top"
+			],
+			[
+				"GET",
+				"getRandChange"
+			],
+			[
+				"spee",
+				"speed"
+			],
+			[
+				"speed",
+				"speed"
+			],
+			[
+				"task",
+				"task"
+			],
+			[
+				"ta",
+				"tasks"
+			],
+			[
+				"re",
+				"result"
+			],
+			[
+				"put",
+				"putTask"
+			],
+			[
+				"set",
+				"setButton"
+			],
+			[
+				"st",
+				"isStop"
+			],
+			[
+				"sp",
+				"speed"
+			],
+			[
+				"S",
+				"speed"
+			],
+			[
+				"get",
+				"getPositivNumber"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"tex",
+				"innerText"
+			],
+			[
+				"ch",
+				"changeSpeed"
+			],
+			[
+				"in",
+				"index"
+			],
+			[
+				"pr",
+				"println"
+			],
+			[
+				"bo",
+				"button"
+			],
+			[
+				"ele",
+				"else"
+			],
+			[
+				"valu",
+				"value2"
+			],
+			[
+				"x",
+				"xRed"
+			],
+			[
+				"ge",
+				"getNewSpeed"
+			],
+			[
+				"fi",
+				"fiBlue"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"va",
+				"value"
+			],
+			[
+				"for",
+				"for\tfor (…) {…}"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "lo",
+		"selected_items":
+		[
+			[
+				"lo",
+				"Convert Case: Lower Case"
+			],
+			[
+				"upp",
+				"Convert Case: Upper Case"
+			],
+			[
+				"low",
+				"Convert Case: Lower Case"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"packa",
+				"Package Control: List Packages"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 432.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/D/robocop"
+	],
+	"file_history":
+	[
+		"/D/robocop/js/poker/Card.js",
+		"/D/robocop/js/poker/BoardCards.js",
+		"/D/robocop/js/main.js",
+		"/D/robocop/js/poker/Game.js",
+		"/D/robocop/js/poker/Player.js",
+		"/D/robocop/js/utils/number.js",
+		"/D/robocop/js/poker/utils.js",
+		"/D/robocop/js/poker/Deck.js",
+		"/D/robocop/package.json",
+		"/D/robocop/js/poker/HandCards.js",
+		"/D/robocop/js/poker/constants.js",
+		"/D/robocop/js/poker/combinations/Royalflush.js",
+		"/D/robocop/index.js",
+		"/D/robocop/main.css",
+		"/D/robocop/index.html",
+		"/D/robocop/.gitignore",
+		"/C/Users/dima_/AppData/Local/Temp/Rar$DIa0.406/IP_Wallsbull-893509821-TKOGLZ.xml",
+		"/C/Users/dima_/Downloads/Task1 (1).xml",
+		"/D/ola/task1.xml",
+		"/D/misha/custom-jquery-tests/package.json",
+		"/C/Users/dima_/AppData/Roaming/npm/node_modules/windows-build-tools/package.json",
+		"/C/Program Files/Sublime Text 3/1 23",
+		"/C/Users/dima_/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/dima_/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/Program Files/Sublime Text 3/asds.js",
+		"/D/index.html",
+		"/D/merge_sort.js",
+		"/C/Users/dima_/AppData/Roaming/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
+		"/C/Users/dima_/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/D/fr.js/example/js/scriptFr.js",
+		"/D/fr.js/example/server.js",
+		"/D/fr.js/example/js/react-dom.js",
+		"/D/fr.js/example/js/scriptAngular.js",
+		"/D/misha/learnJavascript/JavaScriptFundamentals/Koans/topics/about_asserts.js",
+		"/D/fr.js/example/js/scriptBackbone.js",
+		"/D/fr.js/example/indexBackbone.html",
+		"/D/fr.js/src/fr.js",
+		"/D/fr.js/example/indexReact.html",
+		"/D/fr.js/example/js/scriptReact.js",
+		"/D/fr.js/example/indexAngular.html",
+		"/D/fr.js/example/indexFr.html",
+		"/D/fr.js/node_modules/react/package.json",
+		"/D/fr.js/src/Scope.js",
+		"/D/fr.js/example/views/view1.html",
+		"/D/fr.js/example/views/view5.html",
+		"/D/fr.js/example/views/view4.html",
+		"/D/fr.js/example/views/view3.html",
+		"/D/fr.js/example/views/view2.html",
+		"/D/fr.js/example/index.html",
+		"/D/fr.js/src/fr.spec.js",
+		"/D/fr.js/src/ComponentBuilder.js",
+		"/D/fr.js/example/js/script.js",
+		"/D/fr.js/src/EventsEngine.js",
+		"/D/labs/SSP/lab3/src/Main.java",
+		"/C/Users/dima_/Documents/run.bat",
+		"/C/Users/dima_/Documents/Main.java",
+		"/C/Users/dima_/Documents/Main.class",
+		"/D/Ola/src/lab5.java",
+		"/C/Users/dima_/Documents/lkj",
+		"/F/Labs/SSP7/SSP7/src/model/Tester.java",
+		"/F/Labs/SSP7/SSP7/src/model/TestedUser.java",
+		"/F/Labs/SSP7/SSP7/src/model/RunApp.java",
+		"/F/Labs/SSP7/SSP7/src/model/User.java",
+		"/D/Ola/src/library",
+		"/D/Frontend-Development-Basics/Task/index.html",
+		"/D/Frontend-Development-Basics/Task/database.js",
+		"/D/Frontend-Development-Basics/Task/server.js",
+		"/C/Users/dima_/Documents/laba1Kom.java",
+		"/D/labKom1.html",
+		"/C/Users/dima_/Documents/rep.java",
+		"/C/Frontend-Development-Basics/Task/index.html",
+		"/C/Frontend-Development-Basics/Task/gulpfile.js",
+		"/C/Frontend-Development-Basics/Task/sass/variables.scss",
+		"/C/CCOD/lab1/new lab/style.css",
+		"/C/CCOD/lab1/script.js",
+		"/C/CCOD/lab1/new lab/script.js",
+		"/C/CCOD/lab1/new lab/index.html",
+		"/C/CCOD/lab1/style.css",
+		"/C/Users/dima_/Documents/1.java",
+		"/C/Frontend-Development-Basics/Angular/js/script.js",
+		"/C/Frontend-Development-Basics/Angular/js/directives/available-item/available-item.js",
+		"/C/Users/dima_/Documents/beadChoises.txt",
+		"/C/Frontend-Development-Basics/Angular/js/directives/menu-items/menu-items.js",
+		"/C/Users/dima_/Documents/index.html",
+		"/C/CCOD/lab1/index.html",
+		"/C/Frontend-Development-Basics/Angular/index.html",
+		"/C/labs/script.js",
+		"/C/labs/index.html",
+		"/C/Users/dima_/Documents/out.txt",
+		"/C/Users/dima_/Documents/in.txt",
+		"/C/Users/dima_/Documents/run.but",
+		"/C/Users/dima_/Documents/myClass.java",
+		"/C/Users/dima_/Documents/main.java"
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"bank",
+			"\t",
+			"this.",
+			"const",
+			"show",
+			"\t",
+			" = null;",
+			"handCards",
+			"deck",
+			"\t",
+			"const",
+			"his.",
+			"suits",
+			"names",
+			"\t\t\t",
+			",",
+			"getAllCards",
+			"_cards",
+			"remainCard",
+			"\t\t\t",
+			"\t",
+			"const",
+			"onst ",
+			"\t",
+			"\t\t\t",
+			"\t\t",
+			"nst",
+			"st ",
+			"t ",
+			"\t",
+			"var",
+			"\t",
+			"IIIII",
+			", prevLastChild",
+			"console",
+			"prevLastChild",
+			"DIDEG",
+			"function () {",
+			"var",
+			"ShoseBrush",
+			"piont",
+			"point",
+			"that",
+			"querySelectorAll",
+			"getChannel(",
+			"getChannel",
+			"unsu",
+			"getComponentBuilder",
+			"});",
+			">\n",
+			"_redBreak",
+			"changeSpeed",
+			"changePosition",
+			"updateTask",
+			"add",
+			"_red",
+			"setSpeed",
+			"speedBlue",
+			"speedRed",
+			"();",
+			"apex"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"",
+			"() => {",
+			"let",
+			"ShoesBrush",
+			"point",
+			"self",
+			"blue.speed",
+			"red.speed"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "robocop.sublime-workspace",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"D:\\robocop\\robocop.sublime-workspace"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 231.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

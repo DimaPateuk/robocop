@@ -29,6 +29,22 @@ export const NAMES = [
 	ACE,
 ];
 
+export const VALUES = {
+	TWO: 0,
+	THREE: 1,
+	FOUR: 2,
+	FIVE: 3,
+	SIX: 4,
+	SEVEN: 5,
+	EIGHT: 6,
+	NINE: 7,
+	TEN: 8,
+	JACK: 9,
+	QUEEN: 10,
+	KING: 11,
+	ACE: 12,
+};
+
 export const HEART = 'heart';
 export const DIAMOND = 'diamond';
 export const CLUB = 'club';
@@ -43,8 +59,7 @@ export const SUITS = [
 
 
 
-export const ROYAL_FLUSH = 'Royal flush';
-export const STRAIGHT_FLUSH = 'Straight Flush';
+
 export const FOUR_OF_A_KIND = 'Four of a kind';
 export const FULL_HOUSE = 'Full house';
 export const FLUSH = 'Flush';
@@ -53,6 +68,20 @@ export const THREE_OF_AKIND = 'Three of a kind';
 export const TWO_PAIRS = 'Two pairs';
 export const PAIR = 'Pair';
 export const HIGH_CARD = 'High card';
+
+
+
+
+export const FOUR_OF_A_KIND_POWER = 0;
+export const FULL_HOUSE_POWER = 0;
+export const FLUSH_POWER = 0;
+export const STRAIGHT_POWER = 0;
+export const THREE_OF_AKIND_POWER = 0;
+export const TWO_PAIRS_POWER = 0;
+export const PAIR_POWER = 0;
+export const HIGH_CARD_POWER = 0;
+
+
 
 export const BET = 'bet'
 export const CHECK = 'check'

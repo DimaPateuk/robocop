@@ -13,6 +13,8 @@ export default class BoardGame extends BoardGameBetUtils{
 	}
 
 	end () {
+		this.deck = null;
+		this.boardCards = null;
 		this.dealerPosition++;
 		this.gameBank = 0;
 	}
@@ -29,6 +31,8 @@ export default class BoardGame extends BoardGameBetUtils{
 		this.pickUpAnte();
 		this.giveOutCards();
 		this.currentBet = this.bigBlind;
+
+
 
 	}
 
