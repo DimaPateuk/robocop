@@ -13,6 +13,7 @@
 // console.log(firstPlayer.handCards.toString());
 // console.log(secondPlayer.handCards.toString());
 
-import { RoyalFlushValues } from './poker/combinations/RoyalFlush';
+import { ROYAL_FLUSH_VALUES } from './poker/combinations/RoyalFlush';
+import { STRAIGHT_FLUSH_VALUES } from './poker/combinations/StraightFlush';
 
-console.log(RoyalFlushValues);
+console.log(STRAIGHT_FLUSH_VALUES);

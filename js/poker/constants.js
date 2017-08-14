@@ -72,14 +72,14 @@ export const HIGH_CARD = 'High card';
 
 
 
-export const FOUR_OF_A_KIND_POWER = 0;
-export const FULL_HOUSE_POWER = 0;
-export const FLUSH_POWER = 0;
-export const STRAIGHT_POWER = 0;
-export const THREE_OF_AKIND_POWER = 0;
-export const TWO_PAIRS_POWER = 0;
-export const PAIR_POWER = 0;
-export const HIGH_CARD_POWER = 0;
+export const FOUR_OF_A_KIND_POWER = 8;
+export const FULL_HOUSE_POWER = 7;
+export const FLUSH_POWER = 6;
+export const STRAIGHT_POWER = 5;
+export const THREE_OF_AKIND_POWER = 4;
+export const TWO_PAIRS_POWER = 3;
+export const PAIR_POWER = 2;
+export const HIGH_CARD_POWER = 1;
 
 
 
