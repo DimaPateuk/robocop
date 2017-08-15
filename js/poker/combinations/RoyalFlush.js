@@ -1,23 +1,45 @@
-import { NAMES, SUITS } from '../constants';
+import card from '../Card';
+import { VALUES } from '../constants';
+import { sortCards } from './utils';
 
 
 export const ROYAL_FLUSH_POWER = 10;
 
 export const ROYAL_FLUSH = 'Royal flush';
 
-export const ROYAL_FLUSH_VALUES = (function () {
+export function isRoyalFlush (cards) {
+	cards = sortCards(cards);
 
-	const result = {};
+	let previousValue = VALUES[cards[0].name];
+	let previousSuit = cards[0].suit;
 
-	for (let i = 0; i < SUITS.length; i++) {
-		let resultHash = '';
+	for (var i = 1; i < cards.length; i++) {
+		const currentValue = VALUES[cards[i].name];
+		const currentValue = cards[i].suit;
 
-		for (let j = NAMES.length - 5; j < NAMES.length; j++) {
-			resultHash += `${NAMES[j]} ${SUITS[i]} `;
-		}
+			if (currentValue !== previousValue + 1 ||
+				currentSuit !== previousSuit) {
+				return false;
+			}
 
-		result[resultHash] = 1;
+		previousValue = currentValue;
+		previousSuit = currentValue;
+
 	}
 
-	return result;
-})();
+	return true;
+
+}
+
+const cards = [];
+
+console.log()
+
+
+
+
+
+
+
+
+
