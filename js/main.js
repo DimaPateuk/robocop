@@ -15,5 +15,8 @@
 
 import { ROYAL_FLUSH_VALUES } from './poker/combinations/RoyalFlush';
 import { STRAIGHT_FLUSH_VALUES } from './poker/combinations/StraightFlush';
+import { FOUR_OF_A_KIND_VALUES } from './poker/combinations/FourOfAKind';
+import { FLUSH_VALUES } from './poker/combinations/Flush';
+import { STRAIGHT_VALUES } from './poker/combinations/Straight';
 
-console.log(STRAIGHT_FLUSH_VALUES);
+console.log(STRAIGHT_VALUES);
