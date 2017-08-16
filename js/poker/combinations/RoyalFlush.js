@@ -1,6 +1,20 @@
-import card from '../Card';
-import { VALUES } from '../constants';
-import { sortCards } from './utils';
+// import Card from '../cards/Card';
+// import {
+// 	TEN,
+// 	JACK,
+// 	QUEEN,
+// 	KING,
+// } from '../constants';
+
+import {
+	VALUES,
+	HEART,
+	DIAMOND,
+	CLUB,
+	SPADE,
+	ACE,
+} from '../constants';
+import { separateCardsBySuit, areFiveCardsOneByOne } from './utils';
 
 
 export const ROYAL_FLUSH_POWER = 10;
@@ -8,32 +22,26 @@ export const ROYAL_FLUSH_POWER = 10;
 export const ROYAL_FLUSH = 'Royal flush';
 
 export function isRoyalFlush (cards) {
-	cards = sortCards(cards);
-
-	let previousValue = VALUES[cards[0].name];
-	let previousSuit = cards[0].suit;
-
-	for (var i = 1; i < cards.length; i++) {
-		const currentValue = VALUES[cards[i].name];
-		const currentValue = cards[i].suit;
-
-			if (currentValue !== previousValue + 1 ||
-				currentSuit !== previousSuit) {
-				return false;
-			}
-
-		previousValue = currentValue;
-		previousSuit = currentValue;
-
-	}
-
-	return true;
+	const separatedCards = separateCardsBySuit(cards);
+	return [
+		separatedCards[HEART],
+		separatedCards[DIAMOND],
+		separatedCards[CLUB],
+		separatedCards[SPADE],
+	].some(arr => _isRoyalFlush(arr));
 
 }
 
-const cards = [];
+function _isRoyalFlush (cards) {
 
-console.log()
+	const lastCards = cards[cards.length - 1];
+
+	if (!lastCards || VALUES[lastCards.name] !== VALUES[ACE]) {
+		return false;
+	}
+
+	return areFiveCardsOneByOne(cards);
+}
 
 
 
@@ -41,5 +49,16 @@ console.log()
 
 
 
+// const cards = [
+// 	new Card(TEN, HEART),
+// 	new Card(ACE, DIAMOND),
+// 	new Card(KING, DIAMOND),
+// 	new Card(KING, HEART),
 
+// 	new Card(QUEEN, HEART),
+// 	new Card(JACK, HEART),
+// 	new Card(ACE, HEART),
+// 	new Card(JACK, DIAMOND),
+// ];
 
+// console.log(isRoyalFlush(cards));

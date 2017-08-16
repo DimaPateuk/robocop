@@ -13,10 +13,7 @@
 // console.log(firstPlayer.handCards.toString());
 // console.log(secondPlayer.handCards.toString());
 
-import { ROYAL_FLUSH_VALUES } from './poker/combinations/RoyalFlush';
-import { STRAIGHT_FLUSH_VALUES } from './poker/combinations/StraightFlush';
-import { FOUR_OF_A_KIND_VALUES } from './poker/combinations/FourOfAKind';
-import { FLUSH_VALUES } from './poker/combinations/Flush';
-import { STRAIGHT_VALUES } from './poker/combinations/Straight';
+import { isRoyalFlush } from './poker/combinations/RoyalFlush';
 
-console.log(STRAIGHT_VALUES);
+
+// console.log(isRoyalFlush);
