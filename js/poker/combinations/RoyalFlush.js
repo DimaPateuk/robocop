@@ -1,11 +1,3 @@
-// import Card from '../cards/Card';
-// import {
-// 	TEN,
-// 	JACK,
-// 	QUEEN,
-// 	KING,
-// } from '../constants';
-
 import {
 	VALUES,
 	HEART,
@@ -13,16 +5,24 @@ import {
 	CLUB,
 	SPADE,
 	ACE,
+	TEN
 } from '../constants';
-import { separateCardsBySuit, areFiveCardsOneByOne } from './utils';
-
+import {
+	separateCardsBySuit,
+	areFiveCardsOneByOne,
+	isFiveCardsCombination,
+} from './utils';
 
 export const ROYAL_FLUSH_POWER = 10;
 
 export const ROYAL_FLUSH = 'Royal flush';
 
+function exclude (card) {
+	return VALUES[card.name] < VALUES[TEN];
+}
+
 export function isRoyalFlush (cards) {
-	const separatedCards = separateCardsBySuit(cards);
+	const separatedCards = separateCardsBySuit(cards, exclude);
 	return [
 		separatedCards[HEART],
 		separatedCards[DIAMOND],
@@ -33,32 +33,95 @@ export function isRoyalFlush (cards) {
 }
 
 function _isRoyalFlush (cards) {
-
-	const lastCards = cards[cards.length - 1];
-
-	if (!lastCards || VALUES[lastCards.name] !== VALUES[ACE]) {
+	if (!isFiveCardsCombination(cards)) {
 		return false;
 	}
 
 	return areFiveCardsOneByOne(cards);
 }
 
+/*tests*/
+
+import { testFunction } from '../../utils/test';
+import Card from '../cards/Card';
+import {
+	JACK,
+	QUEEN,
+	KING,
+} from '../constants';
+
+testFunction(
+	'Royal Flush TEST 1',
+	isRoyalFlush,
+	[
+		[
+			new Card(TEN, HEART),
+			new Card(JACK, HEART),
+			new Card(QUEEN, HEART),
+			new Card(KING, HEART),
+			new Card(ACE, HEART),
+		]
+	],
+	true
+);
+
+testFunction(
+	'Royal Flush TEST 2',
+	isRoyalFlush,
+	[
+		[
+			new Card(TEN, HEART),
+			new Card(JACK, HEART),
+			new Card(QUEEN, DIAMOND),
+			new Card(KING, HEART),
+			new Card(ACE, HEART),
+			new Card(ACE, DIAMOND),
+		]
+	],
+	false
+);
+
+testFunction(
+	'Royal Flush TEST 3',
+	isRoyalFlush,
+	[
+		[
+			new Card(TEN, HEART),
+			new Card(QUEEN, HEART),
+			new Card(KING, HEART),
+			new Card(ACE, HEART),
+		]
+	],
+	false
+);
+
+testFunction(
+	'Royal Flush TEST 4',
+	isRoyalFlush,
+	[
+		[
+			new Card(KING, HEART),
+			new Card(TEN, HEART),
+			new Card(QUEEN, HEART),
+			new Card(KING, HEART),
+			new Card(ACE, HEART),
+		]
+	],
+	false
+);
 
 
-
-
-
-
-// const cards = [
-// 	new Card(TEN, HEART),
-// 	new Card(ACE, DIAMOND),
-// 	new Card(KING, DIAMOND),
-// 	new Card(KING, HEART),
-
-// 	new Card(QUEEN, HEART),
-// 	new Card(JACK, HEART),
-// 	new Card(ACE, HEART),
-// 	new Card(JACK, DIAMOND),
-// ];
-
-// console.log(isRoyalFlush(cards));
+testFunction(
+	'Royal Flush TEST 5',
+	isRoyalFlush,
+	[
+		[
+			new Card(JACK, HEART),
+			new Card(TEN, HEART),
+			new Card(QUEEN, HEART),
+			new Card(KING, HEART),
+			new Card(ACE, HEART),
+		]
+	],
+	true
+);

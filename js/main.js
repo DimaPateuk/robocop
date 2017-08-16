@@ -14,6 +14,6 @@
 // console.log(secondPlayer.handCards.toString());
 
 import { isRoyalFlush } from './poker/combinations/RoyalFlush';
+import { isStraightFlush } from './poker/combinations/StraightFlush';
+import { isFourOfAKind } from './poker/combinations/FourOfAKind';
 
-
-// console.log(isRoyalFlush);
