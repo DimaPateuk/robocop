@@ -5,8 +5,8 @@ import {
 	areFiveCardsOneByOne,
 } from './utils';
 
-export const FULL_HOUSE = 'Full house';
-export const FULL_HOUSE_POWER = 7;
+export const STRAIGHT = 'Straight';
+export const STRAIGHT_POWER = 5;
 
 function getNameForAreFiveCardsOneByOne (name) {
 	return name;
