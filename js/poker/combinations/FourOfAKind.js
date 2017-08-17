@@ -1,4 +1,3 @@
-import { NAMES, SUITS } from '../constants';
 import {
 	countSameNameCards,
 } from './utils';
@@ -30,7 +29,7 @@ import {
 	HEART,
 	DIAMOND,
 	CLUB,
-	SPADE
+	SPADE,
 } from '../constants';
 
 testFunction(
@@ -42,7 +41,7 @@ testFunction(
 			new Card(QUEEN, HEART),
 			new Card(KING, HEART),
 			new Card(KING, DIAMOND),
-		]
+		],
 	],
 	false
 );
@@ -56,7 +55,7 @@ testFunction(
 			new Card(JACK, SPADE),
 			new Card(JACK, CLUB),
 			new Card(JACK, DIAMOND),
-		]
+		],
 	],
 	true
 );
@@ -70,7 +69,7 @@ testFunction(
 			new Card(KING, SPADE),
 			new Card(JACK, CLUB),
 			new Card(QUEEN, DIAMOND),
-		]
+		],
 	],
 	false
 );
@@ -84,7 +83,7 @@ testFunction(
 			new Card(JACK, SPADE),
 			new Card(JACK, CLUB),
 			new Card(KING, DIAMOND),
-		]
+		],
 	],
 	false
 );

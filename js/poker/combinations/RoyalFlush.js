@@ -5,12 +5,11 @@ import {
 	CLUB,
 	SPADE,
 	ACE,
-	TEN
+	TEN,
 } from '../constants';
 import {
 	separateCardsBySuit,
 	areFiveCardsOneByOne,
-	isFiveCardsCombination,
 } from './utils';
 
 export const ROYAL_FLUSH_POWER = 10;
@@ -28,16 +27,8 @@ export function isRoyalFlush (cards) {
 		separatedCards[DIAMOND],
 		separatedCards[CLUB],
 		separatedCards[SPADE],
-	].some(arr => _isRoyalFlush(arr));
+	].some(arr => areFiveCardsOneByOne(arr));
 
-}
-
-function _isRoyalFlush (cards) {
-	if (!isFiveCardsCombination(cards)) {
-		return false;
-	}
-
-	return areFiveCardsOneByOne(cards);
 }
 
 /*tests*/
@@ -60,7 +51,7 @@ testFunction(
 			new Card(QUEEN, HEART),
 			new Card(KING, HEART),
 			new Card(ACE, HEART),
-		]
+		],
 	],
 	true
 );
@@ -76,7 +67,7 @@ testFunction(
 			new Card(KING, HEART),
 			new Card(ACE, HEART),
 			new Card(ACE, DIAMOND),
-		]
+		],
 	],
 	false
 );
@@ -90,7 +81,7 @@ testFunction(
 			new Card(QUEEN, HEART),
 			new Card(KING, HEART),
 			new Card(ACE, HEART),
-		]
+		],
 	],
 	false
 );
@@ -105,7 +96,7 @@ testFunction(
 			new Card(QUEEN, HEART),
 			new Card(KING, HEART),
 			new Card(ACE, HEART),
-		]
+		],
 	],
 	false
 );
@@ -121,7 +112,7 @@ testFunction(
 			new Card(QUEEN, HEART),
 			new Card(KING, HEART),
 			new Card(ACE, HEART),
-		]
+		],
 	],
 	true
 );

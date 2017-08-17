@@ -11,7 +11,11 @@ export function sortCards (cards) {
 	return sortBy(cards, (card) =>  VALUES[card.name]);
 }
 
-export function separateCardsBySuit (cards, exclude = () => false) {
+function defaultExcludeForSeparateCardsBySuit () {
+	return false;
+}
+
+export function separateCardsBySuit (cards, exclude = defaultExcludeForSeparateCardsBySuit) {
 	const result = {
 		[HEART]: [],
 		[DIAMOND]: [],
@@ -29,6 +33,22 @@ export function separateCardsBySuit (cards, exclude = () => false) {
 	result[DIAMOND] = sortCards(result[DIAMOND]);
 	result[CLUB] = sortCards(result[CLUB]);
 	result[SPADE] = sortCards(result[SPADE]);
+
+	return result;
+}
+
+export function separateCardsByNames (cards) {
+	const result = {};
+
+	for (let i = 0; i < cards.length; i++) {
+		const arrCards = result[cards[i].name];
+
+		if (arrCards) {
+			arrCards.push(cards[i]);
+		} else {
+			result[cards[i].name] = [cards[i]];
+		}
+	}
 
 	return result;
 }
@@ -53,7 +73,11 @@ export function isFourCardsCombination (cards) {
 	return true;
 }
 
-export function areFiveCardsOneByOne (cards) {
+function defaultGetNameForAreFiveCardsOneByOne (card) {
+	return card.name;
+}
+
+export function areFiveCardsOneByOne (cards, getName = defaultGetNameForAreFiveCardsOneByOne) {
 	if (!isFiveCardsCombination(cards)) {
 		return false;
 	}
@@ -62,11 +86,11 @@ export function areFiveCardsOneByOne (cards) {
 	const lastCardIndex = length - 1;
 
 
-	let previousValue = VALUES[cards[lastCardIndex].name];
+	let previousValue = VALUES[getName(cards[lastCardIndex])];
 	let count = 1;
 
 	for (let i = lastCardIndex - 1 ; i >= 0; i--) {
-		const currentValue = VALUES[cards[i].name];
+		const currentValue = VALUES[getName(cards[i])];
 
 		if (count === 5) {
 			return true;

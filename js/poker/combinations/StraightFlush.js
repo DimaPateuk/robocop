@@ -25,7 +25,7 @@ export function isStrightFlush (cards) {
 		return false;
 	}
 
-	const separatedCards = separateCardsBySuit(cards);
+	const separatedCards = separateCardsBySuit(cards, exclude);
 	return [
 		separatedCards[HEART],
 		separatedCards[DIAMOND],
@@ -56,9 +56,6 @@ import {
 	FOUR,
 	FIVE,
 	SIX,
-	SEVEN,
-	EIGHT,
-	NINE,
 	TEN,
 	JACK,
 	QUEEN,
@@ -75,7 +72,7 @@ testFunction(
 			new Card(FOUR, HEART),
 			new Card(FIVE, HEART),
 			new Card(SIX, HEART),
-		]
+		],
 	],
 	true
 );
@@ -91,7 +88,7 @@ testFunction(
 			new Card(FIVE, HEART),
 			new Card(SIX, HEART),
 			new Card(ACE, DIAMOND),
-		]
+		],
 	],
 	true
 );
@@ -105,7 +102,7 @@ testFunction(
 			new Card(THREE, HEART),
 			new Card(FOUR, HEART),
 			new Card(FIVE, HEART),
-		]
+		],
 	],
 	false
 );
@@ -120,7 +117,7 @@ testFunction(
 			new Card(SIX, HEART),
 			new Card(FIVE, HEART),
 			new Card(THREE, HEART),
-		]
+		],
 	],
 	true
 );
@@ -135,7 +132,22 @@ testFunction(
 			new Card(SIX, HEART),
 			new Card(FIVE, HEART),
 			new Card(THREE, DIAMOND),
-		]
+		],
+	],
+	false
+);
+
+testFunction(
+	'Straight Flush TEST 6',
+	isStrightFlush,
+	[
+		[
+			new Card(TEN, HEART),
+			new Card(JACK, HEART),
+			new Card(QUEEN, HEART),
+			new Card(KING, HEART),
+			new Card(ACE, HEART),
+		],
 	],
 	false
 );

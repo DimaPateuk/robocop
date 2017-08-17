@@ -16,4 +16,5 @@
 import { isRoyalFlush } from './poker/combinations/RoyalFlush';
 import { isStraightFlush } from './poker/combinations/StraightFlush';
 import { isFourOfAKind } from './poker/combinations/FourOfAKind';
-
+import { isFullHouse } from './poker/combinations/FullHouse';
+import { isStraight } from './poker/combinations/Straight';

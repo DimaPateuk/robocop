@@ -1,14 +1,33 @@
-import { NAMES, SUITS } from '../constants';
+import { isRoyalFlush } from './RoyalFlush';
+
+import {
+	separateCardsByNames,
+	isFiveCardsCombination,
+	areFiveCardsOneByOne,
+} from './utils';
 
 export const FULL_HOUSE = 'Full house';
 export const FULL_HOUSE_POWER = 7;
 
 
-export const FULL_HOUSE_VALUES = (function () {
 
-	const result = {};
+export function isFullHouse (cards) {
 
+}
 
+/*tests*/
 
-	return result;
-})();
+import { testFunction } from '../../utils/test';
+import Card from '../cards/Card';
+import {
+	JACK,
+	QUEEN,
+	KING,
+	HEART,
+	DIAMOND,
+	CLUB,
+	ACE,
+	TEN,
+	NINE,
+	EIGHT,
+} from '../constants';
