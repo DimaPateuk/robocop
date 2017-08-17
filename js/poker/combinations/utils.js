@@ -73,15 +73,11 @@ export function isFourCardsCombination (cards) {
 	return true;
 }
 
-function defaultGetNameForAreFiveCardsOneByOne (card) {
+function defaultGetNameForCountCardsOneByOne (card) {
 	return card.name;
 }
 
-export function areFiveCardsOneByOne (cards, getName = defaultGetNameForAreFiveCardsOneByOne) {
-	if (!isFiveCardsCombination(cards)) {
-		return false;
-	}
-
+export function countCardsOneByOne (cards, amount, getName = defaultGetNameForCountCardsOneByOne) {
 	const length = cards.length;
 	const lastCardIndex = length - 1;
 
@@ -92,7 +88,7 @@ export function areFiveCardsOneByOne (cards, getName = defaultGetNameForAreFiveC
 	for (let i = lastCardIndex - 1 ; i >= 0; i--) {
 		const currentValue = VALUES[getName(cards[i])];
 
-		if (count === 5) {
+		if (count === amount) {
 			return true;
 		}
 
@@ -104,7 +100,15 @@ export function areFiveCardsOneByOne (cards, getName = defaultGetNameForAreFiveC
 		count++;
 	}
 
-	return count === 5;
+	return count === amount;
+}
+
+export function areFiveCardsOneByOne (cards, getName) {
+	if (!isFiveCardsCombination(cards)) {
+		return false;
+	}
+
+	return countCardsOneByOne(cards, 5, getName);
 }
 
 export function countSameNameCards (cards) {

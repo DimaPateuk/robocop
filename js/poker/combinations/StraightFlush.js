@@ -1,3 +1,4 @@
+import { isRoyalFlush } from './RoyalFlush';
 import {
 	VALUES,
 	HEART,
@@ -10,22 +11,19 @@ import {
 	separateCardsBySuit,
 	areFiveCardsOneByOne,
 	isFiveCardsCombination,
+	countCardsOneByOne,
 } from './utils';
 
 export const STRAIGHT_FLUSH = 'Straight Flush';
 
 export const STRAIGHT_FLUSH_POWER = 9;
 
-function exclude (card) {
-	return VALUES[card.name] === VALUES[ACE];
-}
-
 export function isStrightFlush (cards) {
 	if (!isFiveCardsCombination(cards)) {
 		return false;
 	}
 
-	const separatedCards = separateCardsBySuit(cards, exclude);
+	const separatedCards = separateCardsBySuit(cards);
 	return [
 		separatedCards[HEART],
 		separatedCards[DIAMOND],
@@ -39,11 +37,17 @@ function _isStrightFlush (cards) {
 
 	const lastCards = cards[cards.length - 1];
 
-	if (!lastCards) {
+	if (!lastCards || isRoyalFlush(cards)) {
 		return false;
 	}
 
-	return areFiveCardsOneByOne(cards);
+	const cardsWithoutAce = cards.filter(card => card.name !== ACE);
+
+	if (countCardsOneByOne(cardsWithoutAce, 4) && cards.length !== cardsWithoutAce.length) {
+		return true;
+	}
+
+	return areFiveCardsOneByOne(cardsWithoutAce);
 }
 
 /*tests*/
@@ -150,4 +154,19 @@ testFunction(
 		],
 	],
 	false
+);
+
+testFunction(
+	'Straight Flush TEST 7',
+	isStrightFlush,
+	[
+		[
+			new Card(TWO, HEART),
+			new Card(THREE, HEART),
+			new Card(FOUR, HEART),
+			new Card(FIVE, HEART),
+			new Card(ACE, HEART),
+		],
+	],
+	true
 );
