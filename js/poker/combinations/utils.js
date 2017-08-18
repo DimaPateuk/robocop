@@ -46,3 +46,38 @@ export function separateCardsByNames (cards) {
 
 	return result;
 }
+
+export function saveNamesCardsOneByOneIntoArr (namesCards, startIndex, amount, result) {
+	const arr = [namesCards[startIndex]];
+	let j = startIndex;
+	for (; j < namesCards.length; j++) {
+		const lastFromArrayValue = VALUES[arr[arr.length - 1]];
+		const currentValue = VALUES[namesCards[j]];
+
+		if (currentValue === lastFromArrayValue - 1) {
+			arr.push(namesCards[j]);
+		} else {
+			break;
+		}
+
+		if (arr.length === amount) {
+			result.push(arr);
+			break;
+		}
+	}
+
+	if (namesCards[startIndex] === TWO && arr.length === 4) {
+		for (let i = j; i < namesCards.length; i++) {
+			if (namesCards[i] === ACE) {
+				const arrayFromAce = [namesCards[i]].concat(arr);
+				result.push(arrayFromAce);
+			}
+		}
+	}
+
+
+
+
+}
+
+

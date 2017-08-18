@@ -2,6 +2,7 @@ import { VALUES } from '../../constants';
 import {
 	separateCardsByNames,
 	separateCardsBySuit,
+	saveNamesCardsOneByOneIntoArr,
 } from './utils';
 import sortBy from 'lodash/sortBy';
 
@@ -45,35 +46,22 @@ export default class CardsInfo {
 
 		this.straigh = this.calculateStraight(this.separatedCardsByNamesKeysArr)
 
-
-
+		this.straignFlush = ??
 
 	}
 
-
 	calculateStraight (separatedCardsByNamesKeysArr) {
+		const result = [];
 
-		const result = {};
 		for (var i = 0; i < separatedCardsByNamesKeysArr.length; i++) {
-			const arr = [separatedCardsByNamesKeysArr[i]];
-			for (var j = i; j < separatedCardsByNamesKeysArr.length; j++) {
-				const lastFromArrayValue = VALUES[arr[arr.length - 1]];
-				const currentValue = VALUES[separatedCardsByNamesKeysArr[j]];
-
-				if (currentValue === lastFromArrayValue - 1) {
-					arr.push(separatedCardsByNamesKeysArr[j]);
-				} else {
-					break;
-				}
-
-				if (arr.length === 5) {
-					result[separatedCardsByNamesKeysArr[i]] = arr;
-					break;
-				}
-			}
+			saveNamesCardsOneByOneIntoArr(
+				separatedCardsByNamesKeysArr,
+				i,
+				5,
+				result
+			);
 		}
 
-
-
+		return result;
 	}
 }
