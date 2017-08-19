@@ -4,6 +4,8 @@ import {
 	DIAMOND,
 	CLUB,
 	SPADE,
+	TWO,
+	ACE,
 } from '../constants';
 import sortBy from 'lodash/sortBy';
 
@@ -49,12 +51,12 @@ export function separateCardsByNames (cards) {
 
 export function saveNamesCardsOneByOneIntoArr (namesCards, startIndex, amount, result) {
 	const arr = [namesCards[startIndex]];
-	let j = startIndex;
+	let j = startIndex + 1;
 	for (; j < namesCards.length; j++) {
-		const lastFromArrayValue = VALUES[arr[arr.length - 1]];
+		const lastFromArrayValue = VALUES[arr[j - 1]];
 		const currentValue = VALUES[namesCards[j]];
-
-		if (currentValue === lastFromArrayValue - 1) {
+		// /console.log(currentValue, lastFromArrayValue);
+		if (currentValue === lastFromArrayValue + 1) {
 			arr.push(namesCards[j]);
 		} else {
 			break;
@@ -65,7 +67,7 @@ export function saveNamesCardsOneByOneIntoArr (namesCards, startIndex, amount, r
 			break;
 		}
 	}
-
+	//console.log(arr);
 	if (namesCards[startIndex] === TWO && arr.length === 4) {
 		for (let i = j; i < namesCards.length; i++) {
 			if (namesCards[i] === ACE) {
@@ -74,10 +76,20 @@ export function saveNamesCardsOneByOneIntoArr (namesCards, startIndex, amount, r
 			}
 		}
 	}
-
-
-
-
 }
 
+export function calculateStraight (cardNames) {
+	const result = [];
+
+	for (let i = 0; i < cardNames.length; i++) {
+		saveNamesCardsOneByOneIntoArr(
+			cardNames,
+			i,
+			5,
+			result
+		);
+	}
+
+	return result;
+}
 

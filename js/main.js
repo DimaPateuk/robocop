@@ -13,4 +13,40 @@
 // console.log(firstPlayer.handCards.toString());
 // console.log(secondPlayer.handCards.toString());
 
-// import { isRoyalFlush } from './poker/combinations/RoyalFlush';
+import Card from './poker/cards/Card';
+import {
+	HEART,
+	DIAMOND,
+	CLUB,
+	SPADE,
+	TWO,
+	THREE,
+	FOUR,
+	FIVE,
+	SIX,
+	SEVEN,
+	EIGHT,
+	NINE,
+	TEN,
+	JACK,
+	QUEEN,
+	KING,
+	ACE,
+} from './poker/constants';
+
+
+import CardsInfo from './poker/combinations/CardsInfo';
+
+
+const cardsInfo = new CardsInfo();
+
+const cards = [
+	new Card(TWO, HEART),
+	new Card(THREE, HEART),
+	new Card(FOUR, HEART),
+	new Card(FIVE, HEART),
+	new Card(SIX, HEART),
+
+];
+cardsInfo.parseCards(cards);
+console.log(cardsInfo);

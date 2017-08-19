@@ -1,13 +1,19 @@
-import { VALUES } from '../../constants';
+import {
+	VALUES,
+	HEART,
+	DIAMOND,
+	CLUB,
+	SPADE,
+} from '../constants';
 import {
 	separateCardsByNames,
 	separateCardsBySuit,
-	saveNamesCardsOneByOneIntoArr,
+	calculateStraight,
 } from './utils';
 import sortBy from 'lodash/sortBy';
 
 export default class CardsInfo {
-	constructor(cards) {
+	constructor(cards = []) {
 		this.parseCards(cards);
 	}
 
@@ -17,10 +23,10 @@ export default class CardsInfo {
 		this.separatedCardsByNames = separateCardsByNames(this.cards);
 		this.separatedCardsByNamesKeysArr = sortBy(
 			Object.keys(this.separatedCardsByNames),
-			name => VALUES[card.name]
+			name => VALUES[name]
 		);
 		this.separatedCardsByNamesArr = this.separatedCardsByNamesKeysArr
-			.map(cards => this.separatedCardsByNames[cards]));
+			.map(cards => this.separatedCardsByNames[cards]);
 		this.separatedCardsBySuit = separateCardsBySuit(this.cards);
 		this.separatedCardsBySuitArr = Object
 			.keys(this.separatedCardsBySuit)
@@ -35,33 +41,27 @@ export default class CardsInfo {
 		this.pair = this.separatedCardsByNamesArr
 			.filter(cards => cards.length === 2);
 
-		this.twoPairs = this.pair.length > 1 : this.pair : [];
+		this.twoPairs = this.pair.length > 1 ? this.pair : [];
 
 		this.fullHouse = this.pair.length && this.threeOfAKind.length ?
 			[this.pair, this.threeOfAKind] :
 			[];
 
-		this.flush = this.separatedCardsBySuitArr
-			.filter(cards => cards.length > 4);
+		this.flush = {
+			[HEART]: this.separatedCardsBySuit[HEART].length > 4 ? this.separatedCardsBySuit[HEART] : [],
+			[DIAMOND]: this.separatedCardsBySuit[DIAMOND].length > 4 ? this.separatedCardsBySuit[DIAMOND] : [],
+			[SPADE]: this.separatedCardsBySuit[SPADE].length > 4 ? this.separatedCardsBySuit[SPADE] : [],
+			[CLUB]: this.separatedCardsBySuit[CLUB].length > 4 ? this.separatedCardsBySuit[CLUB] : [],
+		};
 
-		this.straigh = this.calculateStraight(this.separatedCardsByNamesKeysArr)
+		this.straigh = calculateStraight(this.separatedCardsByNamesKeysArr)
 
-		this.straignFlush = ??
-
+		this.straignFlush = {
+			[HEART]: calculateStraight(this.separatedCardsBySuit[HEART].map(card => card.name)),
+			[DIAMOND]: calculateStraight(this.separatedCardsBySuit[DIAMOND].map(card => card.name)),
+			[SPADE]: calculateStraight(this.separatedCardsBySuit[SPADE].map(card => card.name)),
+			[CLUB]: calculateStraight(this.separatedCardsBySuit[CLUB].map(card => card.name)),
+		};
 	}
 
-	calculateStraight (separatedCardsByNamesKeysArr) {
-		const result = [];
-
-		for (var i = 0; i < separatedCardsByNamesKeysArr.length; i++) {
-			saveNamesCardsOneByOneIntoArr(
-				separatedCardsByNamesKeysArr,
-				i,
-				5,
-				result
-			);
-		}
-
-		return result;
-	}
 }
