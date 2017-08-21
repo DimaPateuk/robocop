@@ -53,7 +53,7 @@ export function saveNamesCardsOneByOneIntoArr (namesCards, startIndex, amount, r
 	const arr = [namesCards[startIndex]];
 	let j = startIndex + 1;
 	for (; j < namesCards.length; j++) {
-		const lastFromArrayValue = VALUES[arr[j - 1]];
+		const lastFromArrayValue = VALUES[arr[arr.length - 1]];
 		const currentValue = VALUES[namesCards[j]];
 
 		if (currentValue === lastFromArrayValue + 1) {
@@ -96,4 +96,14 @@ export function calculateStraight (cardNames) {
 
 export function getLastElementFromArr (arr = []) {
 	return arr[arr.length - 1];
+}
+
+export function getLastTwoElements (arr = []) {
+	const length = arr.length;
+	const lastCard = arr[length - 1];
+	const penultimateCard = arr[length - 2];
+
+	return lastCard && penultimateCard ?
+		[lastCard, penultimateCard] :
+		[];
 }

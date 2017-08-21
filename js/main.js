@@ -80,7 +80,7 @@ const cards = [
 	new Card(TEN, CLUB),
 	new Card(JACK, CLUB),
 	new Card(QUEEN, CLUB),
-	new Card(KING, CLUB),
+	// new Card(KING, CLUB),
 	new Card(ACE, CLUB),
 
 	new Card(TWO, SPADE),
@@ -94,14 +94,15 @@ const cards = [
 	new Card(TEN, SPADE),
 	new Card(JACK, SPADE),
 	new Card(QUEEN, SPADE),
-	new Card(KING, SPADE),
-	new Card(ACE, SPADE),
+	// new Card(KING, SPADE),
+	// new Card(ACE, SPADE),
 ];
 cardsInfo.parseCards(cards);
+
 console.log(cardsInfo.heightPairValue);
 console.log(cardsInfo.heightTwoPairsValue);
 console.log(cardsInfo.heightThreeOfAKindValue);
-console.log(cardsInfo.heightStraigh);
+console.log(cardsInfo.heightStraighValue);
 console.log(cardsInfo.heightFlushValue);
 console.log(cardsInfo.heightFullHouseValue);
 console.log(cardsInfo.heightFourOfAKindValue);

@@ -10,6 +10,7 @@ import {
 	separateCardsBySuit,
 	calculateStraight,
 	getLastElementFromArr,
+	getLastTwoElements,
 } from './utils';
 import sortBy from 'lodash/sortBy';
 
@@ -20,16 +21,6 @@ function filterFlush (names) {
 function getLastCardName (arr = []) {
 	const lastCard = getLastElementFromArr(arr);
 	return lastCard && lastCard.name;
-}
-
-function getLastTwoCardsNames (arr = []) {
-	const length = arr.length;
-	const lastCard = arr[length - 1];
-	const penultimateCard = arr[length - 2];
-
-	return lastCard && penultimateCard ?
-		[lastCard.name, penultimateCard.name] :
-		[];
 }
 
 export default class CardsInfo {
@@ -55,29 +46,27 @@ export default class CardsInfo {
 		this.fourOfAKind = this.separatedCardsByNamesArr
 			.filter(cards => cards.length === 4);
 
-		this.heightFourOfAKindValue = VALUES[getLastCardName(this.fourOfAKind)];
+		this.heightFourOfAKindValue = (getLastElementFromArr(this.fourOfAKind) || [])[0].value;
 
 		this.threeOfAKind = this.separatedCardsByNamesArr
-			.filter(cards => cards.length === 3);
+			.filter(cards => cards.length == 3);
 
-		this.heightThreeOfAKindValue = VALUES[getLastCardName(this.threeOfAKind)];
+		this.heightThreeOfAKindValue = (getLastElementFromArr(this.threeOfAKind) || [])[0].value;
 
 		this.pair = this.separatedCardsByNamesArr
-			.filter(cards => cards.length === 2);
+			.filter(cards => cards.length == 2);
 
-		this.heightPairValue = VALUES[getLastCardName(this.pair)];
+		this.heightPairValue = ((getLastElementFromArr(this.pair) || [])[0] || {}).value;
 
-		this.twoPairs = this.pair.length > 1 ? this.pair : [];
+		this.twoPairs = this.pair.length > 1 ? getLastTwoElements(this.pair) : [];
 
-		this.heightTwoPairsValue = getLastTwoCardsNames(this.twoPairs);
-
-		this.fullHouse = this.pair.length && this.threeOfAKind.length ?
-			[this.pair, this.threeOfAKind] :
-			[];
-
-		this.heightFullHouseValue = this.fullHouse.length ?
-			`${this.heightThreeOfAKind} | ${this.heightPair}` :
+		this.heightFullHouseValue = this.pair.length && this.threeOfAKind.length ?
+			this.heightPairValue + this.heightThreeOfAKindValue :
 			undefined;
+
+		this.heightTwoPairsValue = this.twoPairs
+			.map(arr => arr[0])
+			.reduce((res, item) => res + item.value, 0);
 
 		this.flush = {
 			[HEART]: filterFlush(this.separatedCardsBySuit[HEART]),
@@ -105,7 +94,7 @@ export default class CardsInfo {
 
 		this.straigh = calculateStraight(this.separatedCardsByNamesKeysArr);
 
-		this.heightStraigh = VALUES[getLastElementFromArr(
+		this.heightStraighValue = VALUES[getLastElementFromArr(
 			getLastElementFromArr(this.straigh)
 		)];
 
