@@ -57,10 +57,6 @@ export const SUITS = [
 	SPADE,
 ];
 
-
-
-
-
 export const ROYAL_FLUSH = 'Royal flush';
 export const STRAIGHT_FLUSH = 'Straight Flush';
 export const FOUR_OF_A_KIND = 'Four of a kind';
@@ -72,7 +68,6 @@ export const TWO_PAIRS = 'Two pairs';
 export const PAIR = 'Pair';
 export const HIGH_CARD = 'High card';
 
-
 export const ROYAL_FLUSH_POWER = 10;
 export const STRAIGHT_FLUSH_POWER = 9;
 export const FOUR_OF_A_KIND_POWER = 8;
@@ -83,8 +78,6 @@ export const THREE_OF_AKIND_POWER = 4;
 export const TWO_PAIRS_POWER = 3;
 export const PAIR_POWER = 2;
 export const HIGH_CARD_POWER = 1;
-
-
 
 export const BET = 'bet';
 export const CHECK = 'check';

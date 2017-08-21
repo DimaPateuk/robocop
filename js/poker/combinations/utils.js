@@ -10,7 +10,7 @@ import {
 import sortBy from 'lodash/sortBy';
 
 export function sortCards (cards) {
-	return sortBy(cards, (card) => VALUES[card.name]);
+	return sortBy(cards, (card) => card.value);
 }
 
 export function separateCardsBySuit (cards) {
@@ -55,7 +55,7 @@ export function saveNamesCardsOneByOneIntoArr (namesCards, startIndex, amount, r
 	for (; j < namesCards.length; j++) {
 		const lastFromArrayValue = VALUES[arr[j - 1]];
 		const currentValue = VALUES[namesCards[j]];
-		// /console.log(currentValue, lastFromArrayValue);
+
 		if (currentValue === lastFromArrayValue + 1) {
 			arr.push(namesCards[j]);
 		} else {
@@ -67,7 +67,7 @@ export function saveNamesCardsOneByOneIntoArr (namesCards, startIndex, amount, r
 			break;
 		}
 	}
-	//console.log(arr);
+
 	if (namesCards[startIndex] === TWO && arr.length === 4) {
 		for (let i = j; i < namesCards.length; i++) {
 			if (namesCards[i] === ACE) {
@@ -93,3 +93,7 @@ export function calculateStraight (cardNames) {
 	return result;
 }
 
+
+export function getLastElementFromArr (arr = []) {
+	return arr[arr.length - 1];
+}
