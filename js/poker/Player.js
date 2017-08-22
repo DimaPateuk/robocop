@@ -6,7 +6,7 @@ import {
 
 export default class Player {
 
-	constructor(bank, playerName) {
+	constructor (bank, playerName) {
 		this.name = playerName;
 		this.bank = bank;
 		this.bankInGame = 0;
@@ -26,7 +26,7 @@ export default class Player {
 		return value;
 	}
 
-	check() {
+	check () {
 		return CHECK;
 	}
 

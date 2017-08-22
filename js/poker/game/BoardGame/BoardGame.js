@@ -3,7 +3,7 @@ import Deck from '../../cards/Deck.js';
 import HandCards from '../../cards/HandCards.js';
 import BoardGameBetUtils from './BoardGameBetUtils.js';
 
-export default class BoardGame extends BoardGameBetUtils{
+export default class BoardGame extends BoardGameBetUtils {
 
 	start () {
 		this.deck = new Deck();
@@ -19,21 +19,17 @@ export default class BoardGame extends BoardGameBetUtils{
 		this.gameBank = 0;
 	}
 
-	giveOutCards() {
+	giveOutCards () {
 		this.forEachFromDiller(player => {
 			player.setHandCards(new HandCards(this.deck));
 		});
 	}
 
-	startForTwoPlayers() {
+	startForTwoPlayers () {
 		this.pickUpBigBlind();
 		// this.pickUpSmallBlind();
 		this.pickUpAnte();
 		this.giveOutCards();
 		this.currentBet = this.bigBlind;
-
-
-
 	}
-
-};
+}
