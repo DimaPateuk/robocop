@@ -10,8 +10,8 @@ export function testFunction (testName, fn, expectedResult) {
 	}
 
 	if (isPassed) {
-		console.log(testName, 'passed');
+		console.log('passed:', testName);
 	} else {
-		console.log(testName, 'fail');
+		console.log('FAIL:', testName);
 	}
 }

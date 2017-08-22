@@ -21,48 +21,37 @@ import {
 } from '../../constants';
 import { testFunction } from '../../../utils/test';
 
-export default function PairTest () {
+export default function ThreeOfAKindTest () {
 	testFunction(
-		'1) Pair power - ACE',
+		'1) Three of a kind power - ACE',
 		() => {
 			const cardsInfo = new CardsInfo([
 				new Card(ACE, DIAMOND),
-				new Card(ACE, HEART),
 				new Card(ACE, CLUB),
+				new Card(ACE, SPADE),
 			]);
 
 			return cardsInfo.heighCombinatoinInfo.power;
 		},
-		(actualResult) => actualResult !== 213
+		413
 	);
 
 	testFunction(
-		'2) Pair power - ACE',
+		'2) Three of a kind compare - ACE equality',
 		() => {
-			const cardsInfo = new CardsInfo([
-				new Card(ACE, HEART),
+			const AceFirst = new CardsInfo([
+				new Card(ACE, DIAMOND),
 				new Card(ACE, CLUB),
-			]);
-
-			return cardsInfo.heighCombinatoinInfo.power;
-		},
-		213
-	);
-
-	testFunction(
-		'1) Pair compare - ACE vs KING',
-		() => {
-			const Ace = new CardsInfo([
-				new Card(ACE, HEART),
-				new Card(ACE, CLUB),
+				new Card(ACE, SPADE),
 			]).heighCombinatoinInfo.power;
 
-			const King = new CardsInfo([
-				new Card(KING, HEART),
-				new Card(KING, CLUB),
+			const AceSecond = new CardsInfo([
+				new Card(ACE, DIAMOND),
+				new Card(ACE, CLUB),
+				new Card(ACE, HEART),
 			]).heighCombinatoinInfo.power;
 
-			return Ace > King;
+			return AceFirst === AceSecond;
 		},
 		true
 	);

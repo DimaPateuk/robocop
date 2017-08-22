@@ -19,7 +19,7 @@ import {
 	KING,
 	ACE,
 } from '../../constants';
-import { testFunction } from '../../..//utils/test';
+import { testFunction } from '../../../utils/test';
 
 export default function HighCardTest () {
 	testFunction(
@@ -67,7 +67,7 @@ export default function HighCardTest () {
 	);
 
 	testFunction(
-		'1) High Card compare - ACE & KING',
+		'1) High Card compare - ACE vs KING',
 		() => {
 			const King = new CardsInfo([
 				new Card(TWO, SPADE),

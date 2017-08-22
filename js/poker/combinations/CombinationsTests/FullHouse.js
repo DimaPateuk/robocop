@@ -21,49 +21,37 @@ import {
 } from '../../constants';
 import { testFunction } from '../../../utils/test';
 
-export default function PairTest () {
+export default function FullHouseTest () {
 	testFunction(
-		'1) Pair power - ACE',
+		'1) Full House power - ACE & KING',
 		() => {
 			const cardsInfo = new CardsInfo([
 				new Card(ACE, DIAMOND),
-				new Card(ACE, HEART),
+				new Card(ACE, SPADE),
 				new Card(ACE, CLUB),
+				new Card(KING, SPADE),
+				new Card(KING, CLUB),
 			]);
 
 			return cardsInfo.heighCombinatoinInfo.power;
 		},
-		(actualResult) => actualResult !== 213
+		763
 	);
 
 	testFunction(
-		'2) Pair power - ACE',
+		'2) Full House power - ACE & KING',
 		() => {
 			const cardsInfo = new CardsInfo([
-				new Card(ACE, HEART),
+				new Card(ACE, DIAMOND),
+				new Card(ACE, SPADE),
 				new Card(ACE, CLUB),
+				new Card(KING, SPADE),
+				new Card(KING, CLUB),
+				new Card(TWO, DIAMOND),
 			]);
 
 			return cardsInfo.heighCombinatoinInfo.power;
 		},
-		213
-	);
-
-	testFunction(
-		'1) Pair compare - ACE vs KING',
-		() => {
-			const Ace = new CardsInfo([
-				new Card(ACE, HEART),
-				new Card(ACE, CLUB),
-			]).heighCombinatoinInfo.power;
-
-			const King = new CardsInfo([
-				new Card(KING, HEART),
-				new Card(KING, CLUB),
-			]).heighCombinatoinInfo.power;
-
-			return Ace > King;
-		},
-		true
+		763
 	);
 }
