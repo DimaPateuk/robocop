@@ -93,9 +93,8 @@ export function calculateStraight (cardNames) {
 	return result;
 }
 
-
-export function getLastElementFromArr (arr = []) {
-	return arr[arr.length - 1];
+export function getLastElementFromArr (arr = [], defaultResult) {
+	return arr[arr.length - 1] || defaultResult;
 }
 
 export function getLastTwoElements (arr = []) {

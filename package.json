@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "babel-node ./js/main.test.js --presets es2015,stage-2",
     "start": "babel-node ./js/main.js --presets es2015,stage-2"
   },
   "repository": {

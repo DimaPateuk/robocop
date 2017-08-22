@@ -4,6 +4,26 @@ import {
 	DIAMOND,
 	CLUB,
 	SPADE,
+
+	STRAIGHT_FLUSH_NAME,
+	FOUR_OF_A_KIND_NAME,
+	FULL_HOUSE_NAME,
+	FLUSH_NAME,
+	STRAIGHT_NAME,
+	THREE_OF_AKIND_NAME,
+	TWO_PAIRS_NAME,
+	PAIR_NAME,
+	HIGH_CARD_NAME,
+
+	STRAIGHT_FLUSH_POWER,
+	FOUR_OF_A_KIND_POWER,
+	FULL_HOUSE_POWER,
+	FLUSH_POWER,
+	STRAIGHT_POWER,
+	THREE_OF_AKIND_POWER,
+	TWO_PAIRS_POWER,
+	PAIR_POWER,
+	HIGH_CARD_POWER,
 } from '../constants';
 import {
 	separateCardsByNames,
@@ -18,14 +38,9 @@ function filterFlush (names) {
 	return names.length > 4 ? names : [];
 }
 
-function getLastCardName (arr = []) {
-	const lastCard = getLastElementFromArr(arr);
-	return lastCard && lastCard.name;
-}
-
 export default class CardsInfo {
 	constructor (cards = []) {
-		// /this.parseCards(cards);
+		this.parseCards(cards);
 	}
 
 	parseCards (cards) {
@@ -43,28 +58,32 @@ export default class CardsInfo {
 			.keys(this.separatedCardsBySuit)
 			.map(cards => this.separatedCardsBySuit[cards]);
 
+		this.highCard = getLastElementFromArr(this.separatedCardsByNamesKeysArr);
+
+		this.highCardValue = VALUES[this.highCard];
+
 		this.fourOfAKind = this.separatedCardsByNamesArr
 			.filter(cards => cards.length === 4);
 
-		this.heightFourOfAKindValue = (getLastElementFromArr(this.fourOfAKind) || [])[0].value;
+		this.highFourOfAKindValue = getLastElementFromArr(this.fourOfAKind, { 0: {} })[0].value;
 
 		this.threeOfAKind = this.separatedCardsByNamesArr
 			.filter(cards => cards.length == 3);
 
-		this.heightThreeOfAKindValue = (getLastElementFromArr(this.threeOfAKind) || [])[0].value;
+		this.highThreeOfAKindValue = getLastElementFromArr(this.threeOfAKind, { 0: {} })[0].value;
 
 		this.pair = this.separatedCardsByNamesArr
 			.filter(cards => cards.length == 2);
 
-		this.heightPairValue = ((getLastElementFromArr(this.pair) || [])[0] || {}).value;
+		this.highPairValue = getLastElementFromArr(this.pair, { 0: {} })[0].value;
 
 		this.twoPairs = this.pair.length > 1 ? getLastTwoElements(this.pair) : [];
 
-		this.heightFullHouseValue = this.pair.length && this.threeOfAKind.length ?
-			this.heightPairValue + this.heightThreeOfAKindValue :
+		this.highFullHouseValue = this.pair.length && this.threeOfAKind.length ?
+			this.highPairValue * 2 + this.highThreeOfAKindValue * 3 :
 			undefined;
 
-		this.heightTwoPairsValue = this.twoPairs
+		this.highTwoPairsValue = this.twoPairs
 			.map(arr => arr[0])
 			.reduce((res, item) => res + item.value, 0);
 
@@ -82,7 +101,7 @@ export default class CardsInfo {
 			this.flush[CLUB],
 		].filter(item => item.length);
 
-		this.heightFlushValue = (
+		this.highFlushValue = (
 			getLastElementFromArr(
 				sortBy(
 					this.flushArray
@@ -94,7 +113,7 @@ export default class CardsInfo {
 
 		this.straigh = calculateStraight(this.separatedCardsByNamesKeysArr);
 
-		this.heightStraighValue = VALUES[getLastElementFromArr(
+		this.highStraighValue = VALUES[getLastElementFromArr(
 			getLastElementFromArr(this.straigh)
 		)];
 
@@ -112,14 +131,32 @@ export default class CardsInfo {
 			this.straightFlush[CLUB],
 		].filter(item => item.length);
 
-		this.heightStraightFlushValue = VALUES[getLastElementFromArr(
+		this.highStraightFlushValue = VALUES[getLastElementFromArr(
 			sortBy(
 				this.straightFlushArray
 					.map(straightFlushs => getLastElementFromArr(straightFlushs))
 					.map(straightFlush => getLastElementFromArr(straightFlush)),
-				card => card.value
+				name => VALUES[name]
 			)
 		)];
-	}
 
+		this.combinatoins = [
+			[this.highStraightFlushValue, STRAIGHT_FLUSH_POWER, STRAIGHT_FLUSH_NAME],
+			[this.highFourOfAKindValue, FOUR_OF_A_KIND_POWER, FOUR_OF_A_KIND_NAME],
+			[this.highFullHouseValue, FULL_HOUSE_POWER, FULL_HOUSE_NAME],
+			[this.highFlushValue, FLUSH_POWER, FLUSH_NAME],
+			[this.highStraighValue, STRAIGHT_POWER, STRAIGHT_NAME],
+			[this.highThreeOfAKindValue, THREE_OF_AKIND_POWER, THREE_OF_AKIND_NAME],
+			[this.highTwoPairsValue, TWO_PAIRS_POWER, TWO_PAIRS_NAME],
+			[this.highPairValue, PAIR_POWER, PAIR_NAME],
+			[this.highCardValue, HIGH_CARD_POWER, HIGH_CARD_NAME],
+		].filter(arr => arr[0]);
+
+		this.heighCombinatoin = this.combinatoins[0] || [];
+
+		this.heighCombinatoinInfo = {
+			power: this.heighCombinatoin[1] + this.heighCombinatoin[0],
+			name: this.heighCombinatoin[2],
+		};
+	}
 }
