@@ -9,5 +9,6 @@ const game = new Game([firstPlayer, secondPlayer], 10, 20, 1);
 
 game.start();
 
-console.log(firstPlayer.handCards.toString());
-console.log(secondPlayer.handCards.toString());
+// console.log(firstPlayer.handCards.toString());
+// console.log(secondPlayer.handCards.toString());
+

@@ -36,7 +36,7 @@ function makeDefaultDeckCards () {
 }
 
 class Deck {
-	constructor(cards = makeDefaultDeckCards()) {
+	constructor (cards = makeDefaultDeckCards()) {
 		this.cards = cards;
 
 		this.remainCard = {
@@ -57,7 +57,6 @@ class Deck {
 			[DIAMOND]: 0,
 			[CLUB]: 0,
 			[SPADE]: 0,
-
 		};
 
 		const namesOfRemainCards = this.getNamesOfCardsThatRemain();
@@ -70,7 +69,7 @@ class Deck {
 
 	}
 
-	getNamesOfCardsThatRemain() {
+	getNamesOfCardsThatRemain () {
 		return Object.keys(this.cards)
 			.filter(item => this.cards[item]);
 	}
@@ -83,8 +82,8 @@ class Deck {
 
 		this.cards[nameRandonCard] = null;
 
-		this.remainCard[result.name]++;
-		this.remainCard[result.suit]++;
+		this.remainCard[result.name]--;
+		this.remainCard[result.suit]--;
 
 		return result;
 

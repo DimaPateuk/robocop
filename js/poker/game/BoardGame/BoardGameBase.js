@@ -1,5 +1,5 @@
 export default class BoardGameBase {
-	constructor(players, smallBlind, bigBlind, ante = 0) {
+	constructor (players, smallBlind, bigBlind, ante = 0) {
 		this.players = players;
 		this.dealerPosition = 0;
 		this.gameBank = 0;

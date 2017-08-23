@@ -1,9 +1,10 @@
-import { getRandomInt } from '../utils/number'
+import { getRandomInt } from '../utils/number';
 
 import {
 	CHECK,
+	FOLD,
 } from './constants';
-
+let id = 0;
 export default class Player {
 
 	constructor (bank, playerName) {
@@ -11,6 +12,7 @@ export default class Player {
 		this.bank = bank;
 		this.bankInGame = 0;
 		this.handCards = null;
+		this.id = id++;
 	}
 
 	bet (value) {
@@ -31,7 +33,7 @@ export default class Player {
 	}
 
 	fold () {
-		return 0;
+		return FOLD;
 	}
 
 	allIn () {

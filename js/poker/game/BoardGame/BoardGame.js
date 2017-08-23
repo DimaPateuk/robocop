@@ -8,6 +8,9 @@ export default class BoardGame extends BoardGameBetUtils {
 	start () {
 		this.deck = new Deck();
 		this.boardCards = new BoardCards(this.deck);
+		this.pickUpAnte();
+		this.pickUpBlinds();
+		this.currentBet = this.bigBlind;
 
 		this.startForTwoPlayers();
 	}
@@ -15,21 +18,41 @@ export default class BoardGame extends BoardGameBetUtils {
 	end () {
 		this.deck = null;
 		this.boardCards = null;
-		this.dealerPosition++;
+		this.dealerPosition = this.firstPositionAfterDiller;
 		this.gameBank = 0;
 	}
 
 	giveOutCards () {
-		this.forEachFromDiller(player => {
+		this.playerInGame = {};
+
+		this.forEachPlayerFromDiller(player => {
 			player.setHandCards(new HandCards(this.deck));
+			this.playerInGame[player.id] = player;
 		});
 	}
 
 	startForTwoPlayers () {
-		this.pickUpBigBlind();
-		// this.pickUpSmallBlind();
-		this.pickUpAnte();
 		this.giveOutCards();
-		this.currentBet = this.bigBlind;
+
+		this.startBettingCycle(this.dealerPosition);
+	}
+
+	startBettingCycle (startIndex) {
+
+		this.forEachPlayerInGameFrom(player => {
+			// if (player.bankInGame !== this.currentBet) {
+			// 	player.bet(this.currentBet);
+			// }
+		}, startIndex);
+
+		Object.entries(this.playerInGame)
+			.forEach(entry => {
+				console.log(entry[1]);
+			});
+
+		var t = Object.entries(this.playerInGame)
+			.every(entry => entry[1].bankInGame === this.currentBet);
+		console.log(this.players);
+		console.log(t);
 	}
 }

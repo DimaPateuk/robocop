@@ -2,21 +2,35 @@ import BoardGameGeneralUtils from './BoardGameGeneralUtils.js';
 
 export default class BoardGameBetUtils extends BoardGameGeneralUtils {
 
-	pickUpBigBlind () {
-			let player = this.secondPlayerBeforeDiller || this.firstPlayerBeforeDiller;
-			const bigBlind = player.bet(this.bigBlind)
+	pickUpBlinds () {
+		if (this.players.length === 2) {
+			this.pickUpBigBlindFroTwoPlayers();
+		} else {
+			this.pickUpBigBlindMoreThanTwoPlayers();
+			this.pickUpSmallBlind();
+		}
+	}
 
-			this.gameBank += bigBlind;
+	pickUpBigBlindFroTwoPlayers () {
+		const bigBlind = this.firstPlayerAfterDiller.bet(this.bigBlind);
+
+		this.gameBank += bigBlind;
+	}
+
+	pickUpBigBlindMoreThanTwoPlayers () {
+		const bigBlind = this.secondPlayerAfterDiller.bet(this.bigBlind);
+
+		this.gameBank += bigBlind;
 	}
 
 	pickUpSmallBlind () {
-			const smallBlind = this.firstPlayerBeforeDiller.bet(this.smallBlind)
+		const smallBlind = this.firstPlayerAfterDiller.bet(this.smallBlind);
 
-			this.gameBank += smallBlind;
+		this.gameBank += smallBlind;
 	}
 
 	pickUpAnte () {
-		this.forEachFromDiller((player) => {
+		this.forEachPlayerFromDiller((player) => {
 			const ante = player.ante(this.ante);
 
 			this.gameBank += ante;
