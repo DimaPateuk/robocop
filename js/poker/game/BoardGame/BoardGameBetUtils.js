@@ -2,6 +2,11 @@ import BoardGameGeneralUtils from './BoardGameGeneralUtils.js';
 
 export default class BoardGameBetUtils extends BoardGameGeneralUtils {
 
+	bet (value) {
+		this.gameBank += value;
+		this.currentBet = value;
+	}
+
 	pickUpBlinds () {
 		if (this.players.length === 2) {
 			this.pickUpBigBlindFroTwoPlayers();
@@ -9,6 +14,8 @@ export default class BoardGameBetUtils extends BoardGameGeneralUtils {
 			this.pickUpBigBlindMoreThanTwoPlayers();
 			this.pickUpSmallBlind();
 		}
+
+		this.currentBet = this.bigBlind;
 	}
 
 	pickUpBigBlindFroTwoPlayers () {

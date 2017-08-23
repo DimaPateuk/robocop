@@ -6,6 +6,10 @@ export default class HandCards {
 	}
 
 
+	get value () {
+		return this.firstCard.value + this.secondCard.value;
+	}
+
 	toString () {
 		return `${this.firstCard} | ${this.secondCard}`;
 	}

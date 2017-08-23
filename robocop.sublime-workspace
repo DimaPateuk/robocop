@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"separated",
+				"separatedCardsBySuitArr"
+			],
+			[
+				"separa",
+				"separatedCardsByNamesKeysArr"
+			],
+			[
+				"separe",
+				"separatedCardsByNamesKeysArr"
+			],
+			[
+				"previous",
+				"previousSuit"
+			],
+			[
 				"bank",
 				"bankInGame"
 			],
@@ -179,6 +195,41 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "js/poker/combinations/CardsInfo.js",
+			"settings":
+			{
+				"buffer_size": 4713,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "js/main.js",
+			"settings":
+			{
+				"buffer_size": 379,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "js/poker/combinations/utils.js",
+			"settings":
+			{
+				"buffer_size": 2160,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "js/poker/constants.js",
+			"settings":
+			{
+				"buffer_size": 1645,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -187,10 +238,18 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 392.0,
-		"last_filter": "lo",
+		"height": 104.0,
+		"last_filter": "install ",
 		"selected_items":
 		[
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"uppe",
+				"Convert Case: Upper Case"
+			],
 			[
 				"lo",
 				"Convert Case: Lower Case"
@@ -239,23 +298,30 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
-	"expanded_folders":
-	[
-		"/D/robocop"
-	],
 	"file_history":
 	[
+		"/D/robocop/js/poker/combinations/Flush.js",
+		"/D/robocop/js/poker/combinations/StraightFlush.js",
+		"/D/robocop/js/poker/combinations/Straight.js",
+		"/D/robocop/js/poker/combinations/RoyalFlush.js",
+		"/D/robocop/js/poker/combinations/FourOfAKind.js",
+		"/D/robocop/js/poker/combinations/FullHouse.js",
+		"/D/robocop/js/poker/combinations/CombinationsTests.js",
+		"/D/robocop/js/poker/combinations/utils.js",
+		"/D/robocop/js/main.js",
+		"/D/robocop/js/utils/test.js",
+		"/D/robocop/js/poker/game/BoardGame/BoardGame.js",
+		"/D/robocop/js/poker/constants.js",
+		"/D/robocop/js/poker/cards/Card.js",
+		"/D/robocop/js/poker/Player.js",
 		"/D/robocop/js/poker/Card.js",
 		"/D/robocop/js/poker/BoardCards.js",
-		"/D/robocop/js/main.js",
 		"/D/robocop/js/poker/Game.js",
-		"/D/robocop/js/poker/Player.js",
 		"/D/robocop/js/utils/number.js",
 		"/D/robocop/js/poker/utils.js",
 		"/D/robocop/js/poker/Deck.js",
 		"/D/robocop/package.json",
 		"/D/robocop/js/poker/HandCards.js",
-		"/D/robocop/js/poker/constants.js",
 		"/D/robocop/js/poker/combinations/Royalflush.js",
 		"/D/robocop/index.js",
 		"/D/robocop/main.css",
@@ -341,7 +407,7 @@
 	],
 	"find":
 	{
-		"height": 26.0
+		"height": 34.0
 	},
 	"find_in_files":
 	{
@@ -356,6 +422,66 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"ullHous",
+			"0",
+			"getLastTwoCardsNames",
+			"heightPairValue",
+			".length",
+			": ",
+			".map(card => card.name))",
+			"calculateStraight(",
+			"HEART",
+			"\t",
+			"\t[",
+			"\t",
+			"st ",
+			"calculateStraight",
+			"separatedCardsByNamesKeysArr",
+			"]",
+			"[",
+			": []",
+			"saveNamesCardsOneByOneInto",
+			"var",
+			"cards",
+			"separatedCardsByNamesKeysArr",
+			"separatedCardsBySuitArr",
+			"._",
+			"\t",
+			"countCardsOneByOne",
+			"isRoyalFlush",
+			"defaultGetNameForAreFiveCardsOneByOne",
+			"5",
+			"names",
+			"NAMES",
+			"TEN",
+			"isRoyalFlush",
+			"(",
+			"\t",
+			"'Royal Flush TEST'",
+			"'Royal Flush',",
+			"Royal Flush",
+			"'Royal Flush,",
+			"\t",
+			"(",
+			"\t",
+			"(",
+			",",
+			"ds[",
+			"\t\t",
+			", ",
+			"Card(",
+			"args",
+			"let",
+			"i",
+			"j",
+			"var",
+			"i",
+			"STRAIGHT_FLUSH",
+			"_COUNT",
+			"export const ",
+			"i",
+			"\t",
+			".toStirng()",
 			"bank",
 			"\t",
 			"this.",
@@ -442,8 +568,145 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "js/poker/combinations/CardsInfo.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4713,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai (SL).tmTheme",
+							"editorconfig": true,
+							"ensure_newline_at_eof_on_save": true,
+							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": false,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 720.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "js/main.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 379,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai (SL).tmTheme",
+							"editorconfig": true,
+							"ensure_newline_at_eof_on_save": true,
+							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": false,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 252.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "js/poker/combinations/utils.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2160,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai (SL).tmTheme",
+							"editorconfig": true,
+							"ensure_newline_at_eof_on_save": true,
+							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": false,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 936.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "js/poker/constants.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1645,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai (SL).tmTheme",
+							"editorconfig": true,
+							"ensure_newline_at_eof_on_save": true,
+							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": false,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 468.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -528,7 +791,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 231.0,
+	"side_bar_width": 264.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

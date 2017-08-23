@@ -1,10 +1,14 @@
 import { getRandomInt } from '../utils/number';
+import toInteger from 'lodash/toInteger';
+
 
 import {
 	CHECK,
 	FOLD,
 } from './constants';
+
 let id = 0;
+
 export default class Player {
 
 	constructor (bank, playerName) {
@@ -13,6 +17,11 @@ export default class Player {
 		this.bankInGame = 0;
 		this.handCards = null;
 		this.id = id++;
+	}
+
+	win (value) {
+		this.bankInGame = 0;
+		this.bank += value;
 	}
 
 	bet (value) {
@@ -40,10 +49,29 @@ export default class Player {
 		return this.bet(this.bank);
 	}
 
-	makeDecision (currentBet) {
+	makeDecision (currentBet, positionIndex) {
+		const value = this.handCards.value;
 
-		const decision = getRandomInt(0, 3);
+		if (value > 17) {
+			return this.allIn();
+		}
 
+		if (value > 10) {
+
+			if (this.bankInGame === currentBet) {
+				return this.check();
+			}
+
+			const bet = toInteger(currentBet * 1.5);
+
+			if (bet > this.bank) {
+				return this.allIn();
+			}
+
+			return this.bet(bet);
+		}
+
+		return this.fold();
 	}
 
 	setHandCards (handCards) {

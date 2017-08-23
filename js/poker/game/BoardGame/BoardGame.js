@@ -2,6 +2,10 @@ import BoardCards from '../../cards/BoardCards.js';
 import Deck from '../../cards/Deck.js';
 import HandCards from '../../cards/HandCards.js';
 import BoardGameBetUtils from './BoardGameBetUtils.js';
+import {
+	CHECK,
+	FOLD,
+} from '../../constants';
 
 export default class BoardGame extends BoardGameBetUtils {
 
@@ -10,7 +14,7 @@ export default class BoardGame extends BoardGameBetUtils {
 		this.boardCards = new BoardCards(this.deck);
 		this.pickUpAnte();
 		this.pickUpBlinds();
-		this.currentBet = this.bigBlind;
+		this.currentBet = 0;
 
 		this.startForTwoPlayers();
 	}
@@ -20,14 +24,15 @@ export default class BoardGame extends BoardGameBetUtils {
 		this.boardCards = null;
 		this.dealerPosition = this.firstPositionAfterDiller;
 		this.gameBank = 0;
+		this.currentBet = 0;
 	}
 
 	giveOutCards () {
-		this.playerInGame = {};
+		this.playersInGame = {};
 
 		this.forEachPlayerFromDiller(player => {
 			player.setHandCards(new HandCards(this.deck));
-			this.playerInGame[player.id] = player;
+			this.playersInGame[player.id] = player;
 		});
 	}
 
@@ -37,22 +42,50 @@ export default class BoardGame extends BoardGameBetUtils {
 		this.startBettingCycle(this.dealerPosition);
 	}
 
+	get numberPlayerInGame () {
+		return Object.entries(this.playersInGame)
+			.filter(entry => entry[1]).length;
+	}
+
+	win(player) {
+		player.win(this.bankInGame);
+		this.end();
+	}
+
 	startBettingCycle (startIndex) {
+		let playerCount = this.numberPlayerInGame;
+				// if (player.bankInGame !== this.currentBet) {
+				// 	player.bet(this.currentBet);
+				// }
 
-		this.forEachPlayerInGameFrom(player => {
-			// if (player.bankInGame !== this.currentBet) {
-			// 	player.bet(this.currentBet);
-			// }
-		}, startIndex);
+		// while(true) {
 
-		Object.entries(this.playerInGame)
-			.forEach(entry => {
-				console.log(entry[1]);
-			});
+			this.forEachPlayersInGameFrom((player, index, breakCb) => {
+				if (playerCount === 1) {
+					this.win(player);
+					//breakCb()
+				}
 
-		var t = Object.entries(this.playerInGame)
-			.every(entry => entry[1].bankInGame === this.currentBet);
-		console.log(this.players);
-		console.log(t);
+				const playerDesision = player.makeDecision(this.currentBet, index);
+				if (playerDesision === FOLD) {
+					this.playersInGame[player.id] = false;
+					playerCount--;
+					return;
+				}
+
+				if (playerDesision === CHECK) {
+					return;
+				}
+
+				this.bet(playerDesision);
+			}, startIndex);
+
+
+			console.log(this.players);
+			console.log(this.currentBet);
+			console.log(this.gameBank);
+
+		// }
+
 	}
 }
