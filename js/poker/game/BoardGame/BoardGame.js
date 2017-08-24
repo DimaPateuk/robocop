@@ -5,6 +5,10 @@ import BoardGameBetUtils from './BoardGameBetUtils.js';
 import {
 	CHECK,
 	FOLD,
+	GO_TO_THE_NEXT_STAGE,
+	SHOW_DOWN,
+	RPE_FLOP,
+	GAME_END,
 } from '../../constants';
 
 export default class BoardGame extends BoardGameBetUtils {
@@ -12,9 +16,9 @@ export default class BoardGame extends BoardGameBetUtils {
 	start () {
 		this.deck = new Deck();
 		this.boardCards = new BoardCards(this.deck);
+		this.gameStage = RPE_FLOP;
 		this.pickUpAnte();
 		this.pickUpBlinds();
-		this.currentBet = 0;
 
 		this.startForTwoPlayers();
 	}
@@ -23,8 +27,10 @@ export default class BoardGame extends BoardGameBetUtils {
 		this.deck = null;
 		this.boardCards = null;
 		this.dealerPosition = this.firstPositionAfterDiller;
+		this.anteBank = 0;
 		this.gameBank = 0;
 		this.currentBet = 0;
+		this.gameStage = GAME_END;
 	}
 
 	giveOutCards () {
@@ -42,50 +48,30 @@ export default class BoardGame extends BoardGameBetUtils {
 		this.startBettingCycle(this.dealerPosition);
 	}
 
-	get numberPlayerInGame () {
+	get playersInGameArr () {
 		return Object.entries(this.playersInGame)
-			.filter(entry => entry[1]).length;
+			.filter(entry => entry[1]);
 	}
 
-	win(player) {
+	get numberPlayersInGame () {
+		return this.playersInGameArr.length;
+	}
+
+	get playersWhoCanMakeABet () {
+		return this.playersInGameArr
+			.filter(player => player.bank > 0);
+	}
+
+	win (player) {
 		player.win(this.bankInGame);
 		this.end();
 	}
 
 	startBettingCycle (startIndex) {
-		let playerCount = this.numberPlayerInGame;
-				// if (player.bankInGame !== this.currentBet) {
-				// 	player.bet(this.currentBet);
-				// }
 
-		// while(true) {
+		this.forEachPlayersInGameFrom((player, index) => {
 
-			this.forEachPlayersInGameFrom((player, index, breakCb) => {
-				if (playerCount === 1) {
-					this.win(player);
-					//breakCb()
-				}
-
-				const playerDesision = player.makeDecision(this.currentBet, index);
-				if (playerDesision === FOLD) {
-					this.playersInGame[player.id] = false;
-					playerCount--;
-					return;
-				}
-
-				if (playerDesision === CHECK) {
-					return;
-				}
-
-				this.bet(playerDesision);
-			}, startIndex);
-
-
-			console.log(this.players);
-			console.log(this.currentBet);
-			console.log(this.gameBank);
-
-		// }
-
+		}, startIndex);
 	}
+
 }

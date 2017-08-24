@@ -11,11 +11,12 @@ let id = 0;
 
 export default class Player {
 
-	constructor (bank, playerName) {
+	constructor (bank, playerName, DecisionMaker) {
 		this.name = playerName;
 		this.bank = bank;
 		this.bankInGame = 0;
 		this.handCards = null;
+		this.decisionMaker = DecisionMaker;
 		this.id = id++;
 	}
 
@@ -42,6 +43,7 @@ export default class Player {
 	}
 
 	fold () {
+		console.log(this.name, FOLD);
 		return FOLD;
 	}
 
@@ -49,29 +51,8 @@ export default class Player {
 		return this.bet(this.bank);
 	}
 
-	makeDecision (currentBet, positionIndex) {
-		const value = this.handCards.value;
-
-		if (value > 17) {
-			return this.allIn();
-		}
-
-		if (value > 10) {
-
-			if (this.bankInGame === currentBet) {
-				return this.check();
-			}
-
-			const bet = toInteger(currentBet * 1.5);
-
-			if (bet > this.bank) {
-				return this.allIn();
-			}
-
-			return this.bet(bet);
-		}
-
-		return this.fold();
+	makeDecision (currentBet, positionIndex, stage) {
+		this.decisionMaker.makeDecision(currentBet, positionIndex, stage);
 	}
 
 	setHandCards (handCards) {

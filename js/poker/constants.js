@@ -80,3 +80,12 @@ export const HIGH_CARD_POWER = 100;
 export const BET = 'bet';
 export const CHECK = 'check';
 export const FOLD = 'fold';
+
+export const GO_TO_THE_NEXT_STAGE = 'go to the next stage';
+export const SHOW_DOWN = 'show down';
+
+export const RPE_FLOP = 'pre flop';
+export const FLOP = 'flop';
+export const TERN = 'tern';
+export const RIVER = 'river';
+export const GAME_END = 'game end';

@@ -2,9 +2,11 @@ import BoardGameGeneralUtils from './BoardGameGeneralUtils.js';
 
 export default class BoardGameBetUtils extends BoardGameGeneralUtils {
 
-	bet (value) {
+	playerBet (value) {
 		this.gameBank += value;
-		this.currentBet = value;
+		if (value > this.currentBet) {
+			this.currentBet = value;
+		}
 	}
 
 	pickUpBlinds () {
@@ -40,7 +42,7 @@ export default class BoardGameBetUtils extends BoardGameGeneralUtils {
 		this.forEachPlayerFromDiller((player) => {
 			const ante = player.ante(this.ante);
 
-			this.gameBank += ante;
+			this.anteBank += ante;
 		});
 	}
 }

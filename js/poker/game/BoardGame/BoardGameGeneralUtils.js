@@ -15,7 +15,7 @@ export default class BoardGameGeneralUtils extends BoardGameBase {
 			}
 
 			if (inGame && player.bank > 0) {
-				fn(player, indexPosition);
+				return fn(player, indexPosition);
 			}
 		}, startIndex);
 	}
@@ -29,7 +29,12 @@ export default class BoardGameGeneralUtils extends BoardGameBase {
 		let indexPosition = startIndex;
 
 		for (let i = 0; i < this.players.length; i++) {
-			fn(this.players[indexPosition], i);
+			const result = fn(this.players[indexPosition], i);
+
+			if (result === false) {
+				break;
+			}
+
 			indexPosition = this.getNextPlayerIndex(indexPosition);
 		}
 	}
