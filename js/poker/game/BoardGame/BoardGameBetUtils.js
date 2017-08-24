@@ -22,7 +22,7 @@ export default class BoardGameBetUtils extends BoardGameGeneralUtils {
 
 	pickUpBigBlindFroTwoPlayers () {
 		const bigBlind = this.firstPlayerAfterDiller.bet(this.bigBlind);
-
+		console.log('big blind', this.firstPlayerAfterDiller.name, this.bigBlind);
 		this.gameBank += bigBlind;
 	}
 

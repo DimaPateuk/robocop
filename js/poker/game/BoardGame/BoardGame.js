@@ -1,7 +1,7 @@
 import BoardCards from '../../cards/BoardCards.js';
 import Deck from '../../cards/Deck.js';
 import HandCards from '../../cards/HandCards.js';
-import BoardGameBetUtils from './BoardGameBetUtils.js';
+import BoardGameCycleUtils from './BoardGameCycleUtils.js';
 import {
 	CHECK,
 	FOLD,
@@ -11,9 +11,10 @@ import {
 	GAME_END,
 } from '../../constants';
 
-export default class BoardGame extends BoardGameBetUtils {
+export default class BoardGame extends BoardGameCycleUtils {
 
 	start () {
+		console.log('diller', this.dillerPlayer.name);
 		this.deck = new Deck();
 		this.boardCards = new BoardCards(this.deck);
 		this.gameStage = RPE_FLOP;
@@ -48,30 +49,9 @@ export default class BoardGame extends BoardGameBetUtils {
 		this.startBettingCycle(this.dealerPosition);
 	}
 
-	get playersInGameArr () {
-		return Object.entries(this.playersInGame)
-			.filter(entry => entry[1]);
-	}
-
-	get numberPlayersInGame () {
-		return this.playersInGameArr.length;
-	}
-
-	get playersWhoCanMakeABet () {
-		return this.playersInGameArr
-			.filter(player => player.bank > 0);
-	}
-
 	win (player) {
 		player.win(this.bankInGame);
 		this.end();
-	}
-
-	startBettingCycle (startIndex) {
-
-		this.forEachPlayersInGameFrom((player, index) => {
-
-		}, startIndex);
 	}
 
 }

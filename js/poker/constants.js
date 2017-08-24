@@ -80,6 +80,10 @@ export const HIGH_CARD_POWER = 100;
 export const BET = 'bet';
 export const CHECK = 'check';
 export const FOLD = 'fold';
+export const CALL = 'call';
+export const ALL_IN = 'all in';
+export const RAISE = 'raise';
+
 
 export const GO_TO_THE_NEXT_STAGE = 'go to the next stage';
 export const SHOW_DOWN = 'show down';

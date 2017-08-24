@@ -1,22 +1,23 @@
 import { getRandomInt } from '../utils/number';
 import toInteger from 'lodash/toInteger';
-
+import DecisionMaker from './DecisionMaker';
 
 import {
 	CHECK,
 	FOLD,
+	BET,
 } from './constants';
 
 let id = 0;
 
 export default class Player {
 
-	constructor (bank, playerName, DecisionMaker) {
+	constructor (bank, playerName, decisionMaker = new DecisionMaker()) {
 		this.name = playerName;
 		this.bank = bank;
 		this.bankInGame = 0;
 		this.handCards = null;
-		this.decisionMaker = DecisionMaker;
+		this.decisionMaker = decisionMaker;
 		this.id = id++;
 	}
 
@@ -52,7 +53,25 @@ export default class Player {
 	}
 
 	makeDecision (currentBet, positionIndex, stage) {
-		this.decisionMaker.makeDecision(currentBet, positionIndex, stage);
+		const decision = this.decisionMaker.makeDecision(currentBet, positionIndex, stage);
+		if (decision === BET) {
+			console.log('bet', this.name, currentBet);
+			return this.bet(currentBet);
+		}
+
+		if (decision === CHECK) {
+			if (player.bankInGame < currentBet) {
+				throw Error('player.bankInGame < currentBet');
+			}
+			console.log('check', this.name);
+			return this.check();
+		}
+
+		if (decision === FOLD) {
+			return this.fold();
+		}
+
+		throw Error('wrong player decision');
 	}
 
 	setHandCards (handCards) {
