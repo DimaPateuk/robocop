@@ -27,8 +27,14 @@ export default class Player {
 	}
 
 	bet (value) {
-		this.bank -= value;
-		this.bankInGame += value;
+		const tmp = this.bank - value;
+		if (tmp < 0) {
+
+		} else {
+			this.bank -= value;
+			this.bankInGame += value;
+
+		}
 
 		return value;
 	}

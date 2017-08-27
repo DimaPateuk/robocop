@@ -1,4 +1,4 @@
-import Game from '../BoardGame.js';
+import BoardGame from '../BoardGame.js';
 import Player from '../../../Player.js';
 import DecisionMakerForTest from '../../../DecisionMakerForTest';
 import {
@@ -26,9 +26,9 @@ const AnticopDecisionMakerForTest = new DecisionMakerForTest([
 
 const Anticop = new Player (100, 'Anticop', AnticopDecisionMakerForTest);
 
-const game = new Game([Robocop, Anticop], 10, 20, 1);
+const goardGame = new BoardGame([Robocop, Anticop], 10, 20, 1);
 
-game.start();
+goardGame.start();
 
 // console.log(Robocop.handCards.toString());
 // console.log(Anticop.handCards.toString());

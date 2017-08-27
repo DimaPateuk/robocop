@@ -1,7 +1,6 @@
 import BoardCards from '../../cards/BoardCards.js';
 import Deck from '../../cards/Deck.js';
 import HandCards from '../../cards/HandCards.js';
-import BoardGameCycleUtils from './BoardGameCycleUtils.js';
 import {
 	CHECK,
 	FOLD,
@@ -11,40 +10,17 @@ import {
 	GAME_END,
 } from '../../constants';
 
-export default class BoardGame extends BoardGameCycleUtils {
+export default class BoardGame {
+
+	constructor(players, smallBlind, bigBlind, ante) {
+		this.players = players;
+		this.smallBlind = smallBlind;
+		this.bigBlind = bigBlind;
+		this.ante = ante;
+	}
+
 
 	start () {
-		console.log('diller', this.dillerPlayer.name);
-		this.deck = new Deck();
-		this.boardCards = new BoardCards(this.deck);
-		this.gameStage = RPE_FLOP;
-		this.pickUpAnte();
-		this.pickUpBlinds();
-
-		this.startForTwoPlayers();
+		console.log(this.players);
 	}
-
-	end () {
-		this.deck = null;
-		this.boardCards = null;
-		this.dealerPosition = this.firstPositionAfterDiller;
-		this.anteBank = 0;
-		this.gameBank = 0;
-		this.currentBet = 0;
-		this.gameStage = GAME_END;
-	}
-
-
-
-	startForTwoPlayers () {
-		this.giveOutCards();
-
-		this.startBettingCycle(this.dealerPosition);
-	}
-
-	win (player) {
-		player.win(this.bankInGame);
-		this.end();
-	}
-
 }
