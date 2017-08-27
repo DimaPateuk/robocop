@@ -4,9 +4,7 @@ export default class BoardGameBetUtils extends BoardGameGeneralUtils {
 
 	playerBet (value) {
 		this.gameBank += value;
-		if (value > this.currentBet) {
-			this.currentBet = value;
-		}
+		this.currentBet = value;
 	}
 
 	pickUpBlinds () {

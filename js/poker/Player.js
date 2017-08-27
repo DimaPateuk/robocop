@@ -54,15 +54,13 @@ export default class Player {
 
 	makeDecision (currentBet, positionIndex, stage) {
 		const decision = this.decisionMaker.makeDecision(currentBet, positionIndex, stage);
+
 		if (decision === BET) {
 			console.log('bet', this.name, currentBet);
 			return this.bet(currentBet);
 		}
 
 		if (decision === CHECK) {
-			if (player.bankInGame < currentBet) {
-				throw Error('player.bankInGame < currentBet');
-			}
 			console.log('check', this.name);
 			return this.check();
 		}

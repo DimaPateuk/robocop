@@ -1,6 +1,18 @@
 import BoardGameBase from './BoardGameBase.js';
+import BoardCards from '../../cards/BoardCards.js';
+import Deck from '../../cards/Deck.js';
+import HandCards from '../../cards/HandCards.js';
 
 export default class BoardGameGeneralUtils extends BoardGameBase {
+
+	giveOutCards () {
+		this.playersInGame = {};
+
+		this.forEachPlayerFromDiller(player => {
+			player.setHandCards(new HandCards(this.deck));
+			this.playersInGame[player.id] = player;
+		});
+	}
 
 	getNextPlayerIndex (currentIndex) {
 		return currentIndex === this.players.length - 1 ? 0 : currentIndex + 1;
@@ -18,6 +30,10 @@ export default class BoardGameGeneralUtils extends BoardGameBase {
 				return fn(player, indexPosition);
 			}
 		}, startIndex);
+	}
+
+	forEachPlayersInGameFromDiller (fn) {
+		this.forEachPlayersInGameFrom(fn, this.dealerPosition);
 	}
 
 

@@ -34,14 +34,7 @@ export default class BoardGame extends BoardGameCycleUtils {
 		this.gameStage = GAME_END;
 	}
 
-	giveOutCards () {
-		this.playersInGame = {};
 
-		this.forEachPlayerFromDiller(player => {
-			player.setHandCards(new HandCards(this.deck));
-			this.playersInGame[player.id] = player;
-		});
-	}
 
 	startForTwoPlayers () {
 		this.giveOutCards();
