@@ -88,7 +88,7 @@ export const RAISE = 'raise';
 export const GO_TO_THE_NEXT_STAGE = 'go to the next stage';
 export const SHOW_DOWN = 'show down';
 
-export const RPE_FLOP = 'pre flop';
+export const PRE_FLOP = 'pre flop';
 export const FLOP = 'flop';
 export const TERN = 'tern';
 export const RIVER = 'river';

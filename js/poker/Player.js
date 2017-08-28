@@ -21,69 +21,46 @@ export default class Player {
 		this.id = id++;
 	}
 
-	win (value) {
-		this.bankInGame = 0;
-		this.bank += value;
-	}
+	_bet (value) {
+		if (this.bank - value < 0) {
+			const result = this.bank;
+			this.bank = 0;
 
-	bet (value) {
-		const tmp = this.bank - value;
-		if (tmp < 0) {
-
-		} else {
-			this.bank -= value;
-			this.bankInGame += value;
-
+			return result;
 		}
 
-		return value;
-	}
-
-	ante (value) {
 		this.bank -= value;
 
 		return value;
+
 	}
 
-	check () {
-		return CHECK;
+	bet (value) {
+		const result = this._bet(value);
+
+		console.log('bet', this.name, result);
+
+		return result;
 	}
 
-	fold () {
-		console.log(this.name, FOLD);
-		return FOLD;
+	ante (value) {
+		const result = this._bet(value);
+
+		console.log('ante', this.name, result);
+
+		return result;
 	}
 
-	allIn () {
-		return this.bet(this.bank);
-	}
+	makeDecision (minimalBet, position, stageName) {
+		console.log(this.name, minimalBet);
 
-	makeDecision (currentBet, positionIndex, stage) {
-		const decision = this.decisionMaker.makeDecision(currentBet, positionIndex, stage);
+		return this.bet(minimalBet);
+		// const decision = this.decisionMaker.makeDecision(currentBet, positionIndex, stage);
 
-		if (decision === BET) {
-			console.log('bet', this.name, currentBet);
-			return this.bet(currentBet);
-		}
-
-		if (decision === CHECK) {
-			console.log('check', this.name);
-			return this.check();
-		}
-
-		if (decision === FOLD) {
-			return this.fold();
-		}
-
-		throw Error('wrong player decision');
+		// throw Error('wrong player decision');
 	}
 
 	setHandCards (handCards) {
 		this.handCards = handCards;
-	}
-
-	clearHandCards () {
-		this.handCards = null;
-		this.bankInGame = 0;
 	}
 }
