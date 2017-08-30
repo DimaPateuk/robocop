@@ -15,7 +15,7 @@ export default class BoardGameUtils {
 
 		return {
 			player,
-			index
+			index,
 		};
 	}
 
@@ -27,13 +27,19 @@ export default class BoardGameUtils {
 		return this.getNextPlayer(this.getNextPlayer(this.dillerPosition).index).player;
 	}
 
-	foreEachPlayerFrom (fn, index = this.dillerPosition) {
+	foreEachPlayerFromWithBank (fn, index = this.dillerPosition) {
 		for (var i = 0; i < this.players.length; i++) {
 			const player = this.players[index];
-			if (this.playersInGame[player.id]) {
+			if (this.playersInGame[player.id] && player.bank > 0) {
 				fn(player, index);
 			}
 			index = this.getNextIndex(index);
 		}
+	}
+
+	get playersInGameArr () {
+		return Object.entries(this.playersInGame)
+			.filter(entry => entry[1])
+			.map(entry => entry[1].player);
 	}
 }

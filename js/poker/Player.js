@@ -37,9 +37,11 @@ export default class Player {
 
 	bet (value) {
 		const result = this._bet(value);
-
-		console.log('bet', this.name, result);
-
+		if (result === 0) {
+			console.log('check', this.name);
+		} else {
+			console.log('bet', this.name, result);
+		}
 		return result;
 	}
 
@@ -51,10 +53,20 @@ export default class Player {
 		return result;
 	}
 
-	makeDecision (minimalBet, position, stageName) {
-		console.log(this.name, minimalBet);
+	makeDecision (minimalBet, gameInfo) {
+		const {
+			index,
+			gameStage,
+		} = gameInfo;
+
 
 		return this.bet(minimalBet);
+
+		// if (minimalBet === 0) {
+		// 	return this.bet(10);
+		// } else {
+		// 	return this.bet(minimalBet);
+		// }
 		// const decision = this.decisionMaker.makeDecision(currentBet, positionIndex, stage);
 
 		// throw Error('wrong player decision');

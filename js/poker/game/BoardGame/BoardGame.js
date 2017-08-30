@@ -6,13 +6,14 @@ import BoardGameUtils from './BoardGameUtils.js';
 import {
 	PRE_FLOP,
 	FLOP,
-	TERN,
-	RIVER
+	TURN,
+	RIVER,
+	SHOWDOWN,
 } from '../../constants';
 
 export default class BoardGame extends BoardGameUtils {
 
-	constructor(players, smallBlind, bigBlind, ante = 0) {
+	constructor (players, smallBlind, bigBlind, ante = 0) {
 		super();
 
 		this.players = players.filter(player => player.bank > 0);
@@ -22,16 +23,22 @@ export default class BoardGame extends BoardGameUtils {
 		this.dillerPosition = 0;
 	}
 
-
 	start () {
 		this.deck = new Deck();
+		this.boardCards = new BoardCards(this.deck);
 		this.pot = 0;
 		this.playersInGame = {};
 		this.playersBets = {
 			[PRE_FLOP]: {},
 			[FLOP]: {},
-			[TERN]: {},
+			[TURN]: {},
 			[RIVER]: {},
+		};
+		this.stageCards = {
+			[PRE_FLOP]: [],
+			[FLOP]: [],
+			[TURN]: [],
+			[RIVER]: [],
 		};
 
 		this.players.forEach((player, index) => {
@@ -45,7 +52,7 @@ export default class BoardGame extends BoardGameUtils {
 
 			this.playersBets[PRE_FLOP][player.id] = 0;
 			this.playersBets[FLOP][player.id] = 0;
-			this.playersBets[TERN][player.id] = 0;
+			this.playersBets[TURN][player.id] = 0;
 			this.playersBets[RIVER][player.id] = 0;
 
 			player.setHandCards(new HandCards(this.deck));
@@ -57,44 +64,112 @@ export default class BoardGame extends BoardGameUtils {
 	}
 
 	startForTwoPlayers () {
-		this.currentBet = this.bigBlind;
 		const player = this.firstAfterDillerPlayerInGame;
-		const bigBlind = player.bet(this.currentBet);
+		const bigBlind = player.bet(this.bigBlind);
 		this.pot += bigBlind;
-		this.playersBets[PRE_FLOP][player.id] += this.currentBet;
+		this.playersBets[PRE_FLOP][player.id] += this.bigBlind;
 
 		this.preFlop();
 
+		this.flop(this.getNextIndex(this.dillerPosition));
+
+		this.turn(this.getNextIndex(this.dillerPosition));
+
+		this.river(this.getNextIndex(this.dillerPosition));
+
+		this.showdown();
 		// console.log('pot', this.pot);
-		// console.log(this.playersInGame);
+		// console.log(this.playersInGameArr);
 		// console.log(this.playersBets);
 	}
 
 	preFlop (startIndex) {
 		this.gameStage = PRE_FLOP;
-		this.bettingCycle(startIndex);
+		this.currentBet = this.bigBlind;
+		console.log('---------------------');
+		console.log('Game stage - "pre flop"');
+		console.log(`current bet - ${this.currentBet}`);
+		console.log('---------------------');
+		this.startStageBettingCycle(startIndex);
+	}
 
+	flop (startIndex) {
+		this.gameStage = FLOP;
+		this.currentBet = 0;
+		this.stageCards[this.gameStage] = this.boardCards.drawFlop();
+		console.log('---------------------');
+		console.log('Game stage - "flop"');
+		console.log(`cards - ${this.boardCards.toStringCards(this.boardCards.flop)}`);
+		console.log('---------------------');
+		this.startStageBettingCycle(startIndex);
+	}
+
+	turn (startIndex) {
+		this.gameStage = TURN;
+		this.currentBet = 0;
+		this.stageCards[this.gameStage] = this.boardCards.drawTurn();
+		console.log('---------------------');
+		console.log('Game stage - "turn"');
+		console.log(`cards - ${this.boardCards.toStringCards(this.boardCards.turn)}`);
+		console.log('---------------------');
+		this.startStageBettingCycle(startIndex);
+	}
+
+	river (startIndex) {
+		this.gameStage = RIVER;
+		this.currentBet = 0;
+		this.stageCards[this.gameStage] = this.boardCards.drawRiver();
+		console.log('---------------------');
+		console.log('Game stage - "river"');
+		console.log(`cards - ${this.boardCards.toStringCards(this.boardCards.river)}`);
+		console.log('---------------------');
+		this.startStageBettingCycle(startIndex);
+	}
+
+	showdown () {
+		console.log('---------------------');
+		console.log('Game stage - "showdown"');
+		console.log(`board cards - ${this.boardCards.toStringAll()}`);
+		console.log('---------------------');
+
+		this.playersInGameArr.forEach(player => {
+			console.log(player.name, player.handCards.toString());
+		});
+	}
+
+	startStageBettingCycle (startIndex) {
+		for (let continueBetting = true; continueBetting;) {
+			this.bettingCycle(startIndex);
+			const cycleBets = Object.entries(this.playersBets[this.gameStage])
+				.filter(([playerId]) => this.playersInGame[playerId])
+				.map((entry) => entry[1]);
+			continueBetting = !cycleBets.every((value) => value === cycleBets[0]);
+		}
 	}
 
 	bettingCycle (startIndex) {
-		this.foreEachPlayerFrom((player, index) => {
-			const playerBetInCycle = this.playersBets[this.gameStage][player.id];
+		this.foreEachPlayerFromWithBank((player, index) => {
+			const gameStage = this.gameStage;
+			const playerBetInCycle = this.playersBets[gameStage][player.id];
 			const minimalBet = this.currentBet - playerBetInCycle;
+			const stageCards = this.stageCards[gameStage];
 
 			if (minimalBet < 0) {
 				throw Error('minimalBet < 0');
 			}
-			console.log(minimalBet);
-			console.log(this.playersBets[this.gameStage]);
-			const decision = player.makeDecision(minimalBet, index, this.gameStage);
 
-			this.playersBets[this.gameStage][player.id] += decision;
+			const decision = player.makeDecision(minimalBet, {
+				index,
+				gameStage,
+				stageCards,
+			});
+
+			this.playersBets[gameStage][player.id] += decision;
 			this.pot += decision;
 
 			this.currentBet = playerBetInCycle + decision;
 
 		}, startIndex);
-
 	}
 
 

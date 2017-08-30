@@ -1,23 +1,23 @@
 export default class BoardCards {
 
-	constructor(deck) {
+	constructor (deck) {
 		this.cards = [];
 		this.deck = deck;
 	}
 
-	get flop() {
-		return this._toString(this.cards.slice(0, 3));
+	get flop () {
+		return this.cards.slice(0, 3);
 	}
 
-	get turn() {
-		return this.cards[3];
+	get turn () {
+		return [this.cards[3]];
 	}
 
-	get river() {
-		return this.cards[4];
+	get river () {
+		return [this.cards[4]];
 	}
 
-	showFlop() {
+	drawFlop () {
 		this.cards.push(this.deck.drawRandomCard());
 		this.cards.push(this.deck.drawRandomCard());
 		this.cards.push(this.deck.drawRandomCard());
@@ -25,24 +25,24 @@ export default class BoardCards {
 		return this.flop;
 	}
 
-	showTurn() {
+	drawTurn () {
 		this.cards.push(this.deck.drawRandomCard());
 
 		return this.turn;
 	}
 
-	showRiver() {
+	drawRiver () {
 		this.cards.push(this.deck.drawRandomCard());
 
 		return this.river;
 	}
 
-	_toString(cards) {
+	toStringCards (cards) {
 		return cards.map(card => card.toString()).join(' | ');
 	}
 
-	toString() {
-		return this._toString(this.cards);
+	toStringAll () {
+		return this.toStringCards(this.cards);
 	}
 
 }
