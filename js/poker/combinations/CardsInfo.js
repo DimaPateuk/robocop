@@ -39,8 +39,10 @@ function filterFlush (names) {
 }
 
 export default class CardsInfo {
-	constructor (cards = []) {
-		this.parseCards(cards);
+	constructor (cards) {
+		if (cards) {
+			this.parseCards(cards);
+		}
 	}
 
 	parseCards (cards) {
@@ -158,5 +160,7 @@ export default class CardsInfo {
 			power: this.heighCombinatoin[1] + this.heighCombinatoin[0],
 			name: this.heighCombinatoin[2],
 		};
+
+		return this.heighCombinatoinInfo;
 	}
 }

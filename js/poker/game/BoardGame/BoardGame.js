@@ -2,6 +2,7 @@ import BoardCards from '../../cards/BoardCards.js';
 import Deck from '../../cards/Deck.js';
 import HandCards from '../../cards/HandCards.js';
 import BoardGameUtils from './BoardGameUtils.js';
+import CardsInfo from '../../combinations/CardsInfo';
 
 import {
 	PRE_FLOP,
@@ -11,10 +12,14 @@ import {
 	SHOWDOWN,
 } from '../../constants';
 
+import sortBy from 'lodash/sortBy';
+
 export default class BoardGame extends BoardGameUtils {
 
 	constructor (players, smallBlind, bigBlind, ante = 0) {
 		super();
+
+		this.cardsInfo = new CardsInfo();
 
 		this.players = players.filter(player => player.bank > 0);
 		this.smallBlind = smallBlind;
@@ -27,6 +32,7 @@ export default class BoardGame extends BoardGameUtils {
 		this.deck = new Deck();
 		this.boardCards = new BoardCards(this.deck);
 		this.pot = 0;
+		this.anteInGame = 0;
 		this.playersInGame = {};
 		this.playersBets = {
 			[PRE_FLOP]: {},
@@ -43,7 +49,7 @@ export default class BoardGame extends BoardGameUtils {
 
 		this.players.forEach((player, index) => {
 			const ante = player.ante(this.ante);
-			this.pot += ante;
+			this.anteInGame += ante;
 
 			this.playersInGame[player.id] = {
 				index,
@@ -97,6 +103,7 @@ export default class BoardGame extends BoardGameUtils {
 		this.gameStage = FLOP;
 		this.currentBet = 0;
 		this.stageCards[this.gameStage] = this.boardCards.drawFlop();
+
 		console.log('---------------------');
 		console.log('Game stage - "flop"');
 		console.log(`cards - ${this.boardCards.toStringCards(this.boardCards.flop)}`);
@@ -132,9 +139,47 @@ export default class BoardGame extends BoardGameUtils {
 		console.log(`board cards - ${this.boardCards.toStringAll()}`);
 		console.log('---------------------');
 
-		this.playersInGameArr.forEach(player => {
-			console.log(player.name, player.handCards.toString());
-		});
+
+		console.log()
+
+		const compousedByPower = this.playersInGameArr.reduce((res, player) => {
+			const heighCombinatoinInfo = this.cardsInfo.parseCards(this.boardCards.cards.concat(player.handCards.cards));
+
+			console.log('showdown', player.name);
+
+
+			console.log(player.handCards.toString(), '-', heighCombinatoinInfo);
+			console.log('------------------')
+
+			if (res[heighCombinatoinInfo.power]) {
+				res[heighCombinatoinInfo.power].push({
+					player,
+					heighCombinatoinInfo,
+				});
+			} else {
+				res[heighCombinatoinInfo.power] = [{
+					player,
+					heighCombinatoinInfo,
+				}];
+			}
+
+			return res;
+		}, {});
+
+		const sortedByCardsPower = sortBy(
+				Object.entries(compousedByPower),
+				([power]) => -parseInt(power, 10)
+			)
+			.map(entry => entry[1]);
+
+		sortedByCardsPower.forEach((players) => this.sortedByCardsPower(players));
+
+	}
+
+	separateReword (winners) {
+		for (var i = 0; i < this.players.length; i++) {
+			this.players[i]
+		}
 	}
 
 	startStageBettingCycle (startIndex) {
@@ -152,7 +197,7 @@ export default class BoardGame extends BoardGameUtils {
 			const gameStage = this.gameStage;
 			const playerBetInCycle = this.playersBets[gameStage][player.id];
 			const minimalBet = this.currentBet - playerBetInCycle;
-			const stageCards = this.stageCards[gameStage];
+			const boardCards = this.boardCards.cards;
 
 			if (minimalBet < 0) {
 				throw Error('minimalBet < 0');
@@ -161,7 +206,7 @@ export default class BoardGame extends BoardGameUtils {
 			const decision = player.makeDecision(minimalBet, {
 				index,
 				gameStage,
-				stageCards,
+				boardCards,
 			});
 
 			this.playersBets[gameStage][player.id] += decision;

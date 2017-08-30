@@ -25,11 +25,12 @@ export default class Player {
 		if (this.bank - value < 0) {
 			const result = this.bank;
 			this.bank = 0;
-
+			this.bankInGame += result;
 			return result;
 		}
 
 		this.bank -= value;
+		this.bankInGame += value;
 
 		return value;
 
@@ -57,8 +58,8 @@ export default class Player {
 		const {
 			index,
 			gameStage,
+			boardCards,
 		} = gameInfo;
-
 
 		return this.bet(minimalBet);
 
