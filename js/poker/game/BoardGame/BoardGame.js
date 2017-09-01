@@ -83,7 +83,7 @@ export default class BoardGame extends BoardGameUtils {
 
 		this.river(this.getNextIndex(this.dillerPosition));
 
-		this.showdown();
+		this.showdownForTwoPlayers();
 		// console.log('pot', this.pot);
 		// console.log(this.playersInGameArr);
 		// console.log(this.playersBets);
@@ -133,51 +133,51 @@ export default class BoardGame extends BoardGameUtils {
 		this.startStageBettingCycle(startIndex);
 	}
 
-	showdown () {
+	showdownForTwoPlayers () {
 		console.log('---------------------');
-		console.log('Game stage - "showdown"');
+		console.log('Game stage - "showdown For Two Players"');
+		console.log(`board cards - ${this.boardCards.toStringAll()}`);
+		console.log(`${this.players[0].name} - ${this.players[0].handCards.toString()}`);
+		console.log(`${this.players[1].name} - ${this.players[1].handCards.toString()}`);
 		console.log(`board cards - ${this.boardCards.toStringAll()}`);
 		console.log('---------------------');
 
-
-		console.log()
-
-		const compousedByPower = this.playersInGameArr.reduce((res, player) => {
+		const withHighCardCombination = this.playersInGameArr.map(player => {
 			const heighCombinatoinInfo = this.cardsInfo.parseCards(this.boardCards.cards.concat(player.handCards.cards));
+			console.log(player.name, heighCombinatoinInfo);
+			return {
+				heighCombinatoinInfo,
+				player,
+				power: heighCombinatoinInfo.power
+			};
+		});
 
-			console.log('showdown', player.name);
+		if (withHighCardCombination[0].power === withHighCardCombination[1].power) {
 
-
-			console.log(player.handCards.toString(), '-', heighCombinatoinInfo);
-			console.log('------------------');
-
-			if (res[heighCombinatoinInfo.power]) {
-				res[heighCombinatoinInfo.power].push({
-					player,
-					heighCombinatoinInfo,
-				});
+		} else {
+			let winner;
+			let loser;
+			if (withHighCardCombination[0].power > withHighCardCombination[1].power) {
+				winner = withHighCardCombination[0].player;
+				loser = withHighCardCombination[1].player;
 			} else {
-				res[heighCombinatoinInfo.power] = [{
-					player,
-					heighCombinatoinInfo,
-				}];
+				winner = withHighCardCombination[1].player;
+				loser = withHighCardCombination[0].player;
 			}
 
-			return res;
-		}, {});
+			winner.bank += this.anteInGame + winner.bankInGame;
+			this.pot -= winner.bankInGame;
 
-		const sortedByCardsPower = sortBy(
-			Object.entries(compousedByPower),
-			([power]) => -parseInt(power, 10)
-		).map(entry => entry[1]);
+			if (winner.bankInGame < loser.bankInGame) {
+				winner.bank += winner.bankInGame;
+				this.pot -= winner.bankInGame;
+				loser.bank += this.pot;
+			} else {
+				winner.bank += this.pot;
+			}
+		}
 
-		sortedByCardsPower.forEach((players, index) => this.separateReword(players, index));
-
-	}
-
-	separateReword (winners, index) {
-		console.log(winners);
-		console.log(index);
+		console.log(withHighCardCombination);
 	}
 
 	startStageBettingCycle (startIndex) {

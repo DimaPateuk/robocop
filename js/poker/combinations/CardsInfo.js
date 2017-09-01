@@ -210,7 +210,6 @@ export default class CardsInfo {
 		this.heighCombinatoinInfo = {
 			power: this.heighCombinatoin[1] + this.heighCombinatoin[0],
 			name: this.heighCombinatoin[2],
-			kiker: 'need calculate kiker for 2 3 4 combination cards',
 		};
 
 		return this.heighCombinatoinInfo;
