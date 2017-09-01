@@ -79,7 +79,7 @@ export default function PairTest () {
 	);
 
 	testFunction(
-		'4) Pair power - ACE and kiker TEN, NINE',
+		'4) Pair power - ACE and kiker TEN, NINE, EIGHT',
 		() => {
 			const cardsInfo = new CardsInfo([
 				new Card(ACE, HEART),
@@ -87,6 +87,23 @@ export default function PairTest () {
 				new Card(TEN, CLUB),
 				new Card(NINE, CLUB),
 				new Card(EIGHT, CLUB),
+			]);
+
+			return cardsInfo.heighCombinatoinInfo.power;
+		},
+		237
+	);
+
+	testFunction(
+		'5) Pair power - ACE and kiker TEN, NINE, EIGHT',
+		() => {
+			const cardsInfo = new CardsInfo([
+				new Card(ACE, HEART),
+				new Card(ACE, CLUB),
+				new Card(TEN, CLUB),
+				new Card(NINE, CLUB),
+				new Card(EIGHT, CLUB),
+				new Card(SEVEN, DIAMOND),
 			]);
 
 			return cardsInfo.heighCombinatoinInfo.power;

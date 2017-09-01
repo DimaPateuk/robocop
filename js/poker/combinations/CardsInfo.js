@@ -33,6 +33,8 @@ import {
 	getLastTwoElements,
 } from './utils';
 import sortBy from 'lodash/sortBy';
+import maxBy from 'lodash/maxBy';
+import sumBy from 'lodash/sumBy';
 
 function filterFlush (names) {
 	return names.length > 4 ? names : [];
@@ -78,6 +80,15 @@ export default class CardsInfo {
 			.filter(cards => cards.length == 2);
 
 		this.highPairValue = getLastElementFromArr(this.pair, { 0: {} })[0].value;
+		if (this.highPairValue) {
+			const kickerSum = sumBy(
+				sortBy(this.cards.filter(card => card.value !== this.highPairValue),
+					card => -card.value)
+					.slice(0, 3),
+				card => card.value
+			);
+			this.highPairValue += kickerSum;
+		}
 
 		this.twoPairs = this.pair.length > 1 ? getLastTwoElements(this.pair) : [];
 
