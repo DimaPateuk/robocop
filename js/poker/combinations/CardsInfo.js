@@ -71,34 +71,74 @@ export default class CardsInfo {
 
 		this.highFourOfAKindValue = getLastElementFromArr(this.fourOfAKind, { 0: {} })[0].value;
 
+		if (this.highFourOfAKindValue) {
+			const filteredCards = this.cards.filter(
+				card => card.value !== this.highFourOfAKindValue
+			);
+			const kicker = sortBy(
+				filteredCards,
+				card => -card.value
+			)[0] || { value: 0 };
+
+			this.highFourOfAKindValue += kicker.value;
+		}
+
 		this.threeOfAKind = this.separatedCardsByNamesArr
 			.filter(cards => cards.length == 3);
 
-		this.highThreeOfAKindValue = getLastElementFromArr(this.threeOfAKind, { 0: {} })[0].value;
+		const highThreeOfAKindValue = getLastElementFromArr(this.threeOfAKind, { 0: {} })[0].value;
+
+		if (highThreeOfAKindValue) {
+			const filteredCards = this.cards.filter(
+				card => card.value !== highThreeOfAKindValue
+			);
+			const kickers = sortBy(
+				filteredCards,
+				card => -card.value
+			).slice(0, 2);
+
+			this.highThreeOfAKindValue = highThreeOfAKindValue + sumBy(kickers, card => card.value);
+		}
 
 		this.pair = this.separatedCardsByNamesArr
 			.filter(cards => cards.length == 2);
 
-		this.highPairValue = getLastElementFromArr(this.pair, { 0: {} })[0].value;
-		if (this.highPairValue) {
+		const highPairValue = getLastElementFromArr(this.pair, { 0: {} })[0].value;
+		if (highPairValue) {
 			const kickerSum = sumBy(
-				sortBy(this.cards.filter(card => card.value !== this.highPairValue),
+				sortBy(this.cards.filter(card => card.value !== highPairValue),
 					card => -card.value)
 					.slice(0, 3),
 				card => card.value
 			);
-			this.highPairValue += kickerSum;
+			this.highPairValue = highPairValue + kickerSum;
 		}
 
 		this.twoPairs = this.pair.length > 1 ? getLastTwoElements(this.pair) : [];
 
-		this.highFullHouseValue = this.pair.length && this.threeOfAKind.length ?
-			this.highPairValue * 2 + this.highThreeOfAKindValue * 3 :
-			undefined;
-
 		this.highTwoPairsValue = this.twoPairs
 			.map(arr => arr[0])
 			.reduce((res, item) => res + item.value, 0);
+
+		if (this.highTwoPairsValue) {
+			const [[first], [second]] = this.twoPairs;
+			const firstValue = first.value;
+			const secondValue = second.value;
+			const filteredCards = this.cards.filter(card => {
+				return card.value !== firstValue && card.value !== secondValue;
+			});
+			const kicker = sortBy(
+				filteredCards,
+				card => -card.value
+			)[0] || { value: 0 };
+
+			this.highTwoPairsValue += kicker.value;
+		}
+
+
+		this.highFullHouseValue = this.pair.length && this.threeOfAKind.length ?
+			highPairValue * 2 + highThreeOfAKindValue * 3 :
+			undefined;
 
 		this.flush = {
 			[HEART]: filterFlush(this.separatedCardsBySuit[HEART]),

@@ -9,13 +9,13 @@ import FourOfAKindTest from './FourOfAKind';
 import StraightFlushTest from './StraightFlush';
 
 export default function CombinationsTest () {
-	// HighCardTest();
+	HighCardTest();
 	PairTest();
-	// TwoPairsTest();
-	// ThreeOfAKindTest();
-	// StraighTest();
-	// FlushTest();
-	// FullHouseTest();
-	// FourOfAKindTest();
-	// StraightFlushTest();
+	TwoPairsTest();
+	ThreeOfAKindTest();
+	StraighTest();
+	FlushTest();
+	FullHouseTest();
+	FourOfAKindTest();
+	StraightFlushTest();
 }

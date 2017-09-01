@@ -53,6 +53,6 @@ export default function FourOfAKind () {
 
 			return cardsInfo.heighCombinatoinInfo.power;
 		},
-		813
+		825
 	);
 }

@@ -14,11 +14,9 @@ export function testFunction (testName, fn, expectedResultExecuter) {
 		isPassed = expectedResult === actualResult;
 	}
 
-	expectedResultExecuter = expectedResultExecuter + '';
-
 	if (isPassed) {
 		console.log('passed:', testName);
 	} else {
-		console.log('FAIL:', testName, `expect: \n${expectedResultExecuter}\n, but actual: ${actualResult}`);
+		console.log('FAIL:', testName, `expect: ${expectedResultExecuter}, but actual: ${actualResult}`);
 	}
 }
