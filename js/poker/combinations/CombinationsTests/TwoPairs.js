@@ -90,4 +90,21 @@ export default function TwoPairsTest () {
 		},
 		true
 	);
+
+	testFunction(
+		'5) Two Pairs power - ACE & KING and kiker TEN',
+		() => {
+			const AceAndKing = new CardsInfo([
+				new Card(ACE, DIAMOND),
+				new Card(ACE, CLUB),
+				new Card(KING, DIAMOND),
+				new Card(KING, CLUB),
+				new Card(TEN, CLUB),
+				new Card(NINE, CLUB),
+			]);
+
+			return AceAndKing.heighCombinatoinInfo.power;
+		},
+		334
+	);
 }

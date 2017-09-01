@@ -12,6 +12,6 @@ export function testFunction (testName, fn, expectedResult) {
 	if (isPassed) {
 		console.log('passed:', testName);
 	} else {
-		console.log('FAIL:', testName);
+		console.log('FAIL:', testName, `expect: ${expectedResult}, but actual: ${isPassed}`);
 	}
 }

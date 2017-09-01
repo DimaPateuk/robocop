@@ -55,4 +55,52 @@ export default function ThreeOfAKindTest () {
 		},
 		true
 	);
+
+	testFunction(
+		'3) Three of a kind power - ACE and kiker TEN',
+		() => {
+			const cardsInfo = new CardsInfo([
+				new Card(ACE, DIAMOND),
+				new Card(ACE, CLUB),
+				new Card(ACE, SPADE),
+				new Card(TEN, SPADE),
+			]);
+
+			return cardsInfo.heighCombinatoinInfo.power;
+		},
+		422
+	);
+
+	testFunction(
+		'4) Three of a kind power - ACE and kiker TEN & NINE',
+		() => {
+			const cardsInfo = new CardsInfo([
+				new Card(ACE, DIAMOND),
+				new Card(ACE, CLUB),
+				new Card(ACE, SPADE),
+				new Card(TEN, SPADE),
+				new Card(NINE, SPADE),
+			]);
+
+			return cardsInfo.heighCombinatoinInfo.power;
+		},
+		430
+	);
+
+	testFunction(
+		'5) Three of a kind power - ACE and kiker TEN & NINE',
+		() => {
+			const cardsInfo = new CardsInfo([
+				new Card(ACE, DIAMOND),
+				new Card(ACE, CLUB),
+				new Card(ACE, SPADE),
+				new Card(TEN, SPADE),
+				new Card(NINE, SPADE),
+				new Card(EIGHT, DIAMOND),
+			]);
+
+			return cardsInfo.heighCombinatoinInfo.power;
+		},
+		430
+	);
 }

@@ -50,6 +50,51 @@ export default function PairTest () {
 	);
 
 	testFunction(
+		'3) Pair power - ACE and kiker TEN',
+		() => {
+			const cardsInfo = new CardsInfo([
+				new Card(ACE, HEART),
+				new Card(ACE, CLUB),
+				new Card(TEN, CLUB),
+			]);
+
+			return cardsInfo.heighCombinatoinInfo.power;
+		},
+		222
+	);
+
+	testFunction(
+		'4) Pair power - ACE and kiker TEN, NINE',
+		() => {
+			const cardsInfo = new CardsInfo([
+				new Card(ACE, HEART),
+				new Card(ACE, CLUB),
+				new Card(TEN, CLUB),
+				new Card(NINE, CLUB),
+			]);
+
+			return cardsInfo.heighCombinatoinInfo.power;
+		},
+		230
+	);
+
+	testFunction(
+		'4) Pair power - ACE and kiker TEN, NINE',
+		() => {
+			const cardsInfo = new CardsInfo([
+				new Card(ACE, HEART),
+				new Card(ACE, CLUB),
+				new Card(TEN, CLUB),
+				new Card(NINE, CLUB),
+				new Card(EIGHT, CLUB),
+			]);
+
+			return cardsInfo.heighCombinatoinInfo.power;
+		},
+		237
+	);
+
+	testFunction(
 		'1) Pair compare - ACE vs KING',
 		() => {
 			const Ace = new CardsInfo([

@@ -149,7 +149,7 @@ export default class BoardGame extends BoardGameUtils {
 
 
 			console.log(player.handCards.toString(), '-', heighCombinatoinInfo);
-			console.log('------------------')
+			console.log('------------------');
 
 			if (res[heighCombinatoinInfo.power]) {
 				res[heighCombinatoinInfo.power].push({
@@ -167,19 +167,17 @@ export default class BoardGame extends BoardGameUtils {
 		}, {});
 
 		const sortedByCardsPower = sortBy(
-				Object.entries(compousedByPower),
-				([power]) => -parseInt(power, 10)
-			)
-			.map(entry => entry[1]);
+			Object.entries(compousedByPower),
+			([power]) => -parseInt(power, 10)
+		).map(entry => entry[1]);
 
-		sortedByCardsPower.forEach((players) => this.sortedByCardsPower(players));
+		sortedByCardsPower.forEach((players, index) => this.separateReword(players, index));
 
 	}
 
-	separateReword (winners) {
-		for (var i = 0; i < this.players.length; i++) {
-			this.players[i]
-		}
+	separateReword (winners, index) {
+		console.log(winners);
+		console.log(index);
 	}
 
 	startStageBettingCycle (startIndex) {

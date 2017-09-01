@@ -28,9 +28,9 @@ const Anticop = new Player (100, 'Anticop', AnticopDecisionMakerForTest);
 
 const goardGame = new BoardGame([Robocop, Anticop], 10, 20, 1);
 
-goardGame.start();
+
 
 // console.log(Robocop.handCards.toString());
 // console.log(Anticop.handCards.toString());
 
-export default () => {};
+export default () => goardGame.start();
