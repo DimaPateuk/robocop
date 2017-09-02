@@ -33,7 +33,7 @@ const boardGame = new BoardGame([Robocop, Anticop], 10, 20, 1);
 // console.log(Anticop.handCards.toString());
 
 export default () => {
-	// while(Robocop.bank !== 0 || Anticop.bank !== 0) {
+	while(boardGame.players.length > 1) {
 		boardGame.start();
 		// boardGame.start();
 		// boardGame.start();
@@ -42,5 +42,5 @@ export default () => {
 		// boardGame.start();
 		// boardGame.start();
 		// boardGame.start();
-	// }
+	}
 };

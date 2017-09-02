@@ -32,6 +32,10 @@ export default class BoardGame extends BoardGameUtils {
 	}
 
 	start () {
+		this.players = this.players.filter(player => player.bank > 0);
+		if (this.players.length === 1) {
+			return;
+		}
 		this.dillerPosition = this.getNextIndex(this.dillerPosition);
 		this.gameId = gameId++;
 		this.deck = new Deck();
@@ -215,25 +219,6 @@ export default class BoardGame extends BoardGameUtils {
 
 	}
 
-	startStageBettingCycle (startIndex) {
-		for (let continueBetting = true; continueBetting;) {
-			this.bettingCycle(startIndex);
-			const cycleBets = Object.entries(this.playersBets[this.gameStage])
-				.filter(([playerId]) => this.playersInGame[playerId])
-				.map((entry) => entry[1]);
-			if (this.playersInGameArr.length === 1) {
-				break;
-			}
-			continueBetting = !cycleBets.every((value) => value === cycleBets[0]);
-		}
-
-		if (this.playersInGameArr.length === 1) {
-			this.winBecauseAllFolded(this.playersInGameArr[0]);
-			return;
-		}
-
-	}
-
 	winBecauseAllFolded (winner) {
 		winner.bank += this.pot + this.anteInGame;
 
@@ -246,17 +231,53 @@ export default class BoardGame extends BoardGameUtils {
 		console.log();
 	}
 
+	startStageBettingCycle (startIndex) {
+		for (let continueBetting = true; continueBetting;) {
+			console.log('-------', )
+			if (this.playersInGameArr.length === 1) {
+				break;
+			}
+
+			const sortetByBank = sortBy(
+				this.playersInGameArr,
+				player => player.bank
+			);
+			if (sortetByBank[0].bank !== 0 && sortetByBank[1].bank === 0 ||
+				sortetByBank[0].bank === 0) {
+				break;
+			}
+
+			this.bettingCycle(startIndex);
+			const cycleBets = Object.entries(this.playersBets[this.gameStage])
+				.filter(([playerId]) => this.playersInGame[playerId])
+				.map((entry) => entry[1]);
+			continueBetting = !cycleBets.every((value) => value === cycleBets[0]);
+		}
+
+		if (this.playersInGameArr.length === 1) {
+			this.winBecauseAllFolded(this.playersInGameArr[0]);
+			return;
+		}
+
+	}
+
 	bettingCycle (startIndex) {
 		this.foreEachPlayerFromWithBank((player, index) => {
 
-			if (this.playersInGameArr.length === 1) {
+			if (this.playersInGameArr.length === 1 || player.bank === 0) {
 				return;
 			}
 
 			const gameStage = this.gameStage;
 			const playerBetInCycle = this.playersBets[gameStage][player.id];
-			const minimalBet = this.currentBet - playerBetInCycle;
 			const boardCards = this.boardCards.cards;
+
+			let minimalBet = this.currentBet - playerBetInCycle;
+			if (this.currentBet > player.bank) {
+				minimalBet = player.bank;
+			}
+
+			console.log('-------', player.bank, player.name,  this.currentBet, playerBetInCycle);
 
 			if (minimalBet < 0) {
 				throw Error('minimalBet < 0');
