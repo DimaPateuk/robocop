@@ -139,7 +139,6 @@ export default class CardsInfo {
 			this.highTwoPairsValue += kicker.value;
 		}
 
-
 		this.highFullHouseValue = this.pair.length && this.threeOfAKind.length ?
 			highPairValue * 2 + highThreeOfAKindValue * 3 :
 			undefined;

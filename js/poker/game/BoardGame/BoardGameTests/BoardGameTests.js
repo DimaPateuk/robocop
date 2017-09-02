@@ -35,7 +35,11 @@ const boardGame = new BoardGame([Robocop, Anticop], 10, 20, 1);
 export default () => {
 	// while(Robocop.bank !== 0 || Anticop.bank !== 0) {
 		boardGame.start();
-		boardGame.start();
+		// boardGame.start();
+		// boardGame.start();
+		// boardGame.start();
+		// boardGame.start();
+		// boardGame.start();
 		// boardGame.start();
 		// boardGame.start();
 	// }

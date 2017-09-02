@@ -24,8 +24,6 @@ export default class BoardGame extends BoardGameUtils {
 
 		this.id = boardGameId++;
 
-		this.cardsInfo = new CardsInfo();
-
 		this.players = players.filter(player => player.bank > 0);
 		this.smallBlind = smallBlind;
 		this.bigBlind = bigBlind;
@@ -167,7 +165,7 @@ export default class BoardGame extends BoardGameUtils {
 		console.log('---------------------');
 
 		const withHighCardCombination = this.playersInGameArr.map(player => {
-			const heighCombinatoinInfo = this.cardsInfo.parseCards(this.boardCards.cards.concat(player.handCards.cards));
+			const heighCombinatoinInfo = new CardsInfo(this.boardCards.cards.concat(player.handCards.cards)).heighCombinatoinInfo;
 			console.log(player.name, heighCombinatoinInfo);
 			return {
 				heighCombinatoinInfo,
@@ -228,14 +226,22 @@ export default class BoardGame extends BoardGameUtils {
 			}
 			continueBetting = !cycleBets.every((value) => value === cycleBets[0]);
 		}
+
+		if (this.playersInGameArr.length === 1) {
+			this.winBecauseAllFolded(this.playersInGameArr[0]);
+			return;
+		}
+
 	}
 
 	winBecauseAllFolded (winner) {
+		winner.bank += this.pot + this.anteInGame;
 
 		console.log('---------------------');
 		console.log('win Because All Folded');
-		winner.bank += this.pot + this.anteInGame;
-		console.log(winner.name, winner.bank);
+		console.log('winner', winner.name);
+		console.log(this.players[0].name, this.players[0].bank);
+		console.log(this.players[1].name, this.players[1].bank);
 		console.log('---------------------');
 		console.log();
 	}
@@ -244,7 +250,6 @@ export default class BoardGame extends BoardGameUtils {
 		this.foreEachPlayerFromWithBank((player, index) => {
 
 			if (this.playersInGameArr.length === 1) {
-				this.winBecauseAllFolded(player);
 				return;
 			}
 
