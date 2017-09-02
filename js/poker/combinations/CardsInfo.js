@@ -69,6 +69,7 @@ export default class CardsInfo {
 		this.fourOfAKind = this.separatedCardsByNamesArr
 			.filter(cards => cards.length === 4);
 
+		this.highFourOfAKindValue = undefined;
 		this.highFourOfAKindValue = getLastElementFromArr(this.fourOfAKind, { 0: {} })[0].value;
 
 		if (this.highFourOfAKindValue) {
@@ -86,6 +87,7 @@ export default class CardsInfo {
 		this.threeOfAKind = this.separatedCardsByNamesArr
 			.filter(cards => cards.length == 3);
 
+		this.highThreeOfAKindValue = undefined;
 		const highThreeOfAKindValue = getLastElementFromArr(this.threeOfAKind, { 0: {} })[0].value;
 
 		if (highThreeOfAKindValue) {
@@ -103,6 +105,7 @@ export default class CardsInfo {
 		this.pair = this.separatedCardsByNamesArr
 			.filter(cards => cards.length == 2);
 
+		this.highPairValue = undefined;
 		const highPairValue = getLastElementFromArr(this.pair, { 0: {} })[0].value;
 		if (highPairValue) {
 			const kickerSum = sumBy(
@@ -116,6 +119,7 @@ export default class CardsInfo {
 
 		this.twoPairs = this.pair.length > 1 ? getLastTwoElements(this.pair) : [];
 
+		this.highTwoPairsValue = undefined;
 		this.highTwoPairsValue = this.twoPairs
 			.map(arr => arr[0])
 			.reduce((res, item) => res + item.value, 0);

@@ -128,4 +128,25 @@ export default function PairTest () {
 		},
 		true
 	);
+
+	testFunction(
+		'1) test from game',
+		() => {
+			const cardsInfo = new CardsInfo([
+				new Card(JACK, DIAMOND),
+				new Card(FOUR, DIAMOND),
+				new Card(TEN, DIAMOND),
+				new Card(TWO, SPADE),
+				new Card(SIX, HEART),
+
+
+				new Card(KING, CLUB),
+				new Card(FIVE, SPADE),
+			]);
+
+			return cardsInfo.heighCombinatoinInfo.power;
+		},
+		112
+	);
+
 }

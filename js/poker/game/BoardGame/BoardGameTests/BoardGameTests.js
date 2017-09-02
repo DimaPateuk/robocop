@@ -26,11 +26,17 @@ const AnticopDecisionMakerForTest = new DecisionMakerForTest([
 
 const Anticop = new Player (100, 'Anticop', AnticopDecisionMakerForTest);
 
-const goardGame = new BoardGame([Robocop, Anticop], 10, 20, 1);
-
+const boardGame = new BoardGame([Robocop, Anticop], 10, 20, 1);
 
 
 // console.log(Robocop.handCards.toString());
 // console.log(Anticop.handCards.toString());
 
-export default () => goardGame.start();
+export default () => {
+	// while(Robocop.bank !== 0 || Anticop.bank !== 0) {
+		boardGame.start();
+		boardGame.start();
+		boardGame.start();
+		boardGame.start();
+	// }
+};
