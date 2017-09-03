@@ -10,37 +10,19 @@ import {
 	RAISE,
 } from '../../../constants';
 
-
-const RobocopDecisionMakerForTest = new DecisionMakerForTest([
-	BET,
-]);
-
-
-const Robocop = new Player (100, 'Robocop', RobocopDecisionMakerForTest);
-
-
-const AnticopDecisionMakerForTest = new DecisionMakerForTest([
-	CHECK,
-]);
-
-
-const Anticop = new Player (100, 'Anticop', AnticopDecisionMakerForTest);
-
-const boardGame = new BoardGame([Robocop, Anticop], 10, 20, 1);
-
-
-// console.log(Robocop.handCards.toString());
-// console.log(Anticop.handCards.toString());
-
 export default () => {
-	while(boardGame.players.length > 1) {
+	const RobocopDecisionMakerForTest = new DecisionMakerForTest([
+		BET,
+	]);
+	const Robocop = new Player (100, 'Robocop', RobocopDecisionMakerForTest);
+	const AnticopDecisionMakerForTest = new DecisionMakerForTest([
+		CHECK,
+	]);
+
+	const Anticop = new Player (100, 'Anticop', AnticopDecisionMakerForTest);
+	const boardGame = new BoardGame([Robocop, Anticop], 10, 20, 1);
+
+	while(boardGame.players.length !== 1) {
 		boardGame.start();
-		// boardGame.start();
-		// boardGame.start();
-		// boardGame.start();
-		// boardGame.start();
-		// boardGame.start();
-		// boardGame.start();
-		// boardGame.start();
 	}
 };

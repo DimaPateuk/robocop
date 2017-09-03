@@ -295,10 +295,17 @@ export default class BoardGame extends BoardGameUtils {
 				return;
 			}
 
+			if (decision < minimalBet) {
+				throw Error('decision < minimalBet');
+			}
+
 			this.playersBets[gameStage][player.id] += decision;
 			this.pot += decision;
 
-			this.currentBet = playerBetInCycle + decision;
+			const nextBet = playerBetInCycle + decision;
+			if (nextBet > this.currentBet) {
+				this.currentBet = nextBet;
+			}
 
 		}, startIndex);
 	}
