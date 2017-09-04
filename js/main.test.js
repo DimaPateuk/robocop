@@ -3,6 +3,3 @@ import BoardGameTests from './poker/game/BoardGame/BoardGameTests/BoardGameTests
 
 // CombinationsTests();
 BoardGameTests();
-BoardGameTests();
-BoardGameTests();
-BoardGameTests();

@@ -12,17 +12,23 @@ import {
 
 export default () => {
 	const RobocopDecisionMakerForTest = new DecisionMakerForTest([
-		BET,
 	]);
 	const Robocop = new Player (100, 'Robocop', RobocopDecisionMakerForTest);
+
 	const AnticopDecisionMakerForTest = new DecisionMakerForTest([
-		CHECK,
 	]);
-
 	const Anticop = new Player (100, 'Anticop', AnticopDecisionMakerForTest);
-	const boardGame = new BoardGame([Robocop, Anticop], 10, 20, 1);
 
-	while(boardGame.players.length !== 1) {
-		boardGame.start();
-	}
+
+	const CopDecisionMakerForTest = new DecisionMakerForTest([
+	]);
+	const Cop = new Player (100, 'Cop', CopDecisionMakerForTest);
+
+	const boardGame = new BoardGame([Robocop, Anticop, Cop], 10, 20, 1);
+
+	boardGame.start();
+
+	// while (boardGame.players.length !== 1) {
+	// 	boardGame.start();
+	// }
 };

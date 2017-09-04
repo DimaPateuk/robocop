@@ -23,7 +23,7 @@ export default class BoardGameUtils {
 		return this.getNextPlayer(this.dillerPosition).player;
 	}
 
-	get secondAfterDillerIndex () {
+	get secondAfterDillerPlayerInGame () {
 		return this.getNextPlayer(this.getNextPlayer(this.dillerPosition).index).player;
 	}
 

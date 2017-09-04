@@ -14,6 +14,9 @@ import {
 } from '../../constants';
 
 import sortBy from 'lodash/sortBy';
+import maxBy from 'lodash/maxBy';
+
+
 let boardGameId = 0;
 let gameId = 0;
 
@@ -32,8 +35,13 @@ export default class BoardGame extends BoardGameUtils {
 	}
 
 	start () {
+		console.log('------------------');
+		console.log('game preparation');
+		console.log('------------------');
+
 		this.players = this.players.filter(player => player.bank > 0);
 		if (this.players.length === 1) {
+			console.log('ONLY ONE PLAYER IN GAME');
 			return;
 		}
 		this.dillerPosition = this.getNextIndex(this.dillerPosition);
@@ -76,18 +84,65 @@ export default class BoardGame extends BoardGameUtils {
 
 		if (this.players.length === 2) {
 			this.startForTwoPlayers();
+		} else {
+			this.startMoreThenTwoPlayers();
 		}
 	}
 
+	startMoreThenTwoPlayers () {
+		console.log('------------------');
+		console.log(`GAME ${this.gameId} started`);
+		console.log('for more then two players');
+		this.playersInGameArr.forEach(player => {
+			console.log(player.name);
+		});
+		console.log('------------------');
+		this.firstAfterDillerPlayerInGame.bet(this.bigBlind / 2);
+		this.secondAfterDillerPlayerInGame.bet(this.bigBlind);
+		this.pot += this.bigBlind + this.bigBlind / 2;
+		this.playersBets[PRE_FLOP][this.firstAfterDillerPlayerInGame.id] += this.bigBlind / 2;
+		this.playersBets[PRE_FLOP][this.secondAfterDillerPlayerInGame.id] += this.bigBlind;
+
+		this.preFlop(this.getNextIndex(this.getNextIndex(this.dillerPosition)));
+
+		if (this.playersInGameArr.length === 1) {
+			return;
+		}
+
+		this.flop(this.getNextIndex(this.dillerPosition));
+
+		if (this.playersInGameArr.length === 1) {
+			return;
+		}
+
+		this.turn(this.getNextIndex(this.dillerPosition));
+
+		if (this.playersInGameArr.length === 1) {
+			return;
+		}
+
+		this.river(this.getNextIndex(this.dillerPosition));
+
+		if (this.playersInGameArr.length === 1) {
+			return;
+		}
+
+		this.showdownMoreThenTwoPlayers();
+	}
+
 	startForTwoPlayers () {
+		console.log('------------------');
+		console.log(`GAME ${this.gameId} started`);
+		console.log('for two players');
+		this.playersInGameArr.forEach(player => {
+			console.log(player.name);
+		});
+		console.log('------------------');
 		const player = this.firstAfterDillerPlayerInGame;
 		const bigBlind = player.bet(this.bigBlind);
 		this.pot += bigBlind;
 		this.playersBets[PRE_FLOP][player.id] += this.bigBlind;
 
-		console.log('------------------');
-		console.log(`GAME ${this.gameId} started`);
-		console.log('------------------');
 
 		this.preFlop();
 
@@ -210,13 +265,53 @@ export default class BoardGame extends BoardGameUtils {
 			}
 		}
 
-		console.log('--------------------')
-		console.log('Game end')
+		console.log('--------------------');
+		console.log('Game end');
 		console.log(this.players[0].name, this.players[0].bank);
 		console.log(this.players[1].name, this.players[1].bank);
-		console.log('--------------------')
+		console.log('--------------------');
 		console.log();
 
+	}
+
+	showdownMoreThenTwoPlayers () {
+		console.log('---------------------');
+		console.log('Game stage - "showdown For Two Players"');
+		console.log(`board cards - ${this.boardCards.toStringAll()}`);
+		this.playersInGameArr.forEach(player => {
+			console.log(`${player.name} - ${player.handCards.toString()}`);
+		});
+		console.log('---------------------');
+
+		const withHighCardCombination = this.playersInGameArr.map(player => {
+			const heighCombinatoinInfo = new CardsInfo(this.boardCards.cards.concat(player.handCards.cards)).heighCombinatoinInfo;
+			console.log(player.name, heighCombinatoinInfo);
+			return {
+				heighCombinatoinInfo,
+				player,
+				power: heighCombinatoinInfo.power,
+			};
+		});
+
+		const compousedByPower = withHighCardCombination.reduce((res, player) => {
+			if (!res[player.power]) {
+				res[player.power] = [player];
+			} else {
+				res[player.power].push(player);
+			}
+
+			return res;
+		}, {});
+
+		const sortedByPower = sortBy(Object.entries(compousedByPower), ([power]) => parseInt(power, 10))
+			.map(entry => entry[1]);
+
+		sortedByPower.forEach(arrOfPlayers => {
+			const maxBankInGame = maxBy(arrOfPlayers, playerInfo => playerInfo.player.bankInGame);
+			console.log(maxBankInGame);
+		});
+
+		console.log(sortedByPower);
 	}
 
 	winBecauseAllFolded (winner) {
@@ -233,7 +328,7 @@ export default class BoardGame extends BoardGameUtils {
 
 	startStageBettingCycle (startIndex) {
 		for (let continueBetting = true; continueBetting;) {
-			console.log('-------', )
+			console.log('-------');
 			if (this.playersInGameArr.length === 1) {
 				break;
 			}

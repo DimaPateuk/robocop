@@ -61,30 +61,24 @@ export default class Player {
 			boardCards,
 		} = gameInfo;
 
-		if (this.handCards.value > 20) {
-			return this.bet(this.bank);
-		}
+		return this.bet(minimalBet);
 
-		if (this.handCards.value > 15) {
-			const bet = Math.floor(minimalBet * 1.5);
-			return this.bet(bet);
-		}
+		// if (this.handCards.value > 20) {
+		// 	return this.bet(this.bank);
+		// }
 
-		if (this.handCards.value > 10 && minimalBet < bigBlind * 3) {
-			return this.bet(minimalBet);
-		}
+		// if (this.handCards.value > 15) {
+		// 	const bet = Math.floor(minimalBet * 1.5);
+		// 	return this.bet(bet);
+		// }
 
-		console.log('fold', this.name);
-		return FOLD;
-
-		// if (minimalBet === 0) {
-		// 	return this.bet(10);
-		// } else {
+		// if (this.handCards.value > 10 && minimalBet < bigBlind * 3) {
 		// 	return this.bet(minimalBet);
 		// }
-		// const decision = this.decisionMaker.makeDecision(currentBet, positionIndex, stage);
 
-		// throw Error('wrong player decision');
+		// console.log('fold', this.name);
+		// return FOLD;
+
 	}
 
 	setHandCards (handCards) {
