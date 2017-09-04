@@ -15,6 +15,7 @@ import {
 
 import sortBy from 'lodash/sortBy';
 import maxBy from 'lodash/maxBy';
+import sumBy from 'lodash/sumBy';
 
 
 let boardGameId = 0;
@@ -306,12 +307,50 @@ export default class BoardGame extends BoardGameUtils {
 		const sortedByPower = sortBy(Object.entries(compousedByPower), ([power]) => parseInt(power, 10))
 			.map(entry => entry[1]);
 
-		sortedByPower.forEach(arrOfPlayers => {
+
+		sortedByPower.forEach((arrOfPlayers, index) => {
+
 			const maxBankInGame = maxBy(arrOfPlayers, playerInfo => playerInfo.player.bankInGame);
-			console.log(maxBankInGame);
+			let winnerBank = this.anteInGame;
+
+			const winnersBets = sumBy(arrOfPlayers, playerInfo => playerInfo.player.bankInGame);
+			const withPartsInPersentWhatPlayerHasWon = arrOfPlayers
+					.map(playerInfo => {
+						const player = playerInfo.player;
+						return {
+							player,
+							part: (player.bankInGame / winnersBets) || 0
+						}
+					});
+
+						console.log(withPartsInPersentWhatPlayerHasWon);
+
+
+			this.anteInGame = 0;
+			this.players.forEach(player => {
+				const bankInGame = player.bankInGame;
+				if (bankInGame > maxBankInGame) {
+					winnerBank += maxBankInGame;
+					player.bankInGame -= maxBankInGame;
+					this.pot -= maxBankInGame;
+				} else {
+					winnerBank += bankInGame;
+					player.bankInGame = 0;
+					this.pot -= bankInGame;
+				}
+			});
+
+			withPartsInPersentWhatPlayerHasWon.forEach(playerInfo => {
+				const part = Math.floor(winnerBank * playerInfo.part);
+				playerInfo.player.bank += part;
+				winnerBank -= part;
+			});
+
+			withPartsInPersentWhatPlayerHasWon[0].palyer.bank += winnerBank;
+
+			arrOfPlayers.forEach(playerInfo => playerInfo.player.bankInGame = 0);
 		});
 
-		console.log(sortedByPower);
 	}
 
 	winBecauseAllFolded (winner) {
