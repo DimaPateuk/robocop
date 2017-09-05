@@ -26,9 +26,9 @@ export default () => {
 
 	const boardGame = new BoardGame([Robocop, Anticop, Cop], 10, 20, 1);
 
-	boardGame.start();
+	// boardGame.start();
 
-	// while (boardGame.players.length !== 1) {
-	// 	boardGame.start();
-	// }
+	while (boardGame.players.length !== 1) {
+		boardGame.start();
+	}
 };

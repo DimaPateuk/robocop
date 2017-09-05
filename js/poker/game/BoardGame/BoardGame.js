@@ -230,7 +230,7 @@ export default class BoardGame extends BoardGameUtils {
 			return {
 				heighCombinatoinInfo,
 				player,
-				power: heighCombinatoinInfo.power
+				power: heighCombinatoinInfo.power,
 			};
 		});
 
@@ -315,16 +315,13 @@ export default class BoardGame extends BoardGameUtils {
 
 			const winnersBets = sumBy(arrOfPlayers, playerInfo => playerInfo.player.bankInGame);
 			const withPartsInPersentWhatPlayerHasWon = arrOfPlayers
-					.map(playerInfo => {
-						const player = playerInfo.player;
-						return {
-							player,
-							part: (player.bankInGame / winnersBets) || 0
-						}
-					});
-
-						console.log(withPartsInPersentWhatPlayerHasWon);
-
+				.map(playerInfo => {
+					const player = playerInfo.player;
+					return {
+						player,
+						part: (player.bankInGame / winnersBets) || 0,
+					};
+				});
 
 			this.anteInGame = 0;
 			this.players.forEach(player => {
@@ -346,10 +343,15 @@ export default class BoardGame extends BoardGameUtils {
 				winnerBank -= part;
 			});
 
-			withPartsInPersentWhatPlayerHasWon[0].palyer.bank += winnerBank;
+			withPartsInPersentWhatPlayerHasWon[0].player.bank += winnerBank;
 
 			arrOfPlayers.forEach(playerInfo => playerInfo.player.bankInGame = 0);
 		});
+
+
+		console.log('total Bank In Game', sumBy(this.players, player => player.bank));
+
+		this.players.forEach(player => console.log(player.name, player.bank));
 
 	}
 
@@ -410,8 +412,6 @@ export default class BoardGame extends BoardGameUtils {
 			if (this.currentBet > player.bank) {
 				minimalBet = player.bank;
 			}
-
-			console.log('-------', player.bank, player.name,  this.currentBet, playerBetInCycle);
 
 			if (minimalBet < 0) {
 				throw Error('minimalBet < 0');
