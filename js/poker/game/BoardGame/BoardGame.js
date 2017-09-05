@@ -23,22 +23,29 @@ let gameId = 0;
 
 export default class BoardGame extends BoardGameUtils {
 
-	constructor (players, smallBlind, bigBlind, ante = 0) {
+	constructor (players, bigBlind, ante = 0) {
 		super();
 
 		this.id = boardGameId++;
 
 		this.players = players.filter(player => player.bank > 0);
-		this.smallBlind = smallBlind;
 		this.bigBlind = bigBlind;
 		this.ante = ante;
 		this.dillerPosition = 0;
+
+		this.countGames = 0;
 	}
 
 	start () {
 		console.log('------------------');
 		console.log('game preparation');
 		console.log('------------------');
+
+		this.countGames++;
+		if (this.countGames % 50 === 0) {
+			this.bigBlind *= 2;
+			this.ante *= 2;
+		}
 
 		this.players = this.players.filter(player => player.bank > 0);
 		if (this.players.length === 1) {
@@ -128,7 +135,7 @@ export default class BoardGame extends BoardGameUtils {
 			return;
 		}
 
-		this.showdownMoreThenTwoPlayers();
+		this.showdown();
 	}
 
 	startForTwoPlayers () {
@@ -169,7 +176,7 @@ export default class BoardGame extends BoardGameUtils {
 			return;
 		}
 
-		this.showdownForTwoPlayers();
+		this.showdown();
 	}
 
 	preFlop (startIndex) {
@@ -216,66 +223,7 @@ export default class BoardGame extends BoardGameUtils {
 		this.startStageBettingCycle(startIndex);
 	}
 
-	showdownForTwoPlayers () {
-		console.log('---------------------');
-		console.log('Game stage - "showdown For Two Players"');
-		console.log(`board cards - ${this.boardCards.toStringAll()}`);
-		console.log(`${this.players[0].name} - ${this.players[0].handCards.toString()}`);
-		console.log(`${this.players[1].name} - ${this.players[1].handCards.toString()}`);
-		console.log('---------------------');
-
-		const withHighCardCombination = this.playersInGameArr.map(player => {
-			const heighCombinatoinInfo = new CardsInfo(this.boardCards.cards.concat(player.handCards.cards)).heighCombinatoinInfo;
-			console.log(player.name, heighCombinatoinInfo);
-			return {
-				heighCombinatoinInfo,
-				player,
-				power: heighCombinatoinInfo.power,
-			};
-		});
-
-		if (withHighCardCombination[0].power === withHighCardCombination[1].power) {
-
-			this.players[0].bank += this.ante;
-			this.players[0].bank += this.players[0].bankInGame;
-
-			this.players[1].bank += this.ante;
-			this.players[1].bank += this.players[1].bankInGame;
-
-
-		} else {
-			let winner;
-			let loser;
-			if (withHighCardCombination[0].power > withHighCardCombination[1].power) {
-				winner = withHighCardCombination[0].player;
-				loser = withHighCardCombination[1].player;
-			} else {
-				winner = withHighCardCombination[1].player;
-				loser = withHighCardCombination[0].player;
-			}
-
-			winner.bank += this.anteInGame + winner.bankInGame;
-			this.pot -= winner.bankInGame;
-
-			if (winner.bankInGame < loser.bankInGame) {
-				winner.bank += winner.bankInGame;
-				this.pot -= winner.bankInGame;
-				loser.bank += this.pot;
-			} else {
-				winner.bank += this.pot;
-			}
-		}
-
-		console.log('--------------------');
-		console.log('Game end');
-		console.log(this.players[0].name, this.players[0].bank);
-		console.log(this.players[1].name, this.players[1].bank);
-		console.log('--------------------');
-		console.log();
-
-	}
-
-	showdownMoreThenTwoPlayers () {
+	showdown () {
 		console.log('---------------------');
 		console.log('Game stage - "showdown For Two Players"');
 		console.log(`board cards - ${this.boardCards.toStringAll()}`);
@@ -304,16 +252,16 @@ export default class BoardGame extends BoardGameUtils {
 			return res;
 		}, {});
 
-		const sortedByPower = sortBy(Object.entries(compousedByPower), ([power]) => parseInt(power, 10))
+		const sortedByPower = sortBy(Object.entries(compousedByPower), ([power]) => -parseInt(power, 10))
 			.map(entry => entry[1]);
 
 
 		sortedByPower.forEach((arrOfPlayers, index) => {
 
-			const maxBankInGame = maxBy(arrOfPlayers, playerInfo => playerInfo.player.bankInGame);
+			const maxBankInGame = maxBy(arrOfPlayers, 'player.bankInGame');
 			let winnerBank = this.anteInGame;
 
-			const winnersBets = sumBy(arrOfPlayers, playerInfo => playerInfo.player.bankInGame);
+			const winnersBets = sumBy(arrOfPlayers, 'player.bankInGame');
 			const withPartsInPersentWhatPlayerHasWon = arrOfPlayers
 				.map(playerInfo => {
 					const player = playerInfo.player;
@@ -349,9 +297,11 @@ export default class BoardGame extends BoardGameUtils {
 		});
 
 
-		console.log('total Bank In Game', sumBy(this.players, player => player.bank));
+		console.log('total Bank In Game', sumBy(this.players, 'bank'));
 
-		this.players.forEach(player => console.log(player.name, player.bank));
+		console.log('banks After Games');
+		sortBy(this.players, player => -player.bank)
+			.forEach(player => console.log(player.name, player.bank));
 
 	}
 

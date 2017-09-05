@@ -1,14 +1,14 @@
 export default class BoardGameUtils {
 	getNextIndex (index) {
 		const nextIndex = index + 1;
-		return nextIndex === this.players.length ? 0 : nextIndex;
+		return nextIndex >= this.players.length ? 0 : nextIndex;
 	}
 
 	getNextPlayer (index) {
 		index = this.getNextIndex(index);
 		let player = this.players[index];
 
-		while (!this.playersInGame[player.id]) {
+		while (!player || !this.playersInGame[player.id]) {
 			index = this.getNextIndex(index);
 			player = this.players[index];
 		}
