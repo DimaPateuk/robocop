@@ -53,6 +53,7 @@ export default class BoardGame extends BoardGameUtils {
 			return;
 		}
 		this.dillerPosition = this.getNextIndex(this.dillerPosition);
+		console.log('dillerPosition:', this.dillerPosition, this.players[this.dillerPosition].name);
 		this.gameId = gameId++;
 		this.deck = new Deck();
 		this.boardCards = new BoardCards(this.deck);
@@ -107,11 +108,13 @@ export default class BoardGame extends BoardGameUtils {
 		console.log('------------------');
 		this.firstAfterDillerPlayerInGame.bet(this.bigBlind / 2);
 		this.secondAfterDillerPlayerInGame.bet(this.bigBlind);
-		this.pot += this.bigBlind + this.bigBlind / 2;
+
 		this.playersBets[PRE_FLOP][this.firstAfterDillerPlayerInGame.id] += this.bigBlind / 2;
 		this.playersBets[PRE_FLOP][this.secondAfterDillerPlayerInGame.id] += this.bigBlind;
 
-		this.preFlop(this.getNextIndex(this.getNextIndex(this.dillerPosition)));
+		this.pot += this.bigBlind + this.bigBlind / 2;
+
+		this.preFlop(this.getNextIndex(this.getNextIndex(this.getNextIndex(this.dillerPosition))));
 
 		if (this.playersInGameArr.length === 1) {
 			return;
@@ -232,14 +235,18 @@ export default class BoardGame extends BoardGameUtils {
 		});
 		console.log('---------------------');
 
-		const withHighCardCombination = this.playersInGameArr.map(player => {
-			const heighCombinatoinInfo = new CardsInfo(this.boardCards.cards.concat(player.handCards.cards)).heighCombinatoinInfo;
+		const withHighCardCombination = sortBy(
+			this.playersInGameArr.map(player => {
+				const heighCombinatoinInfo = new CardsInfo(this.boardCards.cards.concat(player.handCards.cards)).heighCombinatoinInfo;
+				return {
+					heighCombinatoinInfo,
+					player,
+					power: heighCombinatoinInfo.power,
+				};
+			}), playerInfo => -playerInfo.power);
+
+		withHighCardCombination.forEach(({player, heighCombinatoinInfo}) => {
 			console.log(player.name, heighCombinatoinInfo);
-			return {
-				heighCombinatoinInfo,
-				player,
-				power: heighCombinatoinInfo.power,
-			};
 		});
 
 		const compousedByPower = withHighCardCombination.reduce((res, player) => {

@@ -65,9 +65,9 @@ function testGameForSixPlayers () {
 		fPlayer,
 	], 20, 1);
 
-	// while (boardGame.players.length !== 1) {
+	while (boardGame.players.length !== 1) {
 		boardGame.start();
-	// }
+	}
 };
 
 

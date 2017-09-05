@@ -1,0 +1,3517 @@
+
+> robocop@1.0.0 test D:\robocop
+> babel-node ./js/main.test.js --presets es2015,stage-2
+
+------------------
+game preparation
+------------------
+dillerPosition: 1 bPlayer
+ante aPlayer 1
+ante bPlayer 1
+ante cPlayer 1
+ante dPlayer 1
+ante iPlayer 1
+ante fPlayer 1
+------------------
+GAME 0 started
+for more then two players
+aPlayer
+bPlayer
+cPlayer
+dPlayer
+iPlayer
+fPlayer
+------------------
+bet cPlayer 10
+bet dPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet iPlayer 20
+bet fPlayer 20
+bet aPlayer 20
+bet bPlayer 20
+bet cPlayer 10
+check dPlayer
+---------------------
+Game stage - "flop"
+cards - 9 diamond | 7 diamond | 2 spade
+---------------------
+-------
+check cPlayer
+check dPlayer
+check iPlayer
+check fPlayer
+check aPlayer
+check bPlayer
+---------------------
+Game stage - "turn"
+cards - jack diamond
+---------------------
+-------
+check cPlayer
+check dPlayer
+check iPlayer
+check fPlayer
+check aPlayer
+check bPlayer
+---------------------
+Game stage - "river"
+cards - 10 diamond
+---------------------
+-------
+check cPlayer
+check dPlayer
+check iPlayer
+check fPlayer
+check aPlayer
+check bPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - 9 diamond | 7 diamond | 2 spade | jack diamond | 10 diamond
+aPlayer - 2 diamond | king spade
+bPlayer - ace diamond | queen club
+cPlayer - 8 club | 8 diamond
+dPlayer - 2 heart | 6 club
+iPlayer - queen spade | 7 club
+fPlayer - jack heart | 9 spade
+---------------------
+cPlayer { power: 910, name: 'Straight Flush' }
+bPlayer { power: 613, name: 'Flush' }
+aPlayer { power: 610, name: 'Flush' }
+fPlayer { power: 327, name: 'Two pairs' }
+iPlayer { power: 236, name: 'Pair' }
+dPlayer { power: 228, name: 'Pair' }
+total Bank In Game 600
+banks After Games
+cPlayer 205
+aPlayer 79
+bPlayer 79
+dPlayer 79
+iPlayer 79
+fPlayer 79
+------------------
+game preparation
+------------------
+dillerPosition: 2 cPlayer
+ante aPlayer 1
+ante bPlayer 1
+ante cPlayer 1
+ante dPlayer 1
+ante iPlayer 1
+ante fPlayer 1
+------------------
+GAME 1 started
+for more then two players
+aPlayer
+bPlayer
+cPlayer
+dPlayer
+iPlayer
+fPlayer
+------------------
+bet dPlayer 10
+bet iPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet fPlayer 20
+bet aPlayer 20
+bet bPlayer 20
+bet cPlayer 20
+bet dPlayer 10
+check iPlayer
+---------------------
+Game stage - "flop"
+cards - 7 heart | king club | ace heart
+---------------------
+-------
+check dPlayer
+check iPlayer
+check fPlayer
+check aPlayer
+check bPlayer
+check cPlayer
+---------------------
+Game stage - "turn"
+cards - 3 spade
+---------------------
+-------
+check dPlayer
+check iPlayer
+check fPlayer
+check aPlayer
+check bPlayer
+check cPlayer
+---------------------
+Game stage - "river"
+cards - queen spade
+---------------------
+-------
+check dPlayer
+check iPlayer
+check fPlayer
+check aPlayer
+check bPlayer
+check cPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - 7 heart | king club | ace heart | 3 spade | queen spade
+aPlayer - 5 diamond | queen club
+bPlayer - 3 club | 2 heart
+cPlayer - 8 club | 5 spade
+dPlayer - queen diamond | jack heart
+iPlayer - jack diamond | 9 club
+fPlayer - queen heart | 4 diamond
+---------------------
+dPlayer { power: 246, name: 'Pair' }
+aPlayer { power: 242, name: 'Pair' }
+fPlayer { power: 242, name: 'Pair' }
+bPlayer { power: 238, name: 'Pair' }
+cPlayer { power: 113, name: 'High card' }
+iPlayer { power: 113, name: 'High card' }
+total Bank In Game 600
+banks After Games
+cPlayer 184
+dPlayer 184
+aPlayer 58
+bPlayer 58
+iPlayer 58
+fPlayer 58
+------------------
+game preparation
+------------------
+dillerPosition: 3 dPlayer
+ante aPlayer 1
+ante bPlayer 1
+ante cPlayer 1
+ante dPlayer 1
+ante iPlayer 1
+ante fPlayer 1
+------------------
+GAME 2 started
+for more then two players
+aPlayer
+bPlayer
+cPlayer
+dPlayer
+iPlayer
+fPlayer
+------------------
+bet iPlayer 10
+bet fPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet aPlayer 20
+bet bPlayer 20
+bet cPlayer 20
+bet dPlayer 20
+bet iPlayer 10
+check fPlayer
+---------------------
+Game stage - "flop"
+cards - 3 spade | 6 club | jack spade
+---------------------
+-------
+check iPlayer
+check fPlayer
+check aPlayer
+check bPlayer
+check cPlayer
+check dPlayer
+---------------------
+Game stage - "turn"
+cards - 10 heart
+---------------------
+-------
+check iPlayer
+check fPlayer
+check aPlayer
+check bPlayer
+check cPlayer
+check dPlayer
+---------------------
+Game stage - "river"
+cards - jack club
+---------------------
+-------
+check iPlayer
+check fPlayer
+check aPlayer
+check bPlayer
+check cPlayer
+check dPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - 3 spade | 6 club | jack spade | 10 heart | jack club
+aPlayer - 10 club | 3 club
+bPlayer - 3 heart | 8 diamond
+cPlayer - 4 club | 8 spade
+dPlayer - 5 club | 2 diamond
+iPlayer - 8 heart | 7 heart
+fPlayer - king diamond | queen club
+---------------------
+aPlayer { power: 324, name: 'Two pairs' }
+bPlayer { power: 321, name: 'Two pairs' }
+fPlayer { power: 242, name: 'Pair' }
+iPlayer { power: 232, name: 'Pair' }
+cPlayer { power: 231, name: 'Pair' }
+dPlayer { power: 228, name: 'Pair' }
+total Bank In Game 600
+banks After Games
+aPlayer 163
+cPlayer 163
+dPlayer 163
+bPlayer 37
+iPlayer 37
+fPlayer 37
+------------------
+game preparation
+------------------
+dillerPosition: 4 iPlayer
+ante aPlayer 1
+ante bPlayer 1
+ante cPlayer 1
+ante dPlayer 1
+ante iPlayer 1
+ante fPlayer 1
+------------------
+GAME 3 started
+for more then two players
+aPlayer
+bPlayer
+cPlayer
+dPlayer
+iPlayer
+fPlayer
+------------------
+bet fPlayer 10
+bet aPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet bPlayer 20
+bet cPlayer 20
+bet dPlayer 20
+bet iPlayer 20
+bet fPlayer 10
+check aPlayer
+---------------------
+Game stage - "flop"
+cards - 5 heart | jack club | 4 club
+---------------------
+-------
+check fPlayer
+check aPlayer
+check bPlayer
+check cPlayer
+check dPlayer
+check iPlayer
+---------------------
+Game stage - "turn"
+cards - 3 diamond
+---------------------
+-------
+check fPlayer
+check aPlayer
+check bPlayer
+check cPlayer
+check dPlayer
+check iPlayer
+---------------------
+Game stage - "river"
+cards - 9 diamond
+---------------------
+-------
+check fPlayer
+check aPlayer
+check bPlayer
+check cPlayer
+check dPlayer
+check iPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - 5 heart | jack club | 4 club | 3 diamond | 9 diamond
+aPlayer - king spade | 6 spade
+bPlayer - 3 club | 6 heart
+cPlayer - queen heart | 10 heart
+dPlayer - 8 spade | 10 spade
+iPlayer - 7 club | 5 club
+fPlayer - 4 heart | 5 spade
+---------------------
+fPlayer { power: 317, name: 'Two pairs' }
+iPlayer { power: 228, name: 'Pair' }
+bPlayer { power: 225, name: 'Pair' }
+aPlayer { power: 112, name: 'High card' }
+cPlayer { power: 111, name: 'High card' }
+dPlayer { power: 110, name: 'High card' }
+total Bank In Game 600
+banks After Games
+aPlayer 142
+cPlayer 142
+dPlayer 142
+fPlayer 142
+bPlayer 16
+iPlayer 16
+------------------
+game preparation
+------------------
+dillerPosition: 5 fPlayer
+ante aPlayer 1
+ante bPlayer 1
+ante cPlayer 1
+ante dPlayer 1
+ante iPlayer 1
+ante fPlayer 1
+------------------
+GAME 4 started
+for more then two players
+aPlayer
+bPlayer
+cPlayer
+dPlayer
+iPlayer
+fPlayer
+------------------
+bet aPlayer 10
+bet bPlayer 15
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+---------------------
+Game stage - "flop"
+cards - queen club | 10 club | 2 club
+---------------------
+-------
+---------------------
+Game stage - "turn"
+cards - jack diamond
+---------------------
+-------
+---------------------
+Game stage - "river"
+cards - 4 heart
+---------------------
+-------
+---------------------
+Game stage - "showdown For Two Players"
+board cards - queen club | 10 club | 2 club | jack diamond | 4 heart
+aPlayer - 8 spade | jack spade
+bPlayer - 6 heart | 5 diamond
+cPlayer - queen diamond | 10 heart
+dPlayer - ace heart | 7 spade
+iPlayer - 3 diamond | 3 club
+fPlayer - queen heart | 10 diamond
+---------------------
+cPlayer { power: 330, name: 'Two pairs' }
+fPlayer { power: 330, name: 'Two pairs' }
+aPlayer { power: 237, name: 'Pair' }
+iPlayer { power: 232, name: 'Pair' }
+dPlayer { power: 113, name: 'High card' }
+bPlayer { power: 111, name: 'High card' }
+total Bank In Game 600
+banks After Games
+cPlayer 172
+dPlayer 141
+fPlayer 141
+aPlayer 131
+iPlayer 15
+bPlayer 0
+------------------
+game preparation
+------------------
+dillerPosition: 0 aPlayer
+ante aPlayer 1
+ante cPlayer 1
+ante dPlayer 1
+ante iPlayer 1
+ante fPlayer 1
+------------------
+GAME 5 started
+for more then two players
+aPlayer
+cPlayer
+dPlayer
+iPlayer
+fPlayer
+------------------
+bet cPlayer 10
+bet dPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet iPlayer 14
+bet fPlayer 20
+bet aPlayer 20
+bet cPlayer 10
+check dPlayer
+-------
+---------------------
+Game stage - "flop"
+cards - 3 club | jack club | ace club
+---------------------
+-------
+---------------------
+Game stage - "turn"
+cards - 9 spade
+---------------------
+-------
+---------------------
+Game stage - "river"
+cards - 3 spade
+---------------------
+-------
+---------------------
+Game stage - "showdown For Two Players"
+board cards - 3 club | jack club | ace club | 9 spade | 3 spade
+aPlayer - 7 club | 7 heart
+cPlayer - 2 heart | 2 diamond
+dPlayer - 4 heart | 4 diamond
+iPlayer - 10 club | 4 club
+fPlayer - ace heart | ace spade
+---------------------
+fPlayer { power: 743, name: 'Full house' }
+iPlayer { power: 613, name: 'Flush' }
+aPlayer { power: 321, name: 'Two pairs' }
+dPlayer { power: 318, name: 'Two pairs' }
+cPlayer { power: 316, name: 'Two pairs' }
+total Bank In Game 600
+banks After Games
+fPlayer 219
+cPlayer 151
+dPlayer 120
+aPlayer 110
+iPlayer 0
+------------------
+game preparation
+------------------
+dillerPosition: 1 cPlayer
+ante aPlayer 1
+ante cPlayer 1
+ante dPlayer 1
+ante fPlayer 1
+------------------
+GAME 6 started
+for more then two players
+aPlayer
+cPlayer
+dPlayer
+fPlayer
+------------------
+bet dPlayer 10
+bet fPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet aPlayer 20
+bet cPlayer 20
+bet dPlayer 10
+check fPlayer
+---------------------
+Game stage - "flop"
+cards - king heart | 4 heart | king diamond
+---------------------
+-------
+check dPlayer
+check fPlayer
+check aPlayer
+check cPlayer
+---------------------
+Game stage - "turn"
+cards - ace spade
+---------------------
+-------
+check dPlayer
+check fPlayer
+check aPlayer
+check cPlayer
+---------------------
+Game stage - "river"
+cards - queen diamond
+---------------------
+-------
+check dPlayer
+check fPlayer
+check aPlayer
+check cPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - king heart | 4 heart | king diamond | ace spade | queen diamond
+aPlayer - jack club | 4 club
+cPlayer - king spade | 3 heart
+dPlayer - 3 spade | 9 club
+fPlayer - queen club | 5 heart
+---------------------
+cPlayer { power: 436, name: 'Three of a kind' }
+fPlayer { power: 336, name: 'Two pairs' }
+aPlayer { power: 328, name: 'Two pairs' }
+dPlayer { power: 244, name: 'Pair' }
+total Bank In Game 600
+banks After Games
+cPlayer 214
+fPlayer 198
+dPlayer 99
+aPlayer 89
+------------------
+game preparation
+------------------
+dillerPosition: 2 dPlayer
+ante aPlayer 1
+ante cPlayer 1
+ante dPlayer 1
+ante fPlayer 1
+------------------
+GAME 7 started
+for more then two players
+aPlayer
+cPlayer
+dPlayer
+fPlayer
+------------------
+bet fPlayer 10
+bet aPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet cPlayer 20
+bet dPlayer 20
+bet fPlayer 10
+check aPlayer
+---------------------
+Game stage - "flop"
+cards - 9 club | 10 heart | 7 spade
+---------------------
+-------
+check fPlayer
+check aPlayer
+check cPlayer
+check dPlayer
+---------------------
+Game stage - "turn"
+cards - 4 diamond
+---------------------
+-------
+check fPlayer
+check aPlayer
+check cPlayer
+check dPlayer
+---------------------
+Game stage - "river"
+cards - 2 spade
+---------------------
+-------
+check fPlayer
+check aPlayer
+check cPlayer
+check dPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - 9 club | 10 heart | 7 spade | 4 diamond | 2 spade
+aPlayer - king heart | queen spade
+cPlayer - 8 diamond | king diamond
+dPlayer - 6 club | 10 club
+fPlayer - jack heart | 3 diamond
+---------------------
+dPlayer { power: 228, name: 'Pair' }
+aPlayer { power: 112, name: 'High card' }
+cPlayer { power: 112, name: 'High card' }
+fPlayer { power: 110, name: 'High card' }
+total Bank In Game 600
+banks After Games
+cPlayer 193
+fPlayer 177
+dPlayer 162
+aPlayer 68
+------------------
+game preparation
+------------------
+dillerPosition: 3 fPlayer
+ante aPlayer 1
+ante cPlayer 1
+ante dPlayer 1
+ante fPlayer 1
+------------------
+GAME 8 started
+for more then two players
+aPlayer
+cPlayer
+dPlayer
+fPlayer
+------------------
+bet aPlayer 10
+bet cPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet dPlayer 20
+bet fPlayer 20
+bet aPlayer 10
+check cPlayer
+---------------------
+Game stage - "flop"
+cards - 10 diamond | 6 spade | 7 club
+---------------------
+-------
+check aPlayer
+check cPlayer
+check dPlayer
+check fPlayer
+---------------------
+Game stage - "turn"
+cards - 8 diamond
+---------------------
+-------
+check aPlayer
+check cPlayer
+check dPlayer
+check fPlayer
+---------------------
+Game stage - "river"
+cards - 3 diamond
+---------------------
+-------
+check aPlayer
+check cPlayer
+check dPlayer
+check fPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - 10 diamond | 6 spade | 7 club | 8 diamond | 3 diamond
+aPlayer - ace club | 10 club
+cPlayer - 9 heart | 7 diamond
+dPlayer - queen spade | king spade
+fPlayer - 9 diamond | 4 diamond
+---------------------
+fPlayer { power: 609, name: 'Flush' }
+cPlayer { power: 509, name: 'Straight' }
+aPlayer { power: 235, name: 'Pair' }
+dPlayer { power: 112, name: 'High card' }
+total Bank In Game 600
+banks After Games
+fPlayer 240
+cPlayer 172
+dPlayer 141
+aPlayer 47
+------------------
+game preparation
+------------------
+dillerPosition: 0 aPlayer
+ante aPlayer 1
+ante cPlayer 1
+ante dPlayer 1
+ante fPlayer 1
+------------------
+GAME 9 started
+for more then two players
+aPlayer
+cPlayer
+dPlayer
+fPlayer
+------------------
+bet cPlayer 10
+bet dPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet fPlayer 20
+bet aPlayer 20
+bet cPlayer 10
+check dPlayer
+---------------------
+Game stage - "flop"
+cards - jack diamond | 4 spade | king spade
+---------------------
+-------
+check cPlayer
+check dPlayer
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "turn"
+cards - 6 diamond
+---------------------
+-------
+check cPlayer
+check dPlayer
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "river"
+cards - 6 heart
+---------------------
+-------
+check cPlayer
+check dPlayer
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - jack diamond | 4 spade | king spade | 6 diamond | 6 heart
+aPlayer - queen diamond | 3 club
+cPlayer - 10 heart | queen spade
+dPlayer - 10 club | 10 spade
+fPlayer - queen heart | king diamond
+---------------------
+fPlayer { power: 328, name: 'Two pairs' }
+dPlayer { power: 326, name: 'Two pairs' }
+aPlayer { power: 238, name: 'Pair' }
+cPlayer { power: 238, name: 'Pair' }
+total Bank In Game 600
+banks After Games
+fPlayer 303
+cPlayer 151
+dPlayer 120
+aPlayer 26
+------------------
+game preparation
+------------------
+dillerPosition: 1 cPlayer
+ante aPlayer 1
+ante cPlayer 1
+ante dPlayer 1
+ante fPlayer 1
+------------------
+GAME 10 started
+for more then two players
+aPlayer
+cPlayer
+dPlayer
+fPlayer
+------------------
+bet dPlayer 10
+bet fPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet aPlayer 20
+bet cPlayer 20
+bet dPlayer 10
+check fPlayer
+---------------------
+Game stage - "flop"
+cards - ace diamond | king diamond | 3 club
+---------------------
+-------
+check dPlayer
+check fPlayer
+check aPlayer
+check cPlayer
+---------------------
+Game stage - "turn"
+cards - 8 club
+---------------------
+-------
+check dPlayer
+check fPlayer
+check aPlayer
+check cPlayer
+---------------------
+Game stage - "river"
+cards - 7 diamond
+---------------------
+-------
+check dPlayer
+check fPlayer
+check aPlayer
+check cPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - ace diamond | king diamond | 3 club | 8 club | 7 diamond
+aPlayer - queen diamond | 7 spade
+cPlayer - jack diamond | 3 spade
+dPlayer - 4 club | 5 heart
+fPlayer - 6 diamond | 2 spade
+---------------------
+aPlayer { power: 242, name: 'Pair' }
+cPlayer { power: 237, name: 'Pair' }
+dPlayer { power: 113, name: 'High card' }
+fPlayer { power: 113, name: 'High card' }
+total Bank In Game 600
+banks After Games
+fPlayer 282
+cPlayer 130
+dPlayer 99
+aPlayer 89
+------------------
+game preparation
+------------------
+dillerPosition: 2 dPlayer
+ante aPlayer 1
+ante cPlayer 1
+ante dPlayer 1
+ante fPlayer 1
+------------------
+GAME 11 started
+for more then two players
+aPlayer
+cPlayer
+dPlayer
+fPlayer
+------------------
+bet fPlayer 10
+bet aPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet cPlayer 20
+bet dPlayer 20
+bet fPlayer 10
+check aPlayer
+---------------------
+Game stage - "flop"
+cards - 2 spade | 7 diamond | 8 diamond
+---------------------
+-------
+check fPlayer
+check aPlayer
+check cPlayer
+check dPlayer
+---------------------
+Game stage - "turn"
+cards - 5 spade
+---------------------
+-------
+check fPlayer
+check aPlayer
+check cPlayer
+check dPlayer
+---------------------
+Game stage - "river"
+cards - 9 spade
+---------------------
+-------
+check fPlayer
+check aPlayer
+check cPlayer
+check dPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - 2 spade | 7 diamond | 8 diamond | 5 spade | 9 spade
+aPlayer - 9 diamond | 2 club
+cPlayer - 3 heart | 10 club
+dPlayer - 10 diamond | queen heart
+fPlayer - 9 heart | 6 diamond
+---------------------
+fPlayer { power: 508, name: 'Straight' }
+aPlayer { power: 316, name: 'Two pairs' }
+dPlayer { power: 111, name: 'High card' }
+cPlayer { power: 109, name: 'High card' }
+total Bank In Game 600
+banks After Games
+fPlayer 345
+cPlayer 109
+dPlayer 78
+aPlayer 68
+------------------
+game preparation
+------------------
+dillerPosition: 3 fPlayer
+ante aPlayer 1
+ante cPlayer 1
+ante dPlayer 1
+ante fPlayer 1
+------------------
+GAME 12 started
+for more then two players
+aPlayer
+cPlayer
+dPlayer
+fPlayer
+------------------
+bet aPlayer 10
+bet cPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet dPlayer 20
+bet fPlayer 20
+bet aPlayer 10
+check cPlayer
+---------------------
+Game stage - "flop"
+cards - 5 heart | queen diamond | jack club
+---------------------
+-------
+check aPlayer
+check cPlayer
+check dPlayer
+check fPlayer
+---------------------
+Game stage - "turn"
+cards - 10 diamond
+---------------------
+-------
+check aPlayer
+check cPlayer
+check dPlayer
+check fPlayer
+---------------------
+Game stage - "river"
+cards - 8 club
+---------------------
+-------
+check aPlayer
+check cPlayer
+check dPlayer
+check fPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - 5 heart | queen diamond | jack club | 10 diamond | 8 club
+aPlayer - 5 diamond | jack diamond
+cPlayer - ace spade | 4 club
+dPlayer - 3 diamond | jack spade
+fPlayer - 9 diamond | 9 club
+---------------------
+fPlayer { power: 511, name: 'Straight' }
+aPlayer { power: 325, name: 'Two pairs' }
+dPlayer { power: 237, name: 'Pair' }
+cPlayer { power: 113, name: 'High card' }
+total Bank In Game 600
+banks After Games
+fPlayer 408
+cPlayer 88
+dPlayer 57
+aPlayer 47
+------------------
+game preparation
+------------------
+dillerPosition: 0 aPlayer
+ante aPlayer 1
+ante cPlayer 1
+ante dPlayer 1
+ante fPlayer 1
+------------------
+GAME 13 started
+for more then two players
+aPlayer
+cPlayer
+dPlayer
+fPlayer
+------------------
+bet cPlayer 10
+bet dPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet fPlayer 20
+bet aPlayer 20
+bet cPlayer 10
+check dPlayer
+---------------------
+Game stage - "flop"
+cards - 10 spade | 8 diamond | 6 diamond
+---------------------
+-------
+check cPlayer
+check dPlayer
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "turn"
+cards - 7 heart
+---------------------
+-------
+check cPlayer
+check dPlayer
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "river"
+cards - 8 club
+---------------------
+-------
+check cPlayer
+check dPlayer
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - 10 spade | 8 diamond | 6 diamond | 7 heart | 8 club
+aPlayer - 9 spade | queen club
+cPlayer - 8 heart | 5 spade
+dPlayer - jack spade | 2 diamond
+fPlayer - 7 diamond | 6 spade
+---------------------
+aPlayer { power: 509, name: 'Straight' }
+cPlayer { power: 422, name: 'Three of a kind' }
+fPlayer { power: 322, name: 'Two pairs' }
+dPlayer { power: 232, name: 'Pair' }
+total Bank In Game 600
+banks After Games
+fPlayer 387
+aPlayer 110
+cPlayer 67
+dPlayer 36
+------------------
+game preparation
+------------------
+dillerPosition: 1 cPlayer
+ante aPlayer 1
+ante cPlayer 1
+ante dPlayer 1
+ante fPlayer 1
+------------------
+GAME 14 started
+for more then two players
+aPlayer
+cPlayer
+dPlayer
+fPlayer
+------------------
+bet dPlayer 10
+bet fPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet aPlayer 20
+bet cPlayer 20
+bet dPlayer 10
+check fPlayer
+---------------------
+Game stage - "flop"
+cards - ace heart | 2 spade | 4 diamond
+---------------------
+-------
+check dPlayer
+check fPlayer
+check aPlayer
+check cPlayer
+---------------------
+Game stage - "turn"
+cards - 8 spade
+---------------------
+-------
+check dPlayer
+check fPlayer
+check aPlayer
+check cPlayer
+---------------------
+Game stage - "river"
+cards - 4 spade
+---------------------
+-------
+check dPlayer
+check fPlayer
+check aPlayer
+check cPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - ace heart | 2 spade | 4 diamond | 8 spade | 4 spade
+aPlayer - queen club | 4 heart
+cPlayer - 10 club | 6 spade
+dPlayer - 3 spade | 6 heart
+fPlayer - king club | 2 heart
+---------------------
+aPlayer { power: 427, name: 'Three of a kind' }
+fPlayer { power: 317, name: 'Two pairs' }
+cPlayer { power: 232, name: 'Pair' }
+dPlayer { power: 228, name: 'Pair' }
+total Bank In Game 600
+banks After Games
+fPlayer 366
+aPlayer 173
+cPlayer 46
+dPlayer 15
+------------------
+game preparation
+------------------
+dillerPosition: 2 dPlayer
+ante aPlayer 1
+ante cPlayer 1
+ante dPlayer 1
+ante fPlayer 1
+------------------
+GAME 15 started
+for more then two players
+aPlayer
+cPlayer
+dPlayer
+fPlayer
+------------------
+bet fPlayer 10
+bet aPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet cPlayer 20
+bet dPlayer 14
+bet fPlayer 10
+check aPlayer
+-------
+---------------------
+Game stage - "flop"
+cards - 4 club | 10 heart | king club
+---------------------
+-------
+---------------------
+Game stage - "turn"
+cards - 4 spade
+---------------------
+-------
+---------------------
+Game stage - "river"
+cards - ace club
+---------------------
+-------
+---------------------
+Game stage - "showdown For Two Players"
+board cards - 4 club | 10 heart | king club | 4 spade | ace club
+aPlayer - 5 heart | king heart
+cPlayer - queen club | 8 spade
+dPlayer - 9 heart | king spade
+fPlayer - 2 heart | 4 heart
+---------------------
+fPlayer { power: 428, name: 'Three of a kind' }
+aPlayer { power: 328, name: 'Two pairs' }
+dPlayer { power: 328, name: 'Two pairs' }
+cPlayer { power: 239, name: 'Pair' }
+total Bank In Game 600
+banks After Games
+fPlayer 423
+aPlayer 152
+cPlayer 25
+dPlayer 0
+------------------
+game preparation
+------------------
+dillerPosition: 0 aPlayer
+ante aPlayer 1
+ante cPlayer 1
+ante fPlayer 1
+------------------
+GAME 16 started
+for more then two players
+aPlayer
+cPlayer
+fPlayer
+------------------
+bet cPlayer 10
+bet fPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet aPlayer 20
+bet cPlayer 14
+bet fPlayer 4
+-------
+---------------------
+Game stage - "flop"
+cards - jack spade | 5 club | 2 spade
+---------------------
+-------
+---------------------
+Game stage - "turn"
+cards - queen heart
+---------------------
+-------
+---------------------
+Game stage - "river"
+cards - 3 heart
+---------------------
+-------
+---------------------
+Game stage - "showdown For Two Players"
+board cards - jack spade | 5 club | 2 spade | queen heart | 3 heart
+aPlayer - 10 spade | 9 heart
+cPlayer - jack diamond | 5 heart
+fPlayer - 7 club | 6 diamond
+---------------------
+cPlayer { power: 325, name: 'Two pairs' }
+aPlayer { power: 111, name: 'High card' }
+fPlayer { power: 111, name: 'High card' }
+total Bank In Game 600
+banks After Games
+fPlayer 398
+aPlayer 131
+cPlayer 71
+------------------
+game preparation
+------------------
+dillerPosition: 1 cPlayer
+ante aPlayer 1
+ante cPlayer 1
+ante fPlayer 1
+------------------
+GAME 17 started
+for more then two players
+aPlayer
+cPlayer
+fPlayer
+------------------
+bet fPlayer 10
+bet aPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet cPlayer 20
+bet fPlayer 10
+check aPlayer
+---------------------
+Game stage - "flop"
+cards - king spade | 8 diamond | 10 diamond
+---------------------
+-------
+check fPlayer
+check aPlayer
+check cPlayer
+---------------------
+Game stage - "turn"
+cards - 2 club
+---------------------
+-------
+check fPlayer
+check aPlayer
+check cPlayer
+---------------------
+Game stage - "river"
+cards - 6 diamond
+---------------------
+-------
+check fPlayer
+check aPlayer
+check cPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - king spade | 8 diamond | 10 diamond | 2 club | 6 diamond
+aPlayer - 6 heart | queen club
+cPlayer - 3 diamond | 6 spade
+fPlayer - 9 heart | 5 diamond
+---------------------
+aPlayer { power: 237, name: 'Pair' }
+cPlayer { power: 233, name: 'Pair' }
+fPlayer { power: 112, name: 'High card' }
+total Bank In Game 600
+banks After Games
+fPlayer 377
+aPlayer 173
+cPlayer 50
+------------------
+game preparation
+------------------
+dillerPosition: 2 fPlayer
+ante aPlayer 1
+ante cPlayer 1
+ante fPlayer 1
+------------------
+GAME 18 started
+for more then two players
+aPlayer
+cPlayer
+fPlayer
+------------------
+bet aPlayer 10
+bet cPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet fPlayer 20
+bet aPlayer 10
+check cPlayer
+---------------------
+Game stage - "flop"
+cards - 8 heart | ace club | 7 spade
+---------------------
+-------
+check aPlayer
+check cPlayer
+check fPlayer
+---------------------
+Game stage - "turn"
+cards - 6 heart
+---------------------
+-------
+check aPlayer
+check cPlayer
+check fPlayer
+---------------------
+Game stage - "river"
+cards - 5 spade
+---------------------
+-------
+check aPlayer
+check cPlayer
+check fPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - 8 heart | ace club | 7 spade | 6 heart | 5 spade
+aPlayer - 6 diamond | 4 spade
+cPlayer - jack diamond | king spade
+fPlayer - 3 spade | 2 spade
+---------------------
+aPlayer { power: 507, name: 'Straight' }
+cPlayer { power: 113, name: 'High card' }
+fPlayer { power: 113, name: 'High card' }
+total Bank In Game 600
+banks After Games
+fPlayer 356
+aPlayer 215
+cPlayer 29
+------------------
+game preparation
+------------------
+dillerPosition: 0 aPlayer
+ante aPlayer 1
+ante cPlayer 1
+ante fPlayer 1
+------------------
+GAME 19 started
+for more then two players
+aPlayer
+cPlayer
+fPlayer
+------------------
+bet cPlayer 10
+bet fPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet aPlayer 20
+bet cPlayer 18
+bet fPlayer 8
+-------
+---------------------
+Game stage - "flop"
+cards - ace diamond | queen club | queen heart
+---------------------
+-------
+---------------------
+Game stage - "turn"
+cards - 2 club
+---------------------
+-------
+---------------------
+Game stage - "river"
+cards - 9 club
+---------------------
+-------
+---------------------
+Game stage - "showdown For Two Players"
+board cards - ace diamond | queen club | queen heart | 2 club | 9 club
+aPlayer - ace club | 7 spade
+cPlayer - ace heart | 6 spade
+fPlayer - 5 diamond | 2 heart
+---------------------
+aPlayer { power: 332, name: 'Two pairs' }
+cPlayer { power: 332, name: 'Two pairs' }
+fPlayer { power: 325, name: 'Two pairs' }
+total Bank In Game 600
+banks After Games
+fPlayer 327
+aPlayer 246
+cPlayer 27
+------------------
+game preparation
+------------------
+dillerPosition: 1 cPlayer
+ante aPlayer 1
+ante cPlayer 1
+ante fPlayer 1
+------------------
+GAME 20 started
+for more then two players
+aPlayer
+cPlayer
+fPlayer
+------------------
+bet fPlayer 10
+bet aPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet cPlayer 20
+bet fPlayer 10
+check aPlayer
+---------------------
+Game stage - "flop"
+cards - 7 club | ace heart | jack club
+---------------------
+-------
+check fPlayer
+check aPlayer
+check cPlayer
+---------------------
+Game stage - "turn"
+cards - 4 diamond
+---------------------
+-------
+check fPlayer
+check aPlayer
+check cPlayer
+---------------------
+Game stage - "river"
+cards - 4 heart
+---------------------
+-------
+check fPlayer
+check aPlayer
+check cPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - 7 club | ace heart | jack club | 4 diamond | 4 heart
+aPlayer - 3 diamond | ace diamond
+cPlayer - jack heart | king club
+fPlayer - 9 spade | 10 club
+---------------------
+aPlayer { power: 326, name: 'Two pairs' }
+cPlayer { power: 326, name: 'Two pairs' }
+fPlayer { power: 235, name: 'Pair' }
+total Bank In Game 600
+banks After Games
+fPlayer 306
+aPlayer 272
+cPlayer 22
+------------------
+game preparation
+------------------
+dillerPosition: 2 fPlayer
+ante aPlayer 1
+ante cPlayer 1
+ante fPlayer 1
+------------------
+GAME 21 started
+for more then two players
+aPlayer
+cPlayer
+fPlayer
+------------------
+bet aPlayer 10
+bet cPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet fPlayer 20
+bet aPlayer 10
+bet cPlayer 1
+-------
+---------------------
+Game stage - "flop"
+cards - 4 spade | 4 heart | 10 heart
+---------------------
+-------
+---------------------
+Game stage - "turn"
+cards - 10 diamond
+---------------------
+-------
+---------------------
+Game stage - "river"
+cards - 2 diamond
+---------------------
+-------
+---------------------
+Game stage - "showdown For Two Players"
+board cards - 4 spade | 4 heart | 10 heart | 10 diamond | 2 diamond
+aPlayer - jack club | 10 spade
+cPlayer - 5 spade | 6 club
+fPlayer - jack heart | ace spade
+---------------------
+aPlayer { power: 733, name: 'Full house' }
+fPlayer { power: 325, name: 'Two pairs' }
+cPlayer { power: 317, name: 'Two pairs' }
+total Bank In Game 600
+banks After Games
+aPlayer 315
+fPlayer 285
+cPlayer 0
+------------------
+game preparation
+------------------
+dillerPosition: 0 aPlayer
+ante aPlayer 1
+ante fPlayer 1
+------------------
+GAME 22 started
+for two players
+aPlayer
+fPlayer
+------------------
+bet fPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet aPlayer 20
+check fPlayer
+---------------------
+Game stage - "flop"
+cards - queen club | jack diamond | 2 spade
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "turn"
+cards - 6 spade
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "river"
+cards - 10 diamond
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - queen club | jack diamond | 2 spade | 6 spade | 10 diamond
+aPlayer - 10 spade | 6 diamond
+fPlayer - 3 diamond | jack club
+---------------------
+aPlayer { power: 325, name: 'Two pairs' }
+fPlayer { power: 235, name: 'Pair' }
+total Bank In Game 600
+banks After Games
+aPlayer 336
+fPlayer 264
+------------------
+game preparation
+------------------
+dillerPosition: 1 fPlayer
+ante aPlayer 1
+ante fPlayer 1
+------------------
+GAME 23 started
+for two players
+aPlayer
+fPlayer
+------------------
+bet aPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet fPlayer 20
+check aPlayer
+---------------------
+Game stage - "flop"
+cards - 3 club | 9 heart | 10 spade
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "turn"
+cards - 7 club
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "river"
+cards - king club
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - 3 club | 9 heart | 10 spade | 7 club | king club
+aPlayer - 4 club | 8 diamond
+fPlayer - 4 diamond | 5 spade
+---------------------
+aPlayer { power: 112, name: 'High card' }
+fPlayer { power: 112, name: 'High card' }
+total Bank In Game 600
+banks After Games
+aPlayer 347
+fPlayer 253
+------------------
+game preparation
+------------------
+dillerPosition: 0 aPlayer
+ante aPlayer 1
+ante fPlayer 1
+------------------
+GAME 24 started
+for two players
+aPlayer
+fPlayer
+------------------
+bet fPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet aPlayer 20
+check fPlayer
+---------------------
+Game stage - "flop"
+cards - 7 club | 8 heart | 6 heart
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "turn"
+cards - ace diamond
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "river"
+cards - 4 spade
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - 7 club | 8 heart | 6 heart | ace diamond | 4 spade
+aPlayer - queen heart | 5 diamond
+fPlayer - 4 club | jack diamond
+---------------------
+aPlayer { power: 507, name: 'Straight' }
+fPlayer { power: 233, name: 'Pair' }
+total Bank In Game 600
+banks After Games
+aPlayer 368
+fPlayer 232
+------------------
+game preparation
+------------------
+dillerPosition: 1 fPlayer
+ante aPlayer 1
+ante fPlayer 1
+------------------
+GAME 25 started
+for two players
+aPlayer
+fPlayer
+------------------
+bet aPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet fPlayer 20
+check aPlayer
+---------------------
+Game stage - "flop"
+cards - 10 heart | jack spade | 8 heart
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "turn"
+cards - ace spade
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "river"
+cards - queen diamond
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - 10 heart | jack spade | 8 heart | ace spade | queen diamond
+aPlayer - ace heart | 3 spade
+fPlayer - 2 spade | 8 spade
+---------------------
+aPlayer { power: 243, name: 'Pair' }
+fPlayer { power: 241, name: 'Pair' }
+total Bank In Game 600
+banks After Games
+aPlayer 389
+fPlayer 211
+------------------
+game preparation
+------------------
+dillerPosition: 0 aPlayer
+ante aPlayer 1
+ante fPlayer 1
+------------------
+GAME 26 started
+for two players
+aPlayer
+fPlayer
+------------------
+bet fPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet aPlayer 20
+check fPlayer
+---------------------
+Game stage - "flop"
+cards - ace diamond | 7 heart | 9 diamond
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "turn"
+cards - queen heart
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "river"
+cards - 9 heart
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - ace diamond | 7 heart | 9 diamond | queen heart | 9 heart
+aPlayer - ace club | 2 club
+fPlayer - 6 heart | queen diamond
+---------------------
+aPlayer { power: 332, name: 'Two pairs' }
+fPlayer { power: 332, name: 'Two pairs' }
+total Bank In Game 600
+banks After Games
+aPlayer 400
+fPlayer 200
+------------------
+game preparation
+------------------
+dillerPosition: 1 fPlayer
+ante aPlayer 1
+ante fPlayer 1
+------------------
+GAME 27 started
+for two players
+aPlayer
+fPlayer
+------------------
+bet aPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet fPlayer 20
+check aPlayer
+---------------------
+Game stage - "flop"
+cards - 10 club | 8 heart | 6 club
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "turn"
+cards - king heart
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "river"
+cards - 3 club
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - 10 club | 8 heart | 6 club | king heart | 3 club
+aPlayer - ace club | 6 spade
+fPlayer - 7 heart | ace heart
+---------------------
+aPlayer { power: 239, name: 'Pair' }
+fPlayer { power: 113, name: 'High card' }
+total Bank In Game 600
+banks After Games
+aPlayer 421
+fPlayer 179
+------------------
+game preparation
+------------------
+dillerPosition: 0 aPlayer
+ante aPlayer 1
+ante fPlayer 1
+------------------
+GAME 28 started
+for two players
+aPlayer
+fPlayer
+------------------
+bet fPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet aPlayer 20
+check fPlayer
+---------------------
+Game stage - "flop"
+cards - 5 spade | jack diamond | 4 club
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "turn"
+cards - 2 diamond
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "river"
+cards - 4 heart
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - 5 spade | jack diamond | 4 club | 2 diamond | 4 heart
+aPlayer - 10 heart | ace diamond
+fPlayer - queen spade | 5 heart
+---------------------
+fPlayer { power: 318, name: 'Two pairs' }
+aPlayer { power: 235, name: 'Pair' }
+total Bank In Game 600
+banks After Games
+aPlayer 400
+fPlayer 200
+------------------
+game preparation
+------------------
+dillerPosition: 1 fPlayer
+ante aPlayer 1
+ante fPlayer 1
+------------------
+GAME 29 started
+for two players
+aPlayer
+fPlayer
+------------------
+bet aPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet fPlayer 20
+check aPlayer
+---------------------
+Game stage - "flop"
+cards - ace diamond | 7 club | 5 heart
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "turn"
+cards - queen spade
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "river"
+cards - jack spade
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - ace diamond | 7 club | 5 heart | queen spade | jack spade
+aPlayer - jack club | king diamond
+fPlayer - 8 diamond | 2 heart
+---------------------
+aPlayer { power: 246, name: 'Pair' }
+fPlayer { power: 113, name: 'High card' }
+total Bank In Game 600
+banks After Games
+aPlayer 421
+fPlayer 179
+------------------
+game preparation
+------------------
+dillerPosition: 0 aPlayer
+ante aPlayer 1
+ante fPlayer 1
+------------------
+GAME 30 started
+for two players
+aPlayer
+fPlayer
+------------------
+bet fPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet aPlayer 20
+check fPlayer
+---------------------
+Game stage - "flop"
+cards - 7 club | 9 diamond | 3 heart
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "turn"
+cards - 2 club
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "river"
+cards - 6 spade
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - 7 club | 9 diamond | 3 heart | 2 club | 6 spade
+aPlayer - king spade | 4 heart
+fPlayer - 9 spade | 4 club
+---------------------
+fPlayer { power: 222, name: 'Pair' }
+aPlayer { power: 112, name: 'High card' }
+total Bank In Game 600
+banks After Games
+aPlayer 400
+fPlayer 200
+------------------
+game preparation
+------------------
+dillerPosition: 1 fPlayer
+ante aPlayer 1
+ante fPlayer 1
+------------------
+GAME 31 started
+for two players
+aPlayer
+fPlayer
+------------------
+bet aPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet fPlayer 20
+check aPlayer
+---------------------
+Game stage - "flop"
+cards - 7 spade | 10 heart | 7 club
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "turn"
+cards - 4 heart
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "river"
+cards - 3 diamond
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - 7 spade | 10 heart | 7 club | 4 heart | 3 diamond
+aPlayer - queen diamond | ace club
+fPlayer - 3 heart | jack club
+---------------------
+fPlayer { power: 318, name: 'Two pairs' }
+aPlayer { power: 239, name: 'Pair' }
+total Bank In Game 600
+banks After Games
+aPlayer 379
+fPlayer 221
+------------------
+game preparation
+------------------
+dillerPosition: 0 aPlayer
+ante aPlayer 1
+ante fPlayer 1
+------------------
+GAME 32 started
+for two players
+aPlayer
+fPlayer
+------------------
+bet fPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet aPlayer 20
+check fPlayer
+---------------------
+Game stage - "flop"
+cards - king club | 10 heart | 7 spade
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "turn"
+cards - 8 diamond
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "river"
+cards - 4 diamond
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - king club | 10 heart | 7 spade | 8 diamond | 4 diamond
+aPlayer - 8 club | 9 spade
+fPlayer - king diamond | 7 diamond
+---------------------
+fPlayer { power: 327, name: 'Two pairs' }
+aPlayer { power: 236, name: 'Pair' }
+total Bank In Game 600
+banks After Games
+aPlayer 358
+fPlayer 242
+------------------
+game preparation
+------------------
+dillerPosition: 1 fPlayer
+ante aPlayer 1
+ante fPlayer 1
+------------------
+GAME 33 started
+for two players
+aPlayer
+fPlayer
+------------------
+bet aPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet fPlayer 20
+check aPlayer
+---------------------
+Game stage - "flop"
+cards - 7 heart | 9 diamond | queen diamond
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "turn"
+cards - 3 spade
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "river"
+cards - 5 heart
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - 7 heart | 9 diamond | queen diamond | 3 spade | 5 heart
+aPlayer - ace spade | 8 spade
+fPlayer - 6 diamond | 5 diamond
+---------------------
+fPlayer { power: 229, name: 'Pair' }
+aPlayer { power: 113, name: 'High card' }
+total Bank In Game 600
+banks After Games
+aPlayer 337
+fPlayer 263
+------------------
+game preparation
+------------------
+dillerPosition: 0 aPlayer
+ante aPlayer 1
+ante fPlayer 1
+------------------
+GAME 34 started
+for two players
+aPlayer
+fPlayer
+------------------
+bet fPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet aPlayer 20
+check fPlayer
+---------------------
+Game stage - "flop"
+cards - king spade | 9 diamond | 9 heart
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "turn"
+cards - 4 club
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "river"
+cards - 2 spade
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - king spade | 9 diamond | 9 heart | 4 club | 2 spade
+aPlayer - 10 spade | 8 spade
+fPlayer - queen heart | 10 club
+---------------------
+fPlayer { power: 240, name: 'Pair' }
+aPlayer { power: 236, name: 'Pair' }
+total Bank In Game 600
+banks After Games
+aPlayer 316
+fPlayer 284
+------------------
+game preparation
+------------------
+dillerPosition: 1 fPlayer
+ante aPlayer 1
+ante fPlayer 1
+------------------
+GAME 35 started
+for two players
+aPlayer
+fPlayer
+------------------
+bet aPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet fPlayer 20
+check aPlayer
+---------------------
+Game stage - "flop"
+cards - 10 diamond | 5 diamond | 3 club
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "turn"
+cards - 7 heart
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "river"
+cards - 7 club
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - 10 diamond | 5 diamond | 3 club | 7 heart | 7 club
+aPlayer - 5 club | 6 heart
+fPlayer - 9 diamond | 3 heart
+---------------------
+aPlayer { power: 319, name: 'Two pairs' }
+fPlayer { power: 317, name: 'Two pairs' }
+total Bank In Game 600
+banks After Games
+aPlayer 337
+fPlayer 263
+------------------
+game preparation
+------------------
+dillerPosition: 0 aPlayer
+ante aPlayer 1
+ante fPlayer 1
+------------------
+GAME 36 started
+for two players
+aPlayer
+fPlayer
+------------------
+bet fPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet aPlayer 20
+check fPlayer
+---------------------
+Game stage - "flop"
+cards - queen club | 7 heart | 3 club
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "turn"
+cards - queen spade
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "river"
+cards - 5 club
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - queen club | 7 heart | 3 club | queen spade | 5 club
+aPlayer - 3 diamond | 6 spade
+fPlayer - jack spade | 9 spade
+---------------------
+aPlayer { power: 319, name: 'Two pairs' }
+fPlayer { power: 235, name: 'Pair' }
+total Bank In Game 600
+banks After Games
+aPlayer 358
+fPlayer 242
+------------------
+game preparation
+------------------
+dillerPosition: 1 fPlayer
+ante aPlayer 1
+ante fPlayer 1
+------------------
+GAME 37 started
+for two players
+aPlayer
+fPlayer
+------------------
+bet aPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet fPlayer 20
+check aPlayer
+---------------------
+Game stage - "flop"
+cards - 7 club | ace club | king diamond
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "turn"
+cards - 6 heart
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "river"
+cards - 6 club
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - 7 club | ace club | king diamond | 6 heart | 6 club
+aPlayer - 9 heart | jack club
+fPlayer - 6 spade | 5 club
+---------------------
+fPlayer { power: 430, name: 'Three of a kind' }
+aPlayer { power: 240, name: 'Pair' }
+total Bank In Game 600
+banks After Games
+aPlayer 337
+fPlayer 263
+------------------
+game preparation
+------------------
+dillerPosition: 0 aPlayer
+ante aPlayer 1
+ante fPlayer 1
+------------------
+GAME 38 started
+for two players
+aPlayer
+fPlayer
+------------------
+bet fPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet aPlayer 20
+check fPlayer
+---------------------
+Game stage - "flop"
+cards - 4 club | 2 diamond | 5 spade
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "turn"
+cards - jack heart
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "river"
+cards - 6 spade
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - 4 club | 2 diamond | 5 spade | jack heart | 6 spade
+aPlayer - 7 heart | 8 heart
+fPlayer - 4 heart | ace spade
+---------------------
+aPlayer { power: 507, name: 'Straight' }
+fPlayer { power: 231, name: 'Pair' }
+total Bank In Game 600
+banks After Games
+aPlayer 358
+fPlayer 242
+------------------
+game preparation
+------------------
+dillerPosition: 1 fPlayer
+ante aPlayer 1
+ante fPlayer 1
+------------------
+GAME 39 started
+for two players
+aPlayer
+fPlayer
+------------------
+bet aPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet fPlayer 20
+check aPlayer
+---------------------
+Game stage - "flop"
+cards - ace diamond | king heart | 2 heart
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "turn"
+cards - 5 spade
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "river"
+cards - 6 heart
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - ace diamond | king heart | 2 heart | 5 spade | 6 heart
+aPlayer - 2 diamond | 8 spade
+fPlayer - 3 club | 5 diamond
+---------------------
+fPlayer { power: 234, name: 'Pair' }
+aPlayer { power: 233, name: 'Pair' }
+total Bank In Game 600
+banks After Games
+aPlayer 337
+fPlayer 263
+------------------
+game preparation
+------------------
+dillerPosition: 0 aPlayer
+ante aPlayer 1
+ante fPlayer 1
+------------------
+GAME 40 started
+for two players
+aPlayer
+fPlayer
+------------------
+bet fPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet aPlayer 20
+check fPlayer
+---------------------
+Game stage - "flop"
+cards - queen heart | 8 heart | jack club
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "turn"
+cards - 2 spade
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "river"
+cards - 4 club
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - queen heart | 8 heart | jack club | 2 spade | 4 club
+aPlayer - 3 diamond | 6 diamond
+fPlayer - 10 club | 4 diamond
+---------------------
+fPlayer { power: 233, name: 'Pair' }
+aPlayer { power: 111, name: 'High card' }
+total Bank In Game 600
+banks After Games
+aPlayer 316
+fPlayer 284
+------------------
+game preparation
+------------------
+dillerPosition: 1 fPlayer
+ante aPlayer 1
+ante fPlayer 1
+------------------
+GAME 41 started
+for two players
+aPlayer
+fPlayer
+------------------
+bet aPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet fPlayer 20
+check aPlayer
+---------------------
+Game stage - "flop"
+cards - 6 heart | 2 diamond | 5 diamond
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "turn"
+cards - queen diamond
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "river"
+cards - ace heart
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - 6 heart | 2 diamond | 5 diamond | queen diamond | ace heart
+aPlayer - ace diamond | king spade
+fPlayer - ace club | king diamond
+---------------------
+aPlayer { power: 241, name: 'Pair' }
+fPlayer { power: 241, name: 'Pair' }
+total Bank In Game 600
+banks After Games
+aPlayer 327
+fPlayer 273
+------------------
+game preparation
+------------------
+dillerPosition: 0 aPlayer
+ante aPlayer 1
+ante fPlayer 1
+------------------
+GAME 42 started
+for two players
+aPlayer
+fPlayer
+------------------
+bet fPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet aPlayer 20
+check fPlayer
+---------------------
+Game stage - "flop"
+cards - 7 spade | 5 spade | ace club
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "turn"
+cards - 4 diamond
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "river"
+cards - 2 spade
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - 7 spade | 5 spade | ace club | 4 diamond | 2 spade
+aPlayer - king diamond | 8 club
+fPlayer - 4 club | 5 diamond
+---------------------
+fPlayer { power: 320, name: 'Two pairs' }
+aPlayer { power: 113, name: 'High card' }
+total Bank In Game 600
+banks After Games
+aPlayer 306
+fPlayer 294
+------------------
+game preparation
+------------------
+dillerPosition: 1 fPlayer
+ante aPlayer 1
+ante fPlayer 1
+------------------
+GAME 43 started
+for two players
+aPlayer
+fPlayer
+------------------
+bet aPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet fPlayer 20
+check aPlayer
+---------------------
+Game stage - "flop"
+cards - 3 club | king spade | queen heart
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "turn"
+cards - 7 diamond
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "river"
+cards - ace spade
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - 3 club | king spade | queen heart | 7 diamond | ace spade
+aPlayer - 4 diamond | ace diamond
+fPlayer - 5 spade | 10 diamond
+---------------------
+aPlayer { power: 242, name: 'Pair' }
+fPlayer { power: 113, name: 'High card' }
+total Bank In Game 600
+banks After Games
+aPlayer 327
+fPlayer 273
+------------------
+game preparation
+------------------
+dillerPosition: 0 aPlayer
+ante aPlayer 1
+ante fPlayer 1
+------------------
+GAME 44 started
+for two players
+aPlayer
+fPlayer
+------------------
+bet fPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet aPlayer 20
+check fPlayer
+---------------------
+Game stage - "flop"
+cards - 6 club | jack heart | 3 heart
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "turn"
+cards - jack spade
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "river"
+cards - 2 diamond
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - 6 club | jack heart | 3 heart | jack spade | 2 diamond
+aPlayer - 5 diamond | king heart
+fPlayer - queen club | 8 diamond
+---------------------
+fPlayer { power: 233, name: 'Pair' }
+aPlayer { power: 231, name: 'Pair' }
+total Bank In Game 600
+banks After Games
+aPlayer 306
+fPlayer 294
+------------------
+game preparation
+------------------
+dillerPosition: 1 fPlayer
+ante aPlayer 1
+ante fPlayer 1
+------------------
+GAME 45 started
+for two players
+aPlayer
+fPlayer
+------------------
+bet aPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet fPlayer 20
+check aPlayer
+---------------------
+Game stage - "flop"
+cards - 4 spade | king club | 7 club
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "turn"
+cards - 3 heart
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "river"
+cards - 2 diamond
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - 4 spade | king club | 7 club | 3 heart | 2 diamond
+aPlayer - queen heart | 10 club
+fPlayer - 9 heart | 4 heart
+---------------------
+fPlayer { power: 229, name: 'Pair' }
+aPlayer { power: 112, name: 'High card' }
+total Bank In Game 600
+banks After Games
+fPlayer 315
+aPlayer 285
+------------------
+game preparation
+------------------
+dillerPosition: 0 aPlayer
+ante aPlayer 1
+ante fPlayer 1
+------------------
+GAME 46 started
+for two players
+aPlayer
+fPlayer
+------------------
+bet fPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet aPlayer 20
+check fPlayer
+---------------------
+Game stage - "flop"
+cards - 4 diamond | 3 club | 6 heart
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "turn"
+cards - 8 club
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "river"
+cards - 4 club
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - 4 diamond | 3 club | 6 heart | 8 club | 4 club
+aPlayer - ace heart | 7 diamond
+fPlayer - 9 heart | jack heart
+---------------------
+aPlayer { power: 229, name: 'Pair' }
+fPlayer { power: 228, name: 'Pair' }
+total Bank In Game 600
+banks After Games
+aPlayer 306
+fPlayer 294
+------------------
+game preparation
+------------------
+dillerPosition: 1 fPlayer
+ante aPlayer 1
+ante fPlayer 1
+------------------
+GAME 47 started
+for two players
+aPlayer
+fPlayer
+------------------
+bet aPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet fPlayer 20
+check aPlayer
+---------------------
+Game stage - "flop"
+cards - 3 spade | 8 heart | 10 club
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "turn"
+cards - queen spade
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "river"
+cards - ace spade
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - 3 spade | 8 heart | 10 club | queen spade | ace spade
+aPlayer - jack club | 3 diamond
+fPlayer - king club | 7 heart
+---------------------
+aPlayer { power: 236, name: 'Pair' }
+fPlayer { power: 113, name: 'High card' }
+total Bank In Game 600
+banks After Games
+aPlayer 327
+fPlayer 273
+------------------
+game preparation
+------------------
+dillerPosition: 0 aPlayer
+ante aPlayer 1
+ante fPlayer 1
+------------------
+GAME 48 started
+for two players
+aPlayer
+fPlayer
+------------------
+bet fPlayer 20
+---------------------
+Game stage - "pre flop"
+current bet - 20
+---------------------
+-------
+bet aPlayer 20
+check fPlayer
+---------------------
+Game stage - "flop"
+cards - 2 diamond | jack heart | ace club
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "turn"
+cards - 9 heart
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "river"
+cards - queen club
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - 2 diamond | jack heart | ace club | 9 heart | queen club
+aPlayer - 2 club | 6 diamond
+fPlayer - 6 spade | 8 diamond
+---------------------
+aPlayer { power: 235, name: 'Pair' }
+fPlayer { power: 113, name: 'High card' }
+total Bank In Game 600
+banks After Games
+aPlayer 348
+fPlayer 252
+------------------
+game preparation
+------------------
+dillerPosition: 1 fPlayer
+ante aPlayer 2
+ante fPlayer 2
+------------------
+GAME 49 started
+for two players
+aPlayer
+fPlayer
+------------------
+bet aPlayer 40
+---------------------
+Game stage - "pre flop"
+current bet - 40
+---------------------
+-------
+bet fPlayer 40
+check aPlayer
+---------------------
+Game stage - "flop"
+cards - 5 club | 4 diamond | ace diamond
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "turn"
+cards - jack heart
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "river"
+cards - 10 heart
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - 5 club | 4 diamond | ace diamond | jack heart | 10 heart
+aPlayer - 10 diamond | queen heart
+fPlayer - 6 diamond | king diamond
+---------------------
+aPlayer { power: 243, name: 'Pair' }
+fPlayer { power: 113, name: 'High card' }
+total Bank In Game 600
+banks After Games
+aPlayer 390
+fPlayer 210
+------------------
+game preparation
+------------------
+dillerPosition: 0 aPlayer
+ante aPlayer 2
+ante fPlayer 2
+------------------
+GAME 50 started
+for two players
+aPlayer
+fPlayer
+------------------
+bet fPlayer 40
+---------------------
+Game stage - "pre flop"
+current bet - 40
+---------------------
+-------
+bet aPlayer 40
+check fPlayer
+---------------------
+Game stage - "flop"
+cards - queen club | 7 club | jack heart
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "turn"
+cards - 7 heart
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "river"
+cards - 5 diamond
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - queen club | 7 club | jack heart | 7 heart | 5 diamond
+aPlayer - ace spade | 5 heart
+fPlayer - 8 heart | king heart
+---------------------
+aPlayer { power: 323, name: 'Two pairs' }
+fPlayer { power: 239, name: 'Pair' }
+total Bank In Game 600
+banks After Games
+aPlayer 432
+fPlayer 168
+------------------
+game preparation
+------------------
+dillerPosition: 1 fPlayer
+ante aPlayer 2
+ante fPlayer 2
+------------------
+GAME 51 started
+for two players
+aPlayer
+fPlayer
+------------------
+bet aPlayer 40
+---------------------
+Game stage - "pre flop"
+current bet - 40
+---------------------
+-------
+bet fPlayer 40
+check aPlayer
+---------------------
+Game stage - "flop"
+cards - 5 diamond | 7 heart | 9 spade
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "turn"
+cards - 5 spade
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "river"
+cards - 10 heart
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - 5 diamond | 7 heart | 9 spade | 5 spade | 10 heart
+aPlayer - queen club | jack diamond
+fPlayer - jack club | 2 heart
+---------------------
+aPlayer { power: 234, name: 'Pair' }
+fPlayer { power: 231, name: 'Pair' }
+total Bank In Game 600
+banks After Games
+aPlayer 474
+fPlayer 126
+------------------
+game preparation
+------------------
+dillerPosition: 0 aPlayer
+ante aPlayer 2
+ante fPlayer 2
+------------------
+GAME 52 started
+for two players
+aPlayer
+fPlayer
+------------------
+bet fPlayer 40
+---------------------
+Game stage - "pre flop"
+current bet - 40
+---------------------
+-------
+bet aPlayer 40
+check fPlayer
+---------------------
+Game stage - "flop"
+cards - jack diamond | 7 club | 6 spade
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "turn"
+cards - 6 heart
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "river"
+cards - queen spade
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - jack diamond | 7 club | 6 spade | 6 heart | queen spade
+aPlayer - ace diamond | 2 club
+fPlayer - 5 heart | 9 club
+---------------------
+aPlayer { power: 239, name: 'Pair' }
+fPlayer { power: 234, name: 'Pair' }
+total Bank In Game 600
+banks After Games
+aPlayer 516
+fPlayer 84
+------------------
+game preparation
+------------------
+dillerPosition: 1 fPlayer
+ante aPlayer 2
+ante fPlayer 2
+------------------
+GAME 53 started
+for two players
+aPlayer
+fPlayer
+------------------
+bet aPlayer 40
+---------------------
+Game stage - "pre flop"
+current bet - 40
+---------------------
+-------
+bet fPlayer 40
+check aPlayer
+---------------------
+Game stage - "flop"
+cards - 9 diamond | 8 diamond | king heart
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "turn"
+cards - 2 club
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "river"
+cards - queen club
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - 9 diamond | 8 diamond | king heart | 2 club | queen club
+aPlayer - 4 club | 6 diamond
+fPlayer - 3 spade | 9 heart
+---------------------
+fPlayer { power: 238, name: 'Pair' }
+aPlayer { power: 112, name: 'High card' }
+total Bank In Game 600
+banks After Games
+aPlayer 474
+fPlayer 126
+------------------
+game preparation
+------------------
+dillerPosition: 0 aPlayer
+ante aPlayer 2
+ante fPlayer 2
+------------------
+GAME 54 started
+for two players
+aPlayer
+fPlayer
+------------------
+bet fPlayer 40
+---------------------
+Game stage - "pre flop"
+current bet - 40
+---------------------
+-------
+bet aPlayer 40
+check fPlayer
+---------------------
+Game stage - "flop"
+cards - 10 heart | queen spade | jack heart
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "turn"
+cards - 4 diamond
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "river"
+cards - 7 club
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - 10 heart | queen spade | jack heart | 4 diamond | 7 club
+aPlayer - 9 spade | jack diamond
+fPlayer - queen heart | 8 heart
+---------------------
+aPlayer { power: 238, name: 'Pair' }
+fPlayer { power: 237, name: 'Pair' }
+total Bank In Game 600
+banks After Games
+aPlayer 516
+fPlayer 84
+------------------
+game preparation
+------------------
+dillerPosition: 1 fPlayer
+ante aPlayer 2
+ante fPlayer 2
+------------------
+GAME 55 started
+for two players
+aPlayer
+fPlayer
+------------------
+bet aPlayer 40
+---------------------
+Game stage - "pre flop"
+current bet - 40
+---------------------
+-------
+bet fPlayer 40
+check aPlayer
+---------------------
+Game stage - "flop"
+cards - 9 diamond | 4 diamond | 9 spade
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "turn"
+cards - 10 spade
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "river"
+cards - 9 heart
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - 9 diamond | 4 diamond | 9 spade | 10 spade | 9 heart
+aPlayer - 3 spade | 5 spade
+fPlayer - 7 diamond | ace diamond
+---------------------
+fPlayer { power: 430, name: 'Three of a kind' }
+aPlayer { power: 421, name: 'Three of a kind' }
+total Bank In Game 600
+banks After Games
+aPlayer 474
+fPlayer 126
+------------------
+game preparation
+------------------
+dillerPosition: 0 aPlayer
+ante aPlayer 2
+ante fPlayer 2
+------------------
+GAME 56 started
+for two players
+aPlayer
+fPlayer
+------------------
+bet fPlayer 40
+---------------------
+Game stage - "pre flop"
+current bet - 40
+---------------------
+-------
+bet aPlayer 40
+check fPlayer
+---------------------
+Game stage - "flop"
+cards - 2 club | queen diamond | 5 diamond
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "turn"
+cards - 9 spade
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "river"
+cards - jack spade
+---------------------
+-------
+check fPlayer
+check aPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - 2 club | queen diamond | 5 diamond | 9 spade | jack spade
+aPlayer - 9 club | ace diamond
+fPlayer - 6 club | 7 spade
+---------------------
+aPlayer { power: 242, name: 'Pair' }
+fPlayer { power: 111, name: 'High card' }
+total Bank In Game 600
+banks After Games
+aPlayer 516
+fPlayer 84
+------------------
+game preparation
+------------------
+dillerPosition: 1 fPlayer
+ante aPlayer 2
+ante fPlayer 2
+------------------
+GAME 57 started
+for two players
+aPlayer
+fPlayer
+------------------
+bet aPlayer 40
+---------------------
+Game stage - "pre flop"
+current bet - 40
+---------------------
+-------
+bet fPlayer 40
+check aPlayer
+---------------------
+Game stage - "flop"
+cards - jack club | 4 club | 2 spade
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "turn"
+cards - king heart
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "river"
+cards - 10 club
+---------------------
+-------
+check aPlayer
+check fPlayer
+---------------------
+Game stage - "showdown For Two Players"
+board cards - jack club | 4 club | 2 spade | king heart | 10 club
+aPlayer - 5 club | 6 club
+fPlayer - ace club | jack heart
+---------------------
+aPlayer { power: 610, name: 'Flush' }
+fPlayer { power: 244, name: 'Pair' }
+total Bank In Game 600
+banks After Games
+aPlayer 558
+fPlayer 42
+------------------
+game preparation
+------------------
+dillerPosition: 0 aPlayer
+ante aPlayer 2
+ante fPlayer 2
+------------------
+GAME 58 started
+for two players
+aPlayer
+fPlayer
+------------------
+bet fPlayer 40
+---------------------
+Game stage - "pre flop"
+current bet - 40
+---------------------
+-------
+---------------------
+Game stage - "flop"
+cards - 5 heart | 4 club | 8 diamond
+---------------------
+-------
+---------------------
+Game stage - "turn"
+cards - 9 spade
+---------------------
+-------
+---------------------
+Game stage - "river"
+cards - 5 spade
+---------------------
+-------
+---------------------
+Game stage - "showdown For Two Players"
+board cards - 5 heart | 4 club | 8 diamond | 9 spade | 5 spade
+aPlayer - jack heart | ace diamond
+fPlayer - queen club | 3 spade
+---------------------
+aPlayer { power: 235, name: 'Pair' }
+fPlayer { power: 230, name: 'Pair' }
+total Bank In Game 600
+banks After Games
+aPlayer 600
+fPlayer 0
+------------------
+game preparation
+------------------
+ONLY ONE PLAYER IN GAME
