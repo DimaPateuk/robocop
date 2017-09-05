@@ -1,3 +1,5 @@
+/* eslint import/no-unresolved: 'off' */
+/* eslint import/extensions: 'off' */
 import PreflopDecision from './gameStagesDecisions/PreflopDecision.js';
 import FlopDecision from './gameStagesDecisions/FlopDecision.js';
 import TurnDecision from './gameStagesDecisions/TurnDecision.js';
@@ -38,16 +40,15 @@ class DecisionMaker {
    * @param {PlayerDecision[]} previousPlayersMove
    * return {Decision} A decision to the game stage
   */
-  _makeDecision(bigBlind, gameStage, position, selfCards, previousPlayersMove) {
-    switch(gameStage) {
-      case 'PREFLOP':
-        return new Preflop(bigBlind, position, selfCards, previousPlayersMove);
-      case 'FLOP' :
-        return new Flop(bigBlind, position, selfCards, previousPlayersMove);
-      case 'TURN' :
-        return new Turn(bigBlind, position, selfCards, previousPlayersMove);
-      case 'RIVER' :
-        return new River(bigBlind, position, selfCards, previousPlayersMove);
-    }
+  static _makeDecision(bigBlind, gameStage, position, selfCards, previousPlayersMove) {
+    const decisions = {
+      PREFLOP: PreflopDecision,
+      FLOP: FlopDecision,
+      TURN: TurnDecision,
+      RIVER: RiverDecision,
+    };
+    return new decisions[gameStage](bigBlind, position, selfCards, previousPlayersMove);
   }
-};
+}
+
+export default DecisionMaker;

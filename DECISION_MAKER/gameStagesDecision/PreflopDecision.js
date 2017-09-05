@@ -5,7 +5,7 @@
 // Ac - креста
 // AKQJT98765432 - картв по убыванию
 // AK similar sute; AKo off sute;
-//какие бывают позиции EP -> MP -> CO -> BU -> SB -> BB
+// какие бывают позиции EP -> MP -> CO -> BU -> SB -> BB
 
 class PreflopDecision {
   /**
@@ -24,13 +24,14 @@ class PreflopDecision {
     if (!this.toFold && !this.toCheck) {
       this._shouldIBetMoney(bigBlind, position, selfCards, previousPlayersMove);
     }
-  };
+  }
 
-  _shouldICheck(bigBlind, position, selfCards, previousPlayersMove) {
+  /* eslint no-unused-vars: 'off' */
+  static _shouldICheck(bigBlind, position, selfCards, previousPlayersMove) {
     return false;
   }
 
-  _shouldIFold() {
+  static _shouldIFold() {
     return false;
   }
 
@@ -39,6 +40,6 @@ class PreflopDecision {
     this.toCall = false;
     this.moneyAmount = 0;
   }
-};
+}
 
 export default PreflopDecision;
