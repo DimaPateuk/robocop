@@ -237,7 +237,8 @@ export default class BoardGame extends BoardGameUtils {
 
 		const withHighCardCombination = sortBy(
 			this.playersInGameArr.map(player => {
-				const heighCombinatoinInfo = new CardsInfo(this.boardCards.cards.concat(player.handCards.cards)).heighCombinatoinInfo;
+				const playerAndBoardCards = this.boardCards.cards.concat(player.handCards.cards);
+				const { heighCombinatoinInfo } = new CardsInfo(playerAndBoardCards);
 				return {
 					heighCombinatoinInfo,
 					player,
@@ -261,7 +262,6 @@ export default class BoardGame extends BoardGameUtils {
 
 		const sortedByPower = sortBy(Object.entries(compousedByPower), ([power]) => -parseInt(power, 10))
 			.map(entry => entry[1]);
-
 
 		sortedByPower.forEach((arrOfPlayers, index) => {
 
@@ -325,31 +325,29 @@ export default class BoardGame extends BoardGameUtils {
 	}
 
 	startStageBettingCycle (startIndex) {
+		if (this.playersInGameWithBankArr.length === 1) {
+			console.log('only one player who can make a bet');
+			return;
+		}
+
 		for (let continueBetting = true; continueBetting;) {
 			console.log('-------');
-			if (this.playersInGameArr.length === 1) {
-				break;
-			}
-
-			const sortetByBank = sortBy(
-				this.playersInGameArr,
-				player => player.bank
-			);
-			if (sortetByBank[0].bank !== 0 && sortetByBank[1].bank === 0 ||
-				sortetByBank[0].bank === 0) {
+			if (!this.playersInGameWithBankArr.length) {
+				console.log('no players with bank');
 				break;
 			}
 
 			this.bettingCycle(startIndex);
-			const cycleBets = Object.entries(this.playersBets[this.gameStage])
-				.filter(([playerId]) => this.playersInGame[playerId])
-				.map((entry) => entry[1]);
-			continueBetting = !cycleBets.every((value) => value === cycleBets[0]);
+
+			const allBetsInStage = this.playersBets[this.gameStage];
+			const betsInStage = this.playersInGameWithBankArr
+				.map(player => allBetsInStage[player.id]);
+
+			continueBetting = !betsInStage.every((value) => value === betsInStage[0]);
 		}
 
 		if (this.playersInGameArr.length === 1) {
 			this.winBecauseAllFolded(this.playersInGameArr[0]);
-			return;
 		}
 
 	}
@@ -357,7 +355,7 @@ export default class BoardGame extends BoardGameUtils {
 	bettingCycle (startIndex) {
 		this.foreEachPlayerFromWithBank((player, index) => {
 
-			if (this.playersInGameArr.length === 1 || player.bank === 0) {
+			if (this.playersInGameArr.length === 1) {
 				return;
 			}
 
@@ -400,6 +398,4 @@ export default class BoardGame extends BoardGameUtils {
 
 		}, startIndex);
 	}
-
-
 }

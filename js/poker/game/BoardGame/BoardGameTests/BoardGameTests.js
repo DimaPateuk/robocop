@@ -73,11 +73,11 @@ function testGameForSixPlayers () {
 
 export default function testBoardGame () {
 	for (var i = 0; i < 10; i++) {
-		// testGameForTwoPlayers();
-		// testGameForThreePlayers();
+		testGameForTwoPlayers();
+		testGameForThreePlayers();
+		testGameForSixPlayers();
 	}
 
-	testGameForSixPlayers();
 }
 
 

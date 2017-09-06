@@ -30,6 +30,11 @@ export default class BoardGameUtils {
 	foreEachPlayerFromWithBank (fn, index = this.dillerPosition) {
 		for (var i = 0; i < this.players.length; i++) {
 			const player = this.players[index];
+
+			if (player.bank < 0) {
+				throw Error(player.bank < 0);
+			}
+
 			if (this.playersInGame[player.id] && player.bank > 0) {
 				fn(player, index);
 			}
@@ -42,4 +47,9 @@ export default class BoardGameUtils {
 			.filter(entry => entry[1])
 			.map(entry => entry[1].player);
 	}
+
+	get playersInGameWithBankArr () {
+		return this.playersInGameArr
+			.filter(player => player.bank);
+	};
 }
