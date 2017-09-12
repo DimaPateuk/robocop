@@ -24,7 +24,7 @@ function testGameForTwoPlayers() {
 	while (boardGame.players.length !== 1) {
 		boardGame.start();
 	}
-};
+}
 
 function testGameForThreePlayers () {
 	const RobocopDecisionMakerForTest = new DecisionMakerForTest([
@@ -44,7 +44,7 @@ function testGameForThreePlayers () {
 	while (boardGame.players.length !== 1) {
 		boardGame.start();
 	}
-};
+}
 
 function testGameForSixPlayers () {
 	const aPlayer = new Player (100, 'aPlayer');
@@ -68,15 +68,28 @@ function testGameForSixPlayers () {
 	while (boardGame.players.length !== 1) {
 		boardGame.start();
 	}
-};
+}
 
 
 export default function testBoardGame () {
-	for (var i = 0; i < 10; i++) {
-		testGameForTwoPlayers();
-		testGameForThreePlayers();
-		testGameForSixPlayers();
-	}
+	// for (var i = 0; i < 10; i++) {
+	// 	testGameForTwoPlayers();
+	// 	testGameForThreePlayers();
+	// 	testGameForSixPlayers();
+	// }
+
+
+	const RobocopDecisionMakerForTest = new DecisionMakerForTest([
+	]);
+	const Robocop = new Player (100, 'Robocop', RobocopDecisionMakerForTest);
+
+	const AnticopDecisionMakerForTest = new DecisionMakerForTest([
+	]);
+	const Anticop = new Player (100, 'Anticop', AnticopDecisionMakerForTest);
+
+	const boardGame = new BoardGame([Robocop, Anticop], 20, 1);
+
+	boardGame.start();
 
 }
 

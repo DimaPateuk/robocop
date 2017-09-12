@@ -14,7 +14,17 @@ export default class DecisionMakerForTest extends DecisionMaker {
 		this.decisions = decisions;
 	}
 
-	makeDecision () {
-		return this.decisions.shift();
+	makeDecision (gameInfo, next) {
+		const {
+			index,
+			minimalBet,
+			gameStage,
+			boardCards,
+			bigBlind,
+		} = gameInfo;
+
+		// setTimeout(() => next(100), 1000);
+		next(100);
+		console.log('DecisionMakerForTest.makeDecision()');
 	}
 }

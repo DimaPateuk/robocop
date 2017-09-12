@@ -53,15 +53,10 @@ export default class Player {
 		return result;
 	}
 
-	makeDecision (minimalBet, gameInfo) {
-		const {
-			index,
-			bigBlind,
-			gameStage,
-			boardCards,
-		} = gameInfo;
+	makeDecision (gameInfo, next) {
+		this.decisionMaker.makeDecision(gameInfo, next);
 
-		return this.bet(minimalBet);
+		// return this.bet(minimalBet);
 
 		// if (this.handCards.value > 20) {
 		// 	return this.bet(this.bank);
