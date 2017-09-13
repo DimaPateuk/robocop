@@ -60,7 +60,18 @@ export default class BaseStage {
 		this.b.emit('nextPlayerTurn');
 	}
 
+	beforeStart() {
+		this.b.currentBet = 0;
+	}
+
 	start () {
+		if (this.b.playersInGameWithBankArr.length === 0) {
+			console.log('all players bet full bank');
+			return;
+		}
+
+		this.beforeStart();
+
 		this.cycleCount = this.b.players.length;
 		this.currentIndex = this.getInitialIndex();
 		this.next();
@@ -90,12 +101,14 @@ export default class BaseStage {
 			return;
 		}
 
+
 		this.cycleCount--;
 
 		const player = this.b.players[this.currentIndex];
 		const playerBank = player.bank;
 
 		if (playerBank === 0) {
+			console.log('playerBank === 0 nextPlayerTurn');
 			this.b.emit('nextPlayerTurn');
 			return;
 		}
@@ -124,6 +137,17 @@ export default class BaseStage {
 	}
 
 	getInitialIndex () {
-		throw Error('not implemented exeption');
+		let result;
+
+		if (this.b.players.length === 2) {
+			result = this.gameStage === PRE_FLOP ?
+				this.b.dillerPosition :
+				this.b.getNextPlayer(this.b.dillerPosition).index;
+		} else {
+			result = this.b.thirdAfterDilerIndex;
+		}
+
+		return result;
 	}
+
 }

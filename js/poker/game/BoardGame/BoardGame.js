@@ -16,15 +16,19 @@ import {
 import sortBy from 'lodash/sortBy';
 import maxBy from 'lodash/maxBy';
 import sumBy from 'lodash/sumBy';
-import PreFlop from './PreFlop';
 
+import PreFlop from './PreFlop';
+import Flop from './Flop';
+import Turn from './Turn';
+import River from './River';
+import Showdown from './Showdown';
 
 let boardGameId = 0;
 let gameId = 0;
 
 
 
-const createStages = () => [PreFlop/*, Flop, Turn, River, Showdown*/];
+const createStages = () => [PreFlop, Flop, Turn, River, Showdown];
 
 export default class BoardGame extends BoardGameUtils {
 
@@ -107,6 +111,7 @@ export default class BoardGame extends BoardGameUtils {
 	}
 
 	nextStage () {
+		this.offAll();
 
 		if (!this.stages.length) {
 			console.log('!!!!!! no Stages');

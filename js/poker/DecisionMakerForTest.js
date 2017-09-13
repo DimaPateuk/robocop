@@ -24,6 +24,10 @@ export default class DecisionMakerForTest extends DecisionMaker {
 		} = gameInfo;
 
 
-		return 100;
+		if (minimalBet === CHECK) {
+			return CHECK;
+		}
+
+		return minimalBet;
 	}
 }
