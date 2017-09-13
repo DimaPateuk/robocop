@@ -392,6 +392,7 @@ export default class BoardGame extends BoardGameUtils {
 			this.pot += decision;
 
 			const nextBet = playerBetInCycle + decision;
+
 			if (nextBet > this.currentBet) {
 				this.currentBet = nextBet;
 			}

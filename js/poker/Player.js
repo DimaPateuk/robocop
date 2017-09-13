@@ -54,7 +54,18 @@ export default class Player {
 	}
 
 	makeDecision (gameInfo, next) {
-		this.decisionMaker.makeDecision(gameInfo, next);
+		setTimeout(() => {
+			const result = this.decisionMaker.makeDecision(gameInfo, next);
+
+			if (result === FOLD) {
+				console.log('fold', this.name);
+				next(FOLD);
+				return;
+			}
+
+			next(this.bet(result));
+		}, 1000);
+
 
 		// return this.bet(minimalBet);
 

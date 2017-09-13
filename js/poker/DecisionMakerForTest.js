@@ -23,8 +23,7 @@ export default class DecisionMakerForTest extends DecisionMaker {
 			bigBlind,
 		} = gameInfo;
 
-		// setTimeout(() => next(100), 1000);
-		next(100);
-		console.log('DecisionMakerForTest.makeDecision()');
+
+		return 100;
 	}
 }

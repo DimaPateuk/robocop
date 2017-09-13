@@ -31,6 +31,10 @@ export default class BoardGameUtils {
 		}
 	}
 
+	offAll () {
+		this._subscriptions = {};
+	}
+
 	emit (eventName, data) {
 		const arr = this._subscriptions[eventName] || [];
 		for (let i = 0; i < arr.length; i++) {
@@ -92,5 +96,10 @@ export default class BoardGameUtils {
 	get playersInGameWithBankArr () {
 		return this.playersInGameArr
 			.filter(player => player.bank);
-	};
+	}
+
+
+	get thirdAfterDilerIndex () {
+		return this.getNextIndex(this.getNextIndex(this.getNextIndex(this.dillerPosition)));
+	}
 }

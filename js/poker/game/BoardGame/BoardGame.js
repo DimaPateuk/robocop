@@ -42,6 +42,7 @@ export default class BoardGame extends BoardGameUtils {
 	}
 
 	start () {
+		this.offAll();
 		this.stages = createStages();
 
 		const stage = this.stages.shift();
@@ -111,6 +112,7 @@ export default class BoardGame extends BoardGameUtils {
 			console.log('!!!!!! no Stages');
 			return;
 		}
+
 		const stage = this.stages.shift();
 		this.currentState = new stage(this);
 		this.currentState.start();
