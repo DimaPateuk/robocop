@@ -48,6 +48,11 @@ export default class BaseStage {
 			throw Error('decision < minimalBet');
 		}
 
+		if (!this.b.playersBets[this.gameStage]) {
+			console.log(this.b.playersBets);
+			console.log(this.gameStage);
+		}
+
 		this.b.playersBets[this.gameStage][player.id] += decision;
 		this.b.pot += decision;
 
@@ -61,6 +66,12 @@ export default class BaseStage {
 	}
 
 	beforeStart() {
+		if (this.b.playersInGameWithBankArr.length === 1) {
+			console.log('only one player with bank');
+			this.nextState();
+
+			return;
+		}
 		this.b.currentBet = 0;
 	}
 
@@ -77,6 +88,16 @@ export default class BaseStage {
 		this.next();
 	}
 
+	nextState () {
+		this.offAll();
+		this.b.nextStage();
+	}
+
+	offAll () {
+		this.b.off('playerMadeDecision', this.nextHandler);
+		this.b.off('nextPlayerTurn', this.nextPlayerTurnHandler);
+	}
+
 	next () {
 		if (this.cycleCount === 0) {
 			const allBetsInStage = this.b.playersBets[this.gameStage];
@@ -87,9 +108,7 @@ export default class BaseStage {
 			if (continueBetting) {
 				this.cycleCount = this.b.players.length;
 			} else {
-				this.b.off('playerMadeDecision', this.nextHandler);
-				this.b.off('nextPlayerTurn', this.nextPlayerTurnHandler);
-				this.b.nextStage();
+				this.nextState();
 				return;
 			}
 		}
@@ -97,6 +116,7 @@ export default class BaseStage {
 		const playersInGameArr = this.b.playersInGameArr;
 		if (playersInGameArr.length === 1) {
 			console.log('all players folded');
+			this.offAll();
 			this.b.winBecauseAllFolded(playersInGameArr[0]);
 			return;
 		}
@@ -107,7 +127,6 @@ export default class BaseStage {
 		const playerBank = player.bank;
 
 		if (playerBank === 0) {
-			console.log('playerBank === 0 nextPlayerTurn');
 			this.b.emit('nextPlayerTurn');
 			return;
 		}

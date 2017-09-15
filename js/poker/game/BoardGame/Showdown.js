@@ -21,6 +21,8 @@ export default class Showdown extends BaseStage {
 		console.log('TURN');
 	}
 
+	beforeStart () {}
+
 	start () {
 		console.log('---------------------');
 		console.log('Game stage - "showdown"');
@@ -108,10 +110,11 @@ export default class Showdown extends BaseStage {
 		sortBy(this.b.players, player => -player.bank)
 			.forEach(player => console.log(player.name, player.bank));
 
+		this.offAll();
 		this.b.emit('end');
 	}
 
 	get gameStage () {
-		return Showdown;
+		throw Error('get gameStage Showdown');
 	}
 }

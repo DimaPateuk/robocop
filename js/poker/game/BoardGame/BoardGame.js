@@ -26,8 +26,6 @@ import Showdown from './Showdown';
 let boardGameId = 0;
 let gameId = 0;
 
-
-
 const createStages = () => [PreFlop, Flop, Turn, River, Showdown];
 
 export default class BoardGame extends BoardGameUtils {
@@ -46,6 +44,12 @@ export default class BoardGame extends BoardGameUtils {
 	}
 
 	start () {
+		this.players = this.players.filter(player => player.bank > 0);
+		if (this.players.length === 1) {
+			console.log('ONLY ONE PLAYER IN GAME');
+			return;
+		}
+
 		this.stages = createStages();
 
 		const stage = this.stages.shift();
@@ -61,11 +65,6 @@ export default class BoardGame extends BoardGameUtils {
 			this.ante *= 2;
 		}
 
-		this.players = this.players.filter(player => player.bank > 0);
-		if (this.players.length === 1) {
-			console.log('ONLY ONE PLAYER IN GAME');
-			return;
-		}
 		this.dillerPosition = this.getNextIndex(this.dillerPosition);
 		console.log('dillerPosition:', this.dillerPosition, this.players[this.dillerPosition].name);
 		this.gameId = gameId++;
@@ -117,8 +116,7 @@ export default class BoardGame extends BoardGameUtils {
 	nextStage () {
 
 		if (!this.stages.length) {
-			console.log('!!!!!! no Stages');
-			return;
+			throw Error('!!!!!! no Stages');
 		}
 
 		const stage = this.stages.shift();

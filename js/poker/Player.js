@@ -22,6 +22,11 @@ export default class Player {
 	}
 
 	_bet (value) {
+
+		if (this.bank <= 0) {
+			throw Error('this.bank <= 0');
+		}
+
 		if (this.bank - value < 0) {
 			const result = this.bank;
 			this.bank = 0;

@@ -92,7 +92,14 @@ export default function testBoardGame () {
 	boardGame.start();
 
 	boardGame.on('end', () => {
-		console.log('gameEND!!!!!!!!!');
+		if (boardGame.players.length === 1) {
+			console.log('game END !!!!!!!!!');
+			console.log(boardGame.players[0].name, 'winner');
+
+			return;
+		}
+
+		boardGame.start();
 	});
 
 }

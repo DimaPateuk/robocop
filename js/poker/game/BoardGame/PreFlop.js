@@ -34,20 +34,20 @@ export default class PreFlop extends BaseStage {
 	}
 
 	startMoreThenTwoPlayers () {
-		this.b.firstAfterDillerPlayerInGame.bet(this.b.bigBlind / 2);
-		this.b.secondAfterDillerPlayerInGame.bet(this.b.bigBlind);
+		const bigBlind = this.b.firstAfterDillerPlayerInGame.bet(this.b.bigBlind / 2);
+		const smallBlind =  this.b.secondAfterDillerPlayerInGame.bet(this.b.bigBlind);
 
-		this.b.playersBets[PRE_FLOP][this.b.firstAfterDillerPlayerInGame.id] += this.b.bigBlind / 2;
-		this.b.playersBets[PRE_FLOP][this.b.secondAfterDillerPlayerInGame.id] += this.b.bigBlind;
+		this.b.playersBets[PRE_FLOP][this.b.firstAfterDillerPlayerInGame.id] += smallBlind;
+		this.b.playersBets[PRE_FLOP][this.b.secondAfterDillerPlayerInGame.id] += bigBlind;
 
-		this.b.pot += this.b.bigBlind + this.b.bigBlind / 2;
+		this.b.pot += smallBlind + bigBlind;
 	}
 
 	startForTwoPlayers () {
 		const player = this.b.firstAfterDillerPlayerInGame;
 		const bigBlind = player.bet(this.b.bigBlind);
 		this.b.pot += bigBlind;
-		this.b.playersBets[PRE_FLOP][player.id] += this.b.bigBlind;
+		this.b.playersBets[PRE_FLOP][player.id] += bigBlind;
 	}
 
 	get gameStage () {
