@@ -87,7 +87,8 @@ export default class BaseStage {
 			if (continueBetting) {
 				this.cycleCount = this.b.players.length;
 			} else {
-				this.b.offAll();
+				this.b.off('playerMadeDecision', this.nextHandler);
+				this.b.off('nextPlayerTurn', this.nextPlayerTurnHandler);
 				this.b.nextStage();
 				return;
 			}
@@ -97,10 +98,8 @@ export default class BaseStage {
 		if (playersInGameArr.length === 1) {
 			console.log('all players folded');
 			this.b.winBecauseAllFolded(playersInGameArr[0]);
-			this.b.offAll();
 			return;
 		}
-
 
 		this.cycleCount--;
 

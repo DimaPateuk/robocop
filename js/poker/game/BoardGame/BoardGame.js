@@ -46,7 +46,6 @@ export default class BoardGame extends BoardGameUtils {
 	}
 
 	start () {
-		this.offAll();
 		this.stages = createStages();
 
 		const stage = this.stages.shift();
@@ -91,6 +90,11 @@ export default class BoardGame extends BoardGameUtils {
 		this.players.forEach((player, index) => {
 			player.bankInGame = 0;
 			const ante = player.ante(this.ante);
+
+			if (ante <= 0) {
+				throw Error('ante <= 0');
+			}
+
 			this.anteInGame += ante;
 
 			this.playersInGame[player.id] = {
@@ -111,7 +115,6 @@ export default class BoardGame extends BoardGameUtils {
 	}
 
 	nextStage () {
-		this.offAll();
 
 		if (!this.stages.length) {
 			console.log('!!!!!! no Stages');
@@ -121,5 +124,20 @@ export default class BoardGame extends BoardGameUtils {
 		const stage = this.stages.shift();
 		this.currentState = new stage(this);
 		this.currentState.start();
+	}
+
+	winBecauseAllFolded (winner) {
+		winner.bank += this.pot + this.anteInGame;
+
+		console.log('---------------------');
+		console.log('win Because All Folded');
+		console.log('winner', winner.name);
+		console.log(this.players[0].name, this.players[0].bank);
+		console.log(this.players[1].name, this.players[1].bank);
+		console.log('---------------------');
+		console.log();
+
+		this.emit('end');
+
 	}
 }

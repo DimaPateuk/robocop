@@ -91,7 +91,8 @@ export default function testBoardGame () {
 
 	boardGame.start();
 
+	boardGame.on('end', () => {
+		console.log('gameEND!!!!!!!!!');
+	});
+
 }
-
-
-

@@ -31,9 +31,9 @@ export default class BoardGameUtils {
 		}
 	}
 
-	offAll () {
-		this._subscriptions = {};
-	}
+	// offAll () {
+	// 	this._subscriptions = {};
+	// }
 
 	emit (eventName, data) {
 		const arr = this._subscriptions[eventName] || [];

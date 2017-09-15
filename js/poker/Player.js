@@ -42,6 +42,7 @@ export default class Player {
 		}
 
 		this.bankInGame += result;
+
 		return result;
 	}
 
@@ -54,7 +55,7 @@ export default class Player {
 	}
 
 	makeDecision (gameInfo, next) {
-		setTimeout(() => {
+		// setTimeout(() => {
 			const result = this.decisionMaker.makeDecision(gameInfo, next);
 
 			if (result === FOLD) {
@@ -64,7 +65,7 @@ export default class Player {
 			}
 
 			next(this.bet(result));
-		}, 1000);
+		// }, 1000);
 
 
 		// return this.bet(minimalBet);

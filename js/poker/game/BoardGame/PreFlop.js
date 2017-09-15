@@ -15,16 +15,6 @@ export default class PreFlop extends BaseStage {
 	}
 
 	beforeStart () {
-		if (this.b.players.length === 2) {
-			this.startForTwoPlayers();
-		} else {
-			this.startMoreThenTwoPlayers();
-		}
-
-		this.b.currentBet = this.b.bigBlind;
-	}
-
-	startMoreThenTwoPlayers () {
 		console.log('------------------');
 		console.log(`GAME ${this.b.gameId} started`);
 		console.log('for more then two players');
@@ -32,6 +22,18 @@ export default class PreFlop extends BaseStage {
 			console.log(player.name);
 		});
 		console.log('------------------');
+		console.log('-------------- BLINDS BETS');
+		if (this.b.players.length === 2) {
+			this.startForTwoPlayers();
+		} else {
+			this.startMoreThenTwoPlayers();
+		}
+		console.log('-------------- BLINDS ENDS');
+
+		this.b.currentBet = this.b.bigBlind;
+	}
+
+	startMoreThenTwoPlayers () {
 		this.b.firstAfterDillerPlayerInGame.bet(this.b.bigBlind / 2);
 		this.b.secondAfterDillerPlayerInGame.bet(this.b.bigBlind);
 
@@ -42,13 +44,6 @@ export default class PreFlop extends BaseStage {
 	}
 
 	startForTwoPlayers () {
-		console.log('------------------');
-		console.log(`GAME ${this.b.gameId} started`);
-		console.log('for two players');
-		this.b.playersInGameArr.forEach(player => {
-			console.log(player.name);
-		});
-		console.log('------------------');
 		const player = this.b.firstAfterDillerPlayerInGame;
 		const bigBlind = player.bet(this.b.bigBlind);
 		this.b.pot += bigBlind;
