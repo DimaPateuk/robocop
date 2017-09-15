@@ -52,11 +52,12 @@ class Deck {
 		}
 
 	}
+
 	static DrawRandomCards (count, exclude = []) {
 		const randomCards = [];
 
-		for (let i = cards.length; i < maxCardCount; i++) {
-			randomCards.push(Deck.DrawRandomCard(cards.concat(randomCards)));
+		for (let i = 0; i < count; i++) {
+			randomCards.push(Deck.DrawRandomCard(exclude.concat(randomCards)));
 		}
 
 		return randomCards;
