@@ -12,6 +12,10 @@ export default class BoardGameUtils {
 			this._subscriptions[eventName].push(cb);
 		}
 
+		if (this._subscriptions[eventName].length !== 1) {
+			throw Error ('this._subscriptions[eventName] !== 1');
+		}
+
 		return () => this.off(eventName, cb);
 	}
 

@@ -18,14 +18,17 @@ export default class BaseStage {
 		this.b.on('playerMadeDecision', this.nextHandler);
 		this.b.on('nextPlayerTurn', this.nextPlayerTurnHandler);
 
+		console.log('----------- Game stage cteated')
 	}
 
 	nextPlayerTurnHandler () {
 		const prev = this.currentIndex;
 		this.currentIndex = this.b.getNextPlayer(this.currentIndex).index;
+
 		if (prev === this.currentIndex) {
 			throw Error('prev === this.currentIndex');
 		}
+
 		this.next();
 	}
 
@@ -49,8 +52,7 @@ export default class BaseStage {
 		}
 
 		if (!this.b.playersBets[this.gameStage]) {
-			console.log(this.b.playersBets);
-			console.log(this.gameStage);
+			throw Error('!this.b.playersBets[this.gameStage]');
 		}
 
 		this.b.playersBets[this.gameStage][player.id] += decision;
@@ -66,20 +68,22 @@ export default class BaseStage {
 	}
 
 	beforeStart() {
-		if (this.b.playersInGameWithBankArr.length === 1) {
-			console.log('only one player with bank');
-			this.nextState();
-
-			return;
-		}
 		this.b.currentBet = 0;
 	}
 
 	start () {
 		if (this.b.playersInGameWithBankArr.length === 0) {
 			console.log('all players bet full bank');
+			this.nextState();
 			return;
 		}
+
+		if (this.b.playersInGameWithBankArr.length === 1) {
+			console.log('only one player with bank');
+			this.nextState();
+			return;
+		}
+
 
 		this.beforeStart();
 

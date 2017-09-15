@@ -17,7 +17,6 @@ export default class PreFlop extends BaseStage {
 	beforeStart () {
 		console.log('------------------');
 		console.log(`GAME ${this.b.gameId} started`);
-		console.log('for more then two players');
 		this.b.playersInGameArr.forEach(player => {
 			console.log(player.name);
 		});
@@ -34,6 +33,8 @@ export default class PreFlop extends BaseStage {
 	}
 
 	startMoreThenTwoPlayers () {
+		console.log('for more then two players');
+
 		const bigBlind = this.b.firstAfterDillerPlayerInGame.bet(this.b.bigBlind / 2);
 		const smallBlind =  this.b.secondAfterDillerPlayerInGame.bet(this.b.bigBlind);
 
@@ -44,6 +45,8 @@ export default class PreFlop extends BaseStage {
 	}
 
 	startForTwoPlayers () {
+		console.log('for two players');
+
 		const player = this.b.firstAfterDillerPlayerInGame;
 		const bigBlind = player.bet(this.b.bigBlind);
 		this.b.pot += bigBlind;

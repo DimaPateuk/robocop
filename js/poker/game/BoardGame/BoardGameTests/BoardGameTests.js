@@ -21,9 +21,11 @@ function testGameForTwoPlayers() {
 
 	const boardGame = new BoardGame([Robocop, Anticop], 20, 1);
 
-	while (boardGame.players.length !== 1) {
-		boardGame.start();
-	}
+	boardGame.on('end', () => {
+			boardGame.start();
+	});
+	boardGame.start();
+
 }
 
 function testGameForThreePlayers () {
@@ -41,20 +43,22 @@ function testGameForThreePlayers () {
 
 	const boardGame = new BoardGame([Robocop, Anticop, Cop], 20, 1);
 
-	while (boardGame.players.length !== 1) {
-		boardGame.start();
-	}
+	boardGame.on('end', () => {
+			boardGame.start();
+	});
+	boardGame.start();
+
 }
 
 function testGameForSixPlayers () {
-	const aPlayer = new Player (100, 'aPlayer');
+	const aPlayer = new Player (100, 'aPlayer', new DecisionMakerForTest());
 
-	const bPlayer = new Player (100, 'bPlayer');
+	const bPlayer = new Player (100, 'bPlayer', new DecisionMakerForTest());
 
-	const cPlayer = new Player (100, 'cPlayer');
-	const dPlayer = new Player (100, 'dPlayer');
-	const iPlayer = new Player (100, 'iPlayer');
-	const fPlayer = new Player (100, 'fPlayer');
+	const cPlayer = new Player (100, 'cPlayer', new DecisionMakerForTest());
+	const dPlayer = new Player (100, 'dPlayer', new DecisionMakerForTest());
+	const iPlayer = new Player (100, 'iPlayer', new DecisionMakerForTest());
+	const fPlayer = new Player (100, 'fPlayer', new DecisionMakerForTest());
 
 	const boardGame = new BoardGame([
 		aPlayer,
@@ -65,41 +69,34 @@ function testGameForSixPlayers () {
 		fPlayer,
 	], 20, 1);
 
-	while (boardGame.players.length !== 1) {
-		boardGame.start();
-	}
-}
-
-
-export default function testBoardGame () {
-	// for (var i = 0; i < 10; i++) {
-	// 	testGameForTwoPlayers();
-	// 	testGameForThreePlayers();
-	// 	testGameForSixPlayers();
-	// }
-
-
-	const RobocopDecisionMakerForTest = new DecisionMakerForTest([
-	]);
-	const Robocop = new Player (100, 'Robocop', RobocopDecisionMakerForTest);
-
-	const AnticopDecisionMakerForTest = new DecisionMakerForTest([
-	]);
-	const Anticop = new Player (100, 'Anticop', AnticopDecisionMakerForTest);
-
-	const boardGame = new BoardGame([Robocop, Anticop], 20, 1);
+	boardGame.on('end', () => {
+			boardGame.start();
+	});
 
 	boardGame.start();
 
-	boardGame.on('end', () => {
-		if (boardGame.players.length === 1) {
-			console.log('game END !!!!!!!!!');
-			console.log(boardGame.players[0].name, 'winner');
+}
 
-			return;
-		}
+export default function testBoardGame () {
+	testGameForTwoPlayers();
+	testGameForThreePlayers();
+	testGameForSixPlayers();
 
-		boardGame.start();
-	});
+
+	// const RobocopDecisionMakerForTest = new DecisionMakerForTest([
+	// ]);
+	// const Robocop = new Player (100, 'Robocop', RobocopDecisionMakerForTest);
+
+	// const AnticopDecisionMakerForTest = new DecisionMakerForTest([
+	// ]);
+	// const Anticop = new Player (100, 'Anticop', AnticopDecisionMakerForTest);
+
+	// const boardGame = new BoardGame([Robocop, Anticop], 20, 1);
+
+	// boardGame.start();
+
+	// boardGame.on('end', () => {
+	// 		boardGame.start();
+	// });
 
 }

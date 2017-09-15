@@ -50,6 +50,8 @@ export default class BoardGame extends BoardGameUtils {
 			return;
 		}
 
+		console.log('boardGAME Start method----------');
+
 		this.stages = createStages();
 
 		const stage = this.stages.shift();
@@ -134,7 +136,6 @@ export default class BoardGame extends BoardGameUtils {
 		console.log(this.players[1].name, this.players[1].bank);
 		console.log('---------------------');
 		console.log();
-
 		this.emit('end');
 
 	}
