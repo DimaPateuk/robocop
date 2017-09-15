@@ -1,6 +1,5 @@
 import { getRandomInt } from '../../utils/number';
 import {
-	ROYALFLUSH,
 	TWO,
 	THREE,
 	FOUR,
@@ -24,19 +23,46 @@ import {
 
 import Card from './Card';
 
-function makeDefaultDeckCards () {
-	const result = {};
-	for (let i = 0; i < NAMES.length; i++) {
-		for (let j = 0; j < SUITS.length; j++) {
-			result[NAMES[i] + SUITS[j]] = new Card(NAMES[i], SUITS[j]);
+class Deck {
+
+	static MakeDeckCards(exclude = []) {
+		const result = {};
+		for (let i = 0; i < NAMES.length; i++) {
+			for (let j = 0; j < SUITS.length; j++) {
+				const newCard = new Card(NAMES[i], SUITS[j]);
+
+				if (exclude.some(card => card.hash === newCard.hash)) continue;
+
+				result[NAMES[i] + SUITS[j]] = newCard;
+			}
 		}
+
+		return result;
 	}
 
-	return result;
-}
+	static DrawRandomCard (exclude = []) {
+		for (let continueDraw = true; continueDraw;) {
+			const randomSuit = SUITS[getRandomInt(0, SUITS.length - 1)];
+			const randomName = NAMES[getRandomInt(0, NAMES.length - 1)];
+			const hash = randomName + randomSuit;
 
-class Deck {
-	constructor (cards = makeDefaultDeckCards()) {
+			if (!exclude.some(card => card.hash === hash)) {
+				return new Card(randomName, randomSuit);
+			}
+		}
+
+	}
+	static DrawRandomCards (count, exclude = []) {
+		const randomCards = [];
+
+		for (let i = cards.length; i < maxCardCount; i++) {
+			randomCards.push(Deck.DrawRandomCard(cards.concat(randomCards)));
+		}
+
+		return randomCards;
+	}
+
+	constructor (cards = Deck.MakeDeckCards()) {
 		this.cards = cards;
 
 		this.remainCard = {

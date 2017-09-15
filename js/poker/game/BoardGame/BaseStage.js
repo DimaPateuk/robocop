@@ -150,8 +150,10 @@ export default class BaseStage {
 		}
 
 		player.makeDecision({
+			player,
 			boardCards,
 			minimalBet,
+			oponentsCount: playersInGameArr.length - 1,
 			index: this.currentIndex,
 			bigBlind: this.bigBlind,
 			gameStage: this.gameStage,

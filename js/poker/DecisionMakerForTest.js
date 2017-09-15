@@ -1,4 +1,7 @@
 import DecisionMaker from './DecisionMaker';
+
+import FunnyDecisionMaker from './FunnyDecisionMaker';
+
 import {
 	CHECK,
 	FOLD,
@@ -12,16 +15,23 @@ export default class DecisionMakerForTest extends DecisionMaker {
 	constructor (decisions) {
 		super();
 		this.decisions = decisions;
+		this.funnyDecisionMaker = new FunnyDecisionMaker();
 	}
 
 	makeDecision (gameInfo, next) {
 		const {
 			index,
+			player,
+			bigBlind,
 			minimalBet,
 			gameStage,
 			boardCards,
-			bigBlind,
+			oponentsCount,
 		} = gameInfo;
+
+		console.log('-----------------------funnyDecisionMaker');
+		this.funnyDecisionMaker.makeDecision(gameInfo);
+		console.log('-----------------------funnyDecisionMaker');
 
 
 		if (minimalBet === CHECK) {

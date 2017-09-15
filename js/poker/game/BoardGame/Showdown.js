@@ -18,7 +18,7 @@ import sumBy from 'lodash/sumBy';
 export default class Showdown extends BaseStage {
 	constructor (boardGame) {
 		super(boardGame);
-		console.log('TURN');
+		console.log('Showdown ');
 	}
 
 	beforeStart () {}

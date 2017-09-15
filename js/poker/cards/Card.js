@@ -14,4 +14,8 @@ export default class Card {
 	toHash () {
 		return `${this.name}${this.suit}`;
 	}
+
+	get hash () {
+		return this.toHash();
+	}
 }

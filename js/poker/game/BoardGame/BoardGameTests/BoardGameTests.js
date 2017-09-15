@@ -78,25 +78,24 @@ function testGameForSixPlayers () {
 }
 
 export default function testBoardGame () {
-	testGameForTwoPlayers();
-	testGameForThreePlayers();
-	testGameForSixPlayers();
+	// testGameForTwoPlayers();
+	// testGameForThreePlayers();
+	// testGameForSixPlayers();
 
 
-	// const RobocopDecisionMakerForTest = new DecisionMakerForTest([
-	// ]);
-	// const Robocop = new Player (100, 'Robocop', RobocopDecisionMakerForTest);
+	const RobocopDecisionMakerForTest = new DecisionMakerForTest([
+	]);
+	const Robocop = new Player (100, 'Robocop', RobocopDecisionMakerForTest);
 
-	// const AnticopDecisionMakerForTest = new DecisionMakerForTest([
-	// ]);
-	// const Anticop = new Player (100, 'Anticop', AnticopDecisionMakerForTest);
+	const AnticopDecisionMakerForTest = new DecisionMakerForTest([
+	]);
+	const Anticop = new Player (100, 'Anticop', AnticopDecisionMakerForTest);
 
-	// const boardGame = new BoardGame([Robocop, Anticop], 20, 1);
+	const boardGame = new BoardGame([Robocop, Anticop], 20, 1);
 
-	// boardGame.start();
+	boardGame.on('end', () => {
+			// boardGame.start();
+	});
 
-	// boardGame.on('end', () => {
-	// 		boardGame.start();
-	// });
-
+	boardGame.start();
 }
