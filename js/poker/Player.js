@@ -41,9 +41,9 @@ export default class Player {
 	bet (value) {
 		const result = this._bet(value);
 		if (result === 0) {
-			console.log('check', this.name);
+			console.log(this.name, 'CHECK');
 		} else {
-			console.log('bet', this.name, result);
+			console.log(this.name, 'BET', result);
 		}
 
 		this.bankInGame += result;
@@ -54,43 +54,21 @@ export default class Player {
 	ante (value) {
 		const result = this._bet(value);
 
-		console.log('ante', this.name, result);
-
 		return result;
 	}
 
 	makeDecision (gameInfo, next) {
-		// setTimeout(() => {
+			console.log(`${this.name} | bank: ${this.bank} | bankInGame: ${this.bankInGame} | minimal bet: ${gameInfo.minimalBet}`)
+
 			const result = this.decisionMaker.makeDecision(gameInfo, next);
 
 			if (result === FOLD) {
-				console.log('fold', this.name);
+				console.log(this.name, 'FOLD');
 				next(FOLD);
 				return;
 			}
 
 			next(this.bet(result));
-		// }, 1000);
-
-
-		// return this.bet(minimalBet);
-
-		// if (this.handCards.value > 20) {
-		// 	return this.bet(this.bank);
-		// }
-
-		// if (this.handCards.value > 15) {
-		// 	const bet = Math.floor(minimalBet * 1.5);
-		// 	return this.bet(bet);
-		// }
-
-		// if (this.handCards.value > 10 && minimalBet < bigBlind * 3) {
-		// 	return this.bet(minimalBet);
-		// }
-
-		// console.log('fold', this.name);
-		// return FOLD;
-
 	}
 
 	setHandCards (handCards) {

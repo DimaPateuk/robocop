@@ -50,17 +50,13 @@ export default class BoardGame extends BoardGameUtils {
 			return;
 		}
 
-		console.log('boardGAME Start method----------');
+		this.id++;
+		console.log(`--------------- GAME ${this.id} started`);
 
 		this.stages = createStages();
 
 		const stage = this.stages.shift();
 		this.currentState = new stage(this);
-
-		console.log('------------------');
-		console.log('game preparation');
-		console.log('------------------');
-
 		this.countGames++;
 		if (this.countGames % 50 === 0) {
 			this.bigBlind *= 2;
@@ -68,7 +64,6 @@ export default class BoardGame extends BoardGameUtils {
 		}
 
 		this.dillerPosition = this.getNextIndex(this.dillerPosition);
-		console.log('dillerPosition:', this.dillerPosition, this.players[this.dillerPosition].name);
 		this.gameId = gameId++;
 		this.deck = new Deck();
 		this.boardCards = new BoardCards(this.deck);
@@ -128,15 +123,8 @@ export default class BoardGame extends BoardGameUtils {
 
 	winBecauseAllFolded (winner) {
 		winner.bank += this.pot + this.anteInGame;
-
-		console.log('---------------------');
-		console.log('win Because All Folded');
-		console.log('winner', winner.name);
-		console.log(this.players[0].name, this.players[0].bank);
-		console.log(this.players[1].name, this.players[1].bank);
-		console.log('---------------------');
-		console.log();
+		console.log(`--------------- winner ${winner.name}: ${winner.bank}`);
+		console.log('--------------- Game END');
 		this.emit('end');
-
 	}
 }

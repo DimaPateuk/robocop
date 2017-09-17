@@ -17,8 +17,6 @@ export default class BaseStage {
 
 		this.b.on('playerMadeDecision', this.nextHandler);
 		this.b.on('nextPlayerTurn', this.nextPlayerTurnHandler);
-
-		console.log('----------- Game stage cteated')
 	}
 
 	nextPlayerTurnHandler () {
@@ -73,13 +71,11 @@ export default class BaseStage {
 
 	start () {
 		if (this.b.playersInGameWithBankArr.length === 0) {
-			console.log('all players bet full bank');
 			this.nextState();
 			return;
 		}
 
 		if (this.b.playersInGameWithBankArr.length === 1) {
-			console.log('only one player with bank');
 			this.nextState();
 			return;
 		}
@@ -103,6 +99,14 @@ export default class BaseStage {
 	}
 
 	next () {
+
+		const playersInGameArr = this.b.playersInGameArr;
+		if (playersInGameArr.length === 1) {
+			this.offAll();
+			this.b.winBecauseAllFolded(playersInGameArr[0]);
+			return;
+		}
+
 		if (this.cycleCount === 0) {
 			const allBetsInStage = this.b.playersBets[this.gameStage];
 			const betsInStage = this.b.playersInGameWithBankArr
@@ -117,13 +121,6 @@ export default class BaseStage {
 			}
 		}
 
-		const playersInGameArr = this.b.playersInGameArr;
-		if (playersInGameArr.length === 1) {
-			console.log('all players folded');
-			this.offAll();
-			this.b.winBecauseAllFolded(playersInGameArr[0]);
-			return;
-		}
 
 		this.cycleCount--;
 
@@ -153,10 +150,11 @@ export default class BaseStage {
 			player,
 			boardCards,
 			minimalBet,
-			oponentsCount: playersInGameArr.length - 1,
+			pot: this.b.pot,
 			index: this.currentIndex,
-			bigBlind: this.bigBlind,
+			bigBlind: this.b.bigBlind,
 			gameStage: this.gameStage,
+			oponentsCount: playersInGameArr.length - 1,
 		}, (decision) => this.b.emit('playerMadeDecision', { decision, player, minimalBet, playerBetInCycle }));
 	}
 

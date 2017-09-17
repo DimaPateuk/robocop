@@ -9,6 +9,7 @@ import {
 import CardsInfo from './combinations/CardsInfo';
 import Deck from './cards/Deck';
 import maxBy from 'lodash/maxBy';
+import min from 'lodash/min';
 
 const maxCardCountOnBoard = 5;
 const fakeGameCount = 10000;
@@ -16,6 +17,7 @@ const fakeGameCount = 10000;
 export default class FunnyDecisionMaker {
 	makeDecision (gameInfo) {
 		const {
+			pot,
 			index,
 			player,
 			bigBlind,
@@ -35,9 +37,45 @@ export default class FunnyDecisionMaker {
 			info[this.makeFakeGame(gameInfo)]++;
 		}
 
+		const win = info.win / fakeGameCount;
+		const lose = 1 - win;
 
+		const EVOneMinimalBet = win * pot - lose * minimalBet;
 
-		console.log(info.win / fakeGameCount);
+		console.log(`FunnyDecisionMaker: ${player.name} | pot: ${pot} | win reate: ${info.win / fakeGameCount}`);
+
+		if (this.shouldIFold(minimalBet, bigBlind, win)) {
+			return FOLD;
+		}
+
+		// return minimalBet;
+		if (EVOneMinimalBet < 0) {
+			console.log(`FunnyDecisionMaker: EV: ${EVOneMinimalBet}`)
+			return minimalBet === 0 ? 0 : FOLD;
+		}
+
+		let minBet = minimalBet || min([bigBlind, player.bank]);
+		let perspectiveBet = minBet;
+		let prevEV = EVOneMinimalBet;
+
+		while (true) {
+			const nextPerspectiveBet = perspectiveBet + minBet;
+			const EV = win * pot - lose * nextPerspectiveBet;
+
+			if (EV > 0) {
+				perspectiveBet = nextPerspectiveBet;
+				prevEV = EV;
+			} else {
+				const result = min([perspectiveBet, player.bank]);
+				console.log(`FunnyDecisionMaker: EV: ${prevEV} | perspectiveBet: ${perspectiveBet} | result bet: ${result}`)
+				return result;
+			}
+		}
+	}
+
+	shouldIFold (minimalBet, bigBlind, win) {
+		return (minimalBet > bigBlind * 2 && win < 0.5) ||
+			(minimalBet > bigBlind * 3 && win < 0.6);
 	}
 
 	makeFakeGame (gameInfo) {

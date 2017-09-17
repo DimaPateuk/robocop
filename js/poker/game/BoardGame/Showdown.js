@@ -18,20 +18,12 @@ import sumBy from 'lodash/sumBy';
 export default class Showdown extends BaseStage {
 	constructor (boardGame) {
 		super(boardGame);
-		console.log('Showdown ');
+		console.log('--------------- SHOWDOWN');
 	}
 
 	beforeStart () {}
 
 	start () {
-		console.log('---------------------');
-		console.log('Game stage - "showdown"');
-		console.log(`board cards - ${this.b.boardCards.toStringAll()}`);
-		this.b.playersInGameArr.forEach(player => {
-			console.log(`${player.name} - ${player.bankInGame} - ${player.handCards.toString()}`);
-		});
-		console.log('---------------------');
-
 		const withHighCardCombination = sortBy(
 			this.b.playersInGameArr.map(player => {
 				const playerAndBoardCards = this.b.boardCards.cards.concat(player.handCards.cards);
@@ -44,8 +36,12 @@ export default class Showdown extends BaseStage {
 				};
 			}), playerInfo => -playerInfo.power);
 
+
+		console.log(`--------------- Cards on board ${this.b.boardCards.toStringAll()}`);
+		console.log('--------------- Players cards');
+
 		withHighCardCombination.forEach(({player, heighCombinatoinInfo}) => {
-			console.log(player.name, heighCombinatoinInfo);
+			console.log(`${player.name} | ${player.handCards.toString()} |`, heighCombinatoinInfo);
 		});
 
 		const compousedByPower = withHighCardCombination.reduce((res, playerInfo) => {
@@ -104,13 +100,12 @@ export default class Showdown extends BaseStage {
 			arrOfPlayers.forEach(playerInfo => playerInfo.player.bankInGame = 0);
 		});
 
-		console.log('total Bank In Game', sumBy(this.b.players, 'bank'));
-
-		console.log('banks After Games');
+		console.log('--------------- Bank after game');
 		sortBy(this.b.players, player => -player.bank)
 			.forEach(player => console.log(player.name, player.bank));
 
 		this.offAll();
+		console.log('--------------- Game END');
 		this.b.emit('end');
 	}
 

@@ -12,7 +12,7 @@ export default class River extends BaseStage {
 	constructor (boardGame) {
 		super(boardGame);
 		this.b.stageCards[this.gameStage] = this.b.boardCards.drawRiver();
-		console.log('RIVER');
+		console.log('--------------- RIVER');
 	}
 
 	get gameStage () {

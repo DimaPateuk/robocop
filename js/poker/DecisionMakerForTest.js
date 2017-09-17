@@ -29,15 +29,7 @@ export default class DecisionMakerForTest extends DecisionMaker {
 			oponentsCount,
 		} = gameInfo;
 
-		console.log('-----------------------funnyDecisionMaker');
-		this.funnyDecisionMaker.makeDecision(gameInfo);
-		console.log('-----------------------funnyDecisionMaker');
+		return this.funnyDecisionMaker.makeDecision(gameInfo);
 
-
-		if (minimalBet === CHECK) {
-			return CHECK;
-		}
-
-		return minimalBet;
 	}
 }

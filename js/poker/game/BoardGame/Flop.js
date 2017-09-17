@@ -12,7 +12,7 @@ export default class Flop extends BaseStage {
 	constructor (boardGame) {
 		super(boardGame);
 		this.b.stageCards[this.gameStage] = this.b.boardCards.drawFlop();
-		console.log('flop');
+		console.log('--------------- FLOP');
 	}
 
 	get gameStage () {

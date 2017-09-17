@@ -12,7 +12,7 @@ export default class Turn extends BaseStage {
 	constructor (boardGame) {
 		super(boardGame);
 		this.b.stageCards[this.gameStage] = this.b.boardCards.drawTurn();
-		console.log('TURN');
+		console.log('--------------- TURN');
 	}
 
 	get gameStage () {

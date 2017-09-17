@@ -13,11 +13,11 @@ import {
 function testGameForTwoPlayers() {
 	const RobocopDecisionMakerForTest = new DecisionMakerForTest([
 	]);
-	const Robocop = new Player (100, 'Robocop', RobocopDecisionMakerForTest);
+	const Robocop = new Player (1000, 'Robocop', RobocopDecisionMakerForTest);
 
 	const AnticopDecisionMakerForTest = new DecisionMakerForTest([
 	]);
-	const Anticop = new Player (100, 'Anticop', AnticopDecisionMakerForTest);
+	const Anticop = new Player (1000, 'Anticop', AnticopDecisionMakerForTest);
 
 	const boardGame = new BoardGame([Robocop, Anticop], 20, 1);
 
@@ -31,15 +31,15 @@ function testGameForTwoPlayers() {
 function testGameForThreePlayers () {
 	const RobocopDecisionMakerForTest = new DecisionMakerForTest([
 	]);
-	const Robocop = new Player (100, 'Robocop', RobocopDecisionMakerForTest);
+	const Robocop = new Player (1000, 'Robocop', RobocopDecisionMakerForTest);
 
 	const AnticopDecisionMakerForTest = new DecisionMakerForTest([
 	]);
-	const Anticop = new Player (100, 'Anticop', AnticopDecisionMakerForTest);
+	const Anticop = new Player (1000, 'Anticop', AnticopDecisionMakerForTest);
 
 	const CopDecisionMakerForTest = new DecisionMakerForTest([
 	]);
-	const Cop = new Player (100, 'Cop', CopDecisionMakerForTest);
+	const Cop = new Player (1000, 'Cop', CopDecisionMakerForTest);
 
 	const boardGame = new BoardGame([Robocop, Anticop, Cop], 20, 1);
 
@@ -51,14 +51,14 @@ function testGameForThreePlayers () {
 }
 
 function testGameForSixPlayers () {
-	const aPlayer = new Player (100, 'aPlayer', new DecisionMakerForTest());
+	const aPlayer = new Player (1000, 'aPlayer', new DecisionMakerForTest());
 
-	const bPlayer = new Player (100, 'bPlayer', new DecisionMakerForTest());
+	const bPlayer = new Player (1000, 'bPlayer', new DecisionMakerForTest());
 
-	const cPlayer = new Player (100, 'cPlayer', new DecisionMakerForTest());
-	const dPlayer = new Player (100, 'dPlayer', new DecisionMakerForTest());
-	const iPlayer = new Player (100, 'iPlayer', new DecisionMakerForTest());
-	const fPlayer = new Player (100, 'fPlayer', new DecisionMakerForTest());
+	const cPlayer = new Player (1000, 'cPlayer', new DecisionMakerForTest());
+	const dPlayer = new Player (1000, 'dPlayer', new DecisionMakerForTest());
+	const iPlayer = new Player (1000, 'iPlayer', new DecisionMakerForTest());
+	const fPlayer = new Player (1000, 'fPlayer', new DecisionMakerForTest());
 
 	const boardGame = new BoardGame([
 		aPlayer,
@@ -80,22 +80,22 @@ function testGameForSixPlayers () {
 export default function testBoardGame () {
 	// testGameForTwoPlayers();
 	// testGameForThreePlayers();
-	// testGameForSixPlayers();
+	testGameForSixPlayers();
 
 
-	const RobocopDecisionMakerForTest = new DecisionMakerForTest([
-	]);
-	const Robocop = new Player (100, 'Robocop', RobocopDecisionMakerForTest);
+	// const RobocopDecisionMakerForTest = new DecisionMakerForTest([
+	// ]);
+	// const Robocop = new Player (1000, 'Robocop', RobocopDecisionMakerForTest);
 
-	const AnticopDecisionMakerForTest = new DecisionMakerForTest([
-	]);
-	const Anticop = new Player (100, 'Anticop', AnticopDecisionMakerForTest);
+	// const AnticopDecisionMakerForTest = new DecisionMakerForTest([
+	// ]);
+	// const Anticop = new Player (1000, 'Anticop', AnticopDecisionMakerForTest);
 
-	const boardGame = new BoardGame([Robocop, Anticop], 20, 1);
+	// const boardGame = new BoardGame([Robocop, Anticop], 20, 1);
 
-	boardGame.on('end', () => {
-			// boardGame.start();
-	});
+	// boardGame.on('end', () => {
+	// 		boardGame.start();
+	// });
 
-	boardGame.start();
+	// boardGame.start();
 }
