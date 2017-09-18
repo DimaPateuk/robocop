@@ -44,13 +44,14 @@ export default class FunnyDecisionMaker {
 
 		console.log(`FunnyDecisionMaker: ${player.name} | pot: ${pot} | win reate: ${info.win / fakeGameCount}`);
 
-		if (this.shouldIFold(minimalBet, bigBlind, win)) {
-			return FOLD;
-		}
+		// if (this.shouldIFold(minimalBet, bigBlind, win)) {
+		// 	return FOLD;
+		// }
 
 		// return minimalBet;
-		if (EVOneMinimalBet < 0) {
-			console.log(`FunnyDecisionMaker: EV: ${EVOneMinimalBet}`)
+		const halfBigBlind = bigBlind * 0.5;
+		if (EVOneMinimalBet < halfBigBlind) {
+			console.log(`FunnyDecisionMaker: EV: ${EVOneMinimalBet} | ${minimalBet} === 0 ? 0 : FOLD`)
 			return minimalBet === 0 ? 0 : FOLD;
 		}
 
@@ -58,11 +59,10 @@ export default class FunnyDecisionMaker {
 		let perspectiveBet = minBet;
 		let prevEV = EVOneMinimalBet;
 
-		while (true) {
+		for(let continueCycle = true; continueCycle;) {
 			const nextPerspectiveBet = perspectiveBet + minBet;
 			const EV = win * pot - lose * nextPerspectiveBet;
-
-			if (EV > 0) {
+			if (EV > halfBigBlind) {
 				perspectiveBet = nextPerspectiveBet;
 				prevEV = EV;
 			} else {

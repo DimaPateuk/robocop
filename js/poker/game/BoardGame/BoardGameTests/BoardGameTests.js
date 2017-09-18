@@ -22,7 +22,7 @@ function testGameForTwoPlayers() {
 	const boardGame = new BoardGame([Robocop, Anticop], 20, 1);
 
 	boardGame.on('end', () => {
-			boardGame.start();
+		boardGame.start();
 	});
 	boardGame.start();
 
@@ -44,7 +44,7 @@ function testGameForThreePlayers () {
 	const boardGame = new BoardGame([Robocop, Anticop, Cop], 20, 1);
 
 	boardGame.on('end', () => {
-			boardGame.start();
+		boardGame.start();
 	});
 	boardGame.start();
 
@@ -70,7 +70,7 @@ function testGameForSixPlayers () {
 	], 20, 1);
 
 	boardGame.on('end', () => {
-			boardGame.start();
+		boardGame.start();
 	});
 
 	boardGame.start();
@@ -78,9 +78,9 @@ function testGameForSixPlayers () {
 }
 
 export default function testBoardGame () {
-	// testGameForTwoPlayers();
+	testGameForTwoPlayers();
 	// testGameForThreePlayers();
-	testGameForSixPlayers();
+	// testGameForSixPlayers();
 
 
 	// const RobocopDecisionMakerForTest = new DecisionMakerForTest([

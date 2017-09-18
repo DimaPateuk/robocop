@@ -37,7 +37,7 @@ export default class Showdown extends BaseStage {
 			}), playerInfo => -playerInfo.power);
 
 
-		console.log(`--------------- Cards on board ${this.b.boardCards.toStringAll()}`);
+		console.log(`--------------- Cards on board: ${this.b.boardCards.toStringAll()}`);
 		console.log('--------------- Players cards');
 
 		withHighCardCombination.forEach(({player, heighCombinatoinInfo}) => {
