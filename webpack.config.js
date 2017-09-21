@@ -1,7 +1,7 @@
 const path = require('path');
 
 const config = {
-	entry: './js/view',
+	entry: './src/view',
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: 'view.bundle.js',
@@ -11,6 +11,22 @@ const config = {
 			{
 				test: /\.(js|jsx)$/,
 				use: 'babel-loader',
+				options: {
+					includePaths: ['src'],
+				},
+			},
+			{
+				test: /\.scss$/,
+				use: [{
+					loader: 'style-loader',
+				}, {
+					loader: 'css-loader',
+				}, {
+					loader: 'sass-loader',
+					options: {
+						includePaths: ['src/view/scss'],
+					},
+				}],
 			},
 		],
 	},
