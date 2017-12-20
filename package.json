@@ -4,9 +4,8 @@
   "description": "",
   "scripts": {
     "test": "babel-node ./src/main.test.js --presets latest",
-    "start": "babel-node ./src/main.js --presets latest",
-    "poker": "babel-node ./src/poker/PokerWithState.js --presets latest",
-    "electron": "electron ./src/view/main.js"
+    "debug": "babel-node ./src/debug.js --presets latest",
+    "poker": "babel-node ./src/poker/PokerWithState.js --presets latest"
   },
   "repository": {
     "type": "git",
@@ -21,8 +20,6 @@
   "dependencies": {
     "babel-cli": "^6.24.1",
     "babel-preset-latest": "^6.24.1",
-    "electron": "^1.6.11",
-    "electron-hot-loader": "^0.8.0",
     "eslint": "^4.4.1",
     "lodash": "^4.17.4",
     "path": "^0.12.7",

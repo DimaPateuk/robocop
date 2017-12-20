@@ -1,6 +1,6 @@
 import { getRandomInt } from '../utils/number';
 import toInteger from 'lodash/toInteger';
-import DecisionMaker from './DecisionMaker';
+import DecisionMaker from './DecisionMakerForTest';
 
 import {
 	CHECK,

@@ -2,4 +2,4 @@ import CombinationsTests from './poker/combinations/CombinationsTests/Combinatio
 import BoardGameTests from './poker/game/BoardGame/BoardGameTests/BoardGameTests.js';
 
 BoardGameTests();
-// CombinationsTests();
+CombinationsTests();
