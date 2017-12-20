@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "test": "babel-node ./src/main.test.js --presets latest",
-    "debug": "babel-node ./src/debug.js --presets latest",
-    "poker": "babel-node ./src/poker/PokerWithState.js --presets latest"
+    "test": "babel-node ./src/poker/main.test.js --presets latest",
+    "debug": "babel-node ./src/poker/debug.js --presets latest"
   },
   "repository": {
     "type": "git",
