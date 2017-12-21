@@ -41,7 +41,7 @@ const date = {
 		[0,0,0,0,0,0,0,1,0],
 		[1,1,1,1,1,1,1,0,0],
 	],
-}
+};
 
 const cardRecognition = new CardRecognition(date);
 

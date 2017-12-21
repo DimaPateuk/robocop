@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/view/index.js"],"names":["console","log"],"mappings":";;;;AAAAA,QAAQC,GAAR,CAAY,WAAZ,E","file":"view.bundle.js","sourcesContent":["console.log('i am view');\n\n\n\n// WEBPACK FOOTER //\n// ./src/view/index.js"],"sourceRoot":""}
