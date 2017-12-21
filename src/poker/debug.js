@@ -1,5 +1,5 @@
-import Game from './poker/game/BoardGame/BoardGame.js';
-import Player from './poker/Player.js';
+import Game from './game/BoardGame/BoardGame.js';
+import Player from './Player.js';
 
 
 const firstPlayer = new Player (100, 'Robocop');
