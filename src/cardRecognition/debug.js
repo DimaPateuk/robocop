@@ -1,4 +1,5 @@
 import CardRecognition from './index.js';
+import { SUITS_NAMES } from '../poker/constants';
 
 const date = {
 	ab: './src/cardRecognition/a_b.png',
@@ -6,7 +7,11 @@ const date = {
 	test_ab: './src/cardRecognition/test_ab.png',
 }
 
-const cardRecognition = new CardRecognition(date);
+for (var i = 0; i < SUITS_NAMES.length; i++) {
+	date[SUITS_NAMES[i]] = `./src/cardRecognition/${SUITS_NAMES[i]}.png`;
+}
+
+const cardRecognition = new CardRecognition();
 
 cardRecognition.parse(date.ab);
 cardRecognition.parse(date.dk);

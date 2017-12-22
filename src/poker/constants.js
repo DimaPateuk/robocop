@@ -57,6 +57,19 @@ export const SUITS = [
 	SPADE,
 ];
 
+export const SUITS_NAMES = (function () {
+	const result = [];
+
+	for (var i = 0; i < SUITS.length; i++) {
+		for (var j = 0; j < NAMES.length; j++) {
+			result.push(`${SUITS[i]}_${NAMES[j]}`);
+		}
+	}
+
+	return result;
+})();
+
+
 export const STRAIGHT_FLUSH_NAME = 'Straight Flush';
 export const FOUR_OF_A_KIND_NAME = 'Four of a kind';
 export const FULL_HOUSE_NAME = 'Full house';
