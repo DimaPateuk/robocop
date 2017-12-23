@@ -1,30 +1,40 @@
 import fs from 'fs';
-import { PNG }from 'pngjs';
+import jimp from 'jimp';
 
 export default (src) => new Promise((res, rej) => {
+	if (src instanceof jimp) {
+			getRGBAArray(src)
+				.then((arr) => {
+					res(normalizeArr(arr));
+				});
+			return;
+	}
 
-fs.createReadStream(src)
-	.pipe(new PNG({
-		filterType: 4,
-	}))
-	.on('parsed', function () {
-		const arr = [];
+	new jimp(src, function (err, image) {
+		getRGBAArray(image)
+			.then((arr) => {
+				res(normalizeArr(arr));
+			});
+	});
 
-		for (let y = 0; y < this.height; y++) {
-			for (let x = 0; x < this.width; x++) {
-				const idx = (this.width * y + x) << 2;
-				arr.push(this.data[idx]);
-				arr.push(this.data[idx + 1]);
-				arr.push(this.data[idx + 2]);
-				arr.push(this.data[idx + 3]);
+});
 
-				this.data[idx] = this.data[idx] > 10 ? 255 : 0;
-				this.data[idx + 1] = this.data[idx + 1] > 10 ? 255 : 0;
-				this.data[idx + 2] = this.data[idx + 2] > 10 ? 255 : 0;
-				this.data[idx + 3] = this.data[idx + 3] > 10 ? 255 : 0;
-			}
-		}
+function getRGBAArray (image) {
+  return new Promise(res => {
+    const result = [];
 
+    image.scan(0, 0, image.bitmap.width, image.bitmap.height, function (x, y, idx) {
+        result.push(this.bitmap.data[ idx + 0 ]);
+        result.push(this.bitmap.data[ idx + 1 ]);
+        result.push(this.bitmap.data[ idx + 2 ]);
+        result.push(this.bitmap.data[ idx + 3 ]);
+    });
+
+		res(result);
+  });
+}
+
+function normalizeArr (arr) {
 		const result = [];
 		const step = Math.floor(arr.length / 99);
 		for (var i = 0; i < arr.length - step; i += step) {
@@ -35,10 +45,5 @@ fs.createReadStream(src)
 			result.push((tmp / step) / 255);
 		}
 
-		this.pack().pipe(fs.createWriteStream(`${src}.out.png`));
-
-		res(result.slice(0, 99));
-	})
-	.on('error', rej);
-
-});
+		return result.slice(0, 99);
+}
